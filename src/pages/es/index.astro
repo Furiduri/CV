@@ -1,0 +1,214 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import TechPill from "../../components/TechPill.astro";
+
+const skills = [
+  "Backend .Net",
+  "Desarrollo Full Stack Web",
+  "Móvil, Escritorio, Híbrido",
+  "Scrum / Ágil",
+  "Atención al Cliente",
+  "Resolución de Incidentes",
+  "Juegos de Mesa (Smart Games)",
+];
+
+const technologies = [
+  "Office 360",
+  "CSS",
+  "C#",
+  "SQL",
+  "Javascript",
+  ".net core 6 and 8",
+  "asp.net",
+  ".net framework",
+  "SQL Server",
+  "JQuery",
+  "IIS Server",
+  "Bootstrap",
+  "VBScript/ASP",
+  "Typescript",
+  "Angular",
+  "Vue JS",
+  "MariaDB",
+  "Adobe XD",
+  "Express JS",
+  "AWS",
+  "Azure",
+  "Google Cloud",
+  "Tailwind CSS",
+];
+---
+
+<Layout title="Jorge Osvaldo Perez Mendoza | Portafolio">
+  <Header />
+
+  <main style="padding-top: 80px;">
+    <!-- HERO SECTION -->
+    <section
+      class="container animate-fade-in"
+      style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center;"
+    >
+      <p
+        style="color: var(--color-primary-green); font-weight: 600; font-family: var(--font-heading); margin-bottom: 1rem;"
+      >
+        Hola, soy
+      </p>
+      <h1>
+        Jorge Osvaldo <br /><span class="text-gradient">Perez Mendoza</span>
+      </h1>
+      <h2
+        style="color: var(--color-text-muted); font-size: 2rem; margin-top: 1rem; margin-bottom: 2rem;"
+      >
+        Ingeniero en Desarrollo de Software
+      </h2>
+      <p
+        style="max-width: 600px; font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 3rem;"
+      >
+        Desarrollador de Software, Backend, Full Stack Web, Voluntario Activo y 
+        Cazador de Experiencias. Apasionado por la tecnología y los juegos de mesa, 
+        especializado en crear soluciones web innovadoras que promueven 
+        la mejora continua.
+      </p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#experience" class="btn-primary">Ver Experiencia</a>
+        <a
+          href="mailto:Jorge.Furiduri@gmail.com"
+          class="btn-primary"
+          style="background: transparent; border: 1px solid var(--color-primary-green); color: var(--color-primary-green);"
+          >Contáctame</a
+        >
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section
+      id="experience"
+      class="container glass-card"
+      style="margin-bottom: 4rem;"
+    >
+      <h2 class="text-gradient">Experiencia Laboral</h2>
+      <div
+        style="margin-top: 2rem; display: flex; flex-direction: column; gap: 2rem; padding-bottom: 2rem;"
+      >
+        <div>
+          <h3>
+            Resser Tecnologías <span
+              style="font-size: 1rem; color: var(--color-primary-green);"
+              >(2024 - Presente)</span
+            >
+          </h3>
+          <p
+            style="font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-main);"
+          >
+            Middle Developer
+          </p>
+          <p style="color: var(--color-text-muted);">
+            Desarrollo de Web APIs, .net core 8, SQL Server, Azure DevOps, Git,
+            Azure Cloud. Scrum / Ágil, Azure DevOps. Soluciones de reportería en
+            Azure Functions. Proceso de pruebas, detección y prevención de
+            problemas.
+          </p>
+        </div>
+        <div
+          style="width: 100%; height: 1px; background: var(--color-glass-border);"
+        >
+        </div>
+        <div>
+          <h3>
+            Jabil Circuit de México <span
+              style="font-size: 1rem; color: var(--color-primary-green);"
+              >(2019 - 2024)</span
+            >
+          </h3>
+          <p
+            style="font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-main);"
+          >
+            Programmer Analyst I
+          </p>
+          <p style="color: var(--color-text-muted);">
+            Desarrollo de software, aplicaciones web, APIs, creación de bases de datos.
+            Desarrollo en .net framework, SQL Server para bases de datos. Documentación técnica
+            y manuales de usuario. Pruebas, detección y prevención de problemas.
+          </p>
+        </div>
+        <div
+          style="width: 100%; height: 1px; background: var(--color-glass-border);"
+        >
+        </div>
+        <div>
+          <h3>
+            Talent Network (Jalisco Talent Land) <span
+              style="font-size: 1rem; color: var(--color-primary-green);"
+              >(2017 - 2024)</span
+            >
+          </h3>
+          <p
+            style="font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-main);"
+          >
+            General Incident Leader
+          </p>
+          <p style="color: var(--color-text-muted);">
+            Participación en ediciones. Resolución de conflictos, atención 
+            personalizada al cliente, manejo de datos personales, manejo de 
+            crisis y estrés.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section
+      id="education"
+      class="container glass-card"
+      style="margin-bottom: 4rem;"
+    >
+      <h2 class="text-gradient">Educación</h2>
+      <div
+        style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; padding-bottom: 2rem;"
+      >
+        <div>
+          <h3>Centro de Enseñanza Técnica Industrial</h3>
+          <p style="color: var(--color-text-muted);">
+            Ingeniería en Desarrollo de Software (Estudios Universitarios - Graduado)
+          </p>
+        </div>
+        <div>
+          <h3>Preparatoria Número 10 UDG</h3>
+          <p style="color: var(--color-text-muted);">
+            Técnico Profesional En Informática (Preparatoria - Graduado)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS & TECHNOLOGIES -->
+    <section
+      id="skills"
+      class="container"
+      style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding-bottom: 0;"
+    >
+      <!-- Domains & Skills -->
+      <div class="glass-card">
+        <h2 class="text-gradient">Habilidades</h2>
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;"
+        >
+          {skills.map((s) => <TechPill name={s} />)}
+        </div>
+      </div>
+      <!-- Technologies -->
+      <div class="glass-card">
+        <h2 class="text-gradient">Tecnologías</h2>
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;"
+        >
+          {technologies.map((t) => <TechPill name={t} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

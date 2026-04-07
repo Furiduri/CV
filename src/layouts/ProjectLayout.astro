@@ -1,0 +1,57 @@
+---
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.pageTitle}>
+  <Header />
+
+  <main style="padding-top: 120px;" class="container animate-fade-in">
+    <div>
+      <a
+        href={frontmatter.backLink}
+        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;"
+      >
+        &larr; {frontmatter.backText}
+      </a>
+    </div>
+
+    <h1 class="text-gradient">{frontmatter.title}</h1>
+    <div class="glass-card markdown-wrapper">
+      <slot />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+  .markdown-wrapper {
+    margin-top: 3rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .markdown-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .markdown-wrapper p {
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+  .markdown-wrapper svg {
+    width: 64px;
+    height: 64px;
+    color: var(--color-primary-green);
+    margin-bottom: 1.5rem;
+  }
+</style>

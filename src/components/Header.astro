@@ -1,15 +1,64 @@
 ---
-
+const currentLocale = Astro.currentLocale || 'en';
+const pathname = Astro.url.pathname;
+// Resolve language switch path
+let targetUrl = '/';
+if (currentLocale === 'en') {
+  const purePath = pathname === '/' ? '' : pathname;
+  targetUrl = '/es' + purePath;
+} else {
+  // if returning from es to en, remove the starting /es
+  targetUrl = pathname.replace(/^\/es/, '') || '/';
+}
+const esActive = currentLocale === 'es';
+const enActive = currentLocale === 'en';
 ---
 
 <header class="navbar">
   <div class="container nav-container">
-    <a href="/" class="nav-logo"
+    <a href={currentLocale === 'es' ? '/es/' : '/'} class="nav-logo"
       >Jorge <span class="text-gradient">Perez</span></a
     >
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-    </ul>
+    <div style="display: flex; align-items: center; gap: 2rem;">
+      <ul class="nav-links">
+        <li><a href={currentLocale === 'es' ? '/es/' : '/'}>{currentLocale === 'es' ? 'Inicio' : 'Home'}</a></li>
+        <li><a href={currentLocale === 'es' ? '/es/projects' : '/projects'}>{currentLocale === 'es' ? 'Proyectos' : 'Projects'}</a></li>
+      </ul>
+      <a href={targetUrl} class="lang-btn" aria-label="Cambiar Idioma">
+        <span class={enActive ? "lang-active" : "lang-inactive"}>EN</span> / <span class={esActive ? "lang-active" : "lang-inactive"}>ES</span>
+      </a>
+    </div>
   </div>
 </header>
+
+<style>
+  .lang-btn {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text-main);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 0.3rem;
+    text-decoration: none;
+  }
+  .lang-btn:hover {
+    border-color: var(--color-primary-green);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  }
+  .lang-active {
+    color: var(--color-primary-green-glow);
+  }
+  .lang-inactive {
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+  }
+  .lang-btn:hover .lang-inactive {
+    color: var(--color-text-main);
+  }
+</style>
