@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+---
+
+<Layout title="Projects | Jorge Osvaldo Perez Mendoza">
+  <Header />
+  
+  <main style="padding-top: 120px;" class="container animate-fade-in">
+    <h1 class="text-gradient">My Projects</h1>
+    <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px;">
+      Explore my ventures outside of work. From social and community building initiatives to my profound passion for board game design.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <ProjectCard 
+        title="Social Projects" 
+        description="Initiatives focused on community building, volunteering, and making a positive impact on society."
+        link="/projects/social-projects"
+        tags={["Volunteering", "Community", "Leadership"]}
+      />
+      <ProjectCard 
+        title="Board Games" 
+        description="My passion for board game design and mechanics. Exploring new ways to entertain and challenge players."
+        link="/projects/board-games"
+        tags={["Game Design", "Mechanics", "Passions"]}
+      />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
