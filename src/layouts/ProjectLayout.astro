@@ -6,7 +6,12 @@ import Footer from "../components/Footer.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.pageTitle}>
+<Layout 
+  title={frontmatter.pageTitle}
+  description={frontmatter.description}
+  image={frontmatter.image}
+  type="article"
+>
   <Header />
 
   <main style="padding-top: 120px;" class="container animate-fade-in">

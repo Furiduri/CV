@@ -4,6 +4,7 @@ pageTitle: Proyectos Sociales | Jorge Osvaldo Perez Mendoza
 backLink: /es/projects
 backText: Volver a Proyectos
 title: Proyectos Sociales
+description: "Muestra de las iniciativas sociales y comunitarias de las que he formado parte."
 ---
 
 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">

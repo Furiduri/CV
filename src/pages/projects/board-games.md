@@ -4,6 +4,7 @@ pageTitle: Board Games | Jorge Osvaldo Perez Mendoza
 backLink: /projects
 backText: Back to Projects
 title: Board Games
+description: "Explore my concepts and designs in board games, smart games, and mechanics."
 ---
 
 <span style="font-size: 4rem;">🎲</span>

@@ -4,6 +4,7 @@ pageTitle: Juegos de Mesa | Jorge Osvaldo Perez Mendoza
 backLink: /es/projects
 backText: Volver a Proyectos
 title: Juegos de Mesa
+description: "Explora mis conceptos y diseños en juegos de mesa, smart games y mecánicas."
 ---
 
 <span style="font-size: 4rem;">🎲</span>

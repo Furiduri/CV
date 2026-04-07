@@ -4,6 +4,7 @@ pageTitle: Social Projects | Jorge Osvaldo Perez Mendoza
 backLink: /projects
 backText: Back to Projects
 title: Social Projects
+description: "Showcase of the social and community initiatives I've been a part of."
 ---
 
 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
