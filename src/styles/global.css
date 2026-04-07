@@ -153,6 +153,9 @@ section {
   font-size: 1.5rem;
   color: var(--color-text-main);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav-links {

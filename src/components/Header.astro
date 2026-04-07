@@ -1,31 +1,47 @@
 ---
-const currentLocale = Astro.currentLocale || 'en';
+import logoImage from "../assets/Logo_Gcatcode.svg";
+const currentLocale = Astro.currentLocale || "en";
 const pathname = Astro.url.pathname;
 // Resolve language switch path
-let targetUrl = '/';
-if (currentLocale === 'en') {
-  const purePath = pathname === '/' ? '' : pathname;
-  targetUrl = '/es' + purePath;
+let targetUrl = "/";
+if (currentLocale === "en") {
+  const purePath = pathname === "/" ? "" : pathname;
+  targetUrl = "/es" + purePath;
 } else {
   // if returning from es to en, remove the starting /es
-  targetUrl = pathname.replace(/^\/es/, '') || '/';
+  targetUrl = pathname.replace(/^\/es/, "") || "/";
 }
-const esActive = currentLocale === 'es';
-const enActive = currentLocale === 'en';
+const esActive = currentLocale === "es";
+const enActive = currentLocale === "en";
 ---
 
 <header class="navbar">
   <div class="container nav-container">
-    <a href={currentLocale === 'es' ? '/es/' : '/'} class="nav-logo"
-      >Jorge <span class="text-gradient">Perez</span></a
+    <a href={currentLocale === "es" ? "/es/" : "/"} class="nav-logo">
+      <img
+        src={logoImage.src}
+        alt="Logo"
+        width="50"
+        height="50" />
+      Jorge <span class="text-gradient">Perez</span></a
     >
     <div style="display: flex; align-items: center; gap: 2rem;">
       <ul class="nav-links">
-        <li><a href={currentLocale === 'es' ? '/es/' : '/'}>{currentLocale === 'es' ? 'Inicio' : 'Home'}</a></li>
-        <li><a href={currentLocale === 'es' ? '/es/projects' : '/projects'}>{currentLocale === 'es' ? 'Proyectos' : 'Projects'}</a></li>
+        <li>
+          <a href={currentLocale === "es" ? "/es/" : "/"}
+            >{currentLocale === "es" ? "Inicio" : "Home"}</a
+          >
+        </li>
+        <li>
+          <a href={currentLocale === "es" ? "/es/projects" : "/projects"}
+            >{currentLocale === "es" ? "Proyectos" : "Projects"}</a
+          >
+        </li>
       </ul>
       <a href={targetUrl} class="lang-btn" aria-label="Cambiar Idioma">
-        <span class={enActive ? "lang-active" : "lang-inactive"}>EN</span> / <span class={esActive ? "lang-active" : "lang-inactive"}>ES</span>
+        <span class={enActive ? "lang-active" : "lang-inactive"}>EN</span> / <span
+          class={esActive ? "lang-active" : "lang-inactive"}>ES</span
+        >
       </a>
     </div>
   </div>
