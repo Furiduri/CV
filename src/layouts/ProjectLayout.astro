@@ -14,49 +14,22 @@ const { frontmatter } = Astro.props;
 >
   <Header />
 
-  <main style="padding-top: 120px;" class="container animate-fade-in">
+  <main class="pt-[120px] container animate-fade-in">
     <div>
       <a
         href={frontmatter.backLink}
-        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;"
+        class="inline-flex items-center gap-2 mb-8 hover:no-underline"
       >
         &larr; {frontmatter.backText}
       </a>
     </div>
 
     <h1 class="text-gradient">{frontmatter.title}</h1>
-    <div class="glass-card markdown-wrapper">
+    
+    <div class="glass-card mt-12 min-h-[400px] flex flex-col items-center justify-center text-center prose prose-invert max-w-none prose-h2:text-3xl prose-h2:mb-4 prose-p:text-slate-400 prose-p:max-w-[500px] prose-p:mt-4 prose-p:leading-relaxed [&>svg]:w-16 [&>svg]:h-16 [&>svg]:text-emerald-500 [&>svg]:mb-6">
       <slot />
     </div>
   </main>
 
   <Footer />
 </Layout>
-
-<style is:global>
-  .markdown-wrapper {
-    margin-top: 3rem;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .markdown-wrapper h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  .markdown-wrapper p {
-    color: var(--color-text-muted);
-    max-width: 500px;
-    margin-top: 1rem;
-    line-height: 1.6;
-  }
-  .markdown-wrapper svg {
-    width: 64px;
-    height: 64px;
-    color: var(--color-primary-green);
-    margin-bottom: 1.5rem;
-  }
-</style>

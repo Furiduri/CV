@@ -8,13 +8,13 @@ import ProjectCard from "../../../components/ProjectCard.astro";
 <Layout title="Proyectos | Jorge Osvaldo Perez Mendoza">
   <Header />
   
-  <main style="padding-top: 120px;" class="container animate-fade-in">
+  <main class="pt-[120px] container animate-fade-in">
     <h1 class="text-gradient">Mis Proyectos</h1>
-    <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px;">
+    <p class="text-slate-400 text-lg mb-12 max-w-[600px]">
       Explora mis iniciativas fuera del trabajo. Desde proyectos sociales y comunitarios, hasta mi profunda pasión por el diseño de juegos de mesa.
     </p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <ProjectCard 
         title="Proyectos Sociales" 
         description="Iniciativas enfocadas a la construcción en comunidad, voluntariado, y generar impacto positivo en la sociedad."
