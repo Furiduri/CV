@@ -6,25 +6,6 @@ interface Props {
 const { name } = Astro.props;
 ---
 
-<div class="tech-pill">
+<div class="inline-block bg-slate-800/70 border border-white/10 px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400 hover:-translate-y-0.5">
   {name}
 </div>
-
-<style>
-  .tech-pill {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-glass-border);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
-
-  .tech-pill:hover {
-    border-color: var(--color-primary-green);
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--color-primary-green-glow);
-    transform: translateY(-2px);
-  }
-</style>

@@ -48,112 +48,75 @@ const technologies = [
 >
   <Header />
 
-  <main style="padding-top: 80px;">
+  <main class="pt-20">
     <!-- HERO SECTION -->
-    <section
-      class="container animate-fade-in"
-      style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center;"
-    >
-      <p
-        style="color: var(--color-primary-green); font-weight: 600; font-family: var(--font-heading); margin-bottom: 1rem;"
-      >
+    <section class="container flex flex-col justify-center min-h-[80vh] animate-fade-in">
+      <p class="text-emerald-500 font-semibold font-heading mb-4">
         Hola, soy
       </p>
       <h1>
         Jorge Osvaldo <br /><span class="text-gradient">Perez Mendoza</span>
       </h1>
-      <h2
-        style="color: var(--color-text-muted); font-size: 2rem; margin-top: 1rem; margin-bottom: 2rem;"
-      >
+      <h2 class="text-slate-400 text-2xl md:text-3xl mt-4 mb-8">
         Ingeniero en Desarrollo de Software
       </h2>
-      <p
-        style="max-width: 600px; font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 3rem;"
-      >
+      <p class="max-w-[600px] text-lg text-slate-400 mb-12">
         Desarrollador de Software, Backend, Full Stack Web, Voluntario Activo y 
         Cazador de Experiencias. Apasionado por la tecnología y los juegos de mesa, 
         especializado en crear soluciones web innovadoras que promueven 
         la mejora continua.
       </p>
-      <div style="display: flex; gap: 1rem;">
-        <a href="#experience" class="btn-primary">Ver Experiencia</a>
+      <div class="flex flex-wrap gap-4">
+        <a href="#experience" class="btn-primary no-underline text-center">Ver Experiencia</a>
         <a
           href="mailto:Jorge.Furiduri@gmail.com"
-          class="btn-primary"
-          style="background: transparent; border: 1px solid var(--color-primary-green); color: var(--color-primary-green);"
+          class="btn-primary no-underline text-center !bg-transparent border !border-emerald-500 !text-emerald-500 hover:!bg-emerald-500/10 hover:!text-emerald-400"
           >Contáctame</a
         >
       </div>
     </section>
 
     <!-- EXPERIENCE SECTION -->
-    <section
-      id="experience"
-      class="container glass-card"
-      style="margin-bottom: 4rem;"
-    >
+    <section id="experience" class="container glass-card mb-16">
       <h2 class="text-gradient">Experiencia Laboral</h2>
-      <div
-        style="margin-top: 2rem; display: flex; flex-direction: column; gap: 2rem; padding-bottom: 2rem;"
-      >
+      <div class="mt-8 flex flex-col gap-8 pb-8">
         <div>
-          <h3>
-            Resser Tecnologías <span
-              style="font-size: 1rem; color: var(--color-primary-green);"
-              >(2024 - Presente)</span
-            >
+          <h3 class="font-heading mb-2">
+            Resser Tecnologías <span class="text-base text-emerald-500 font-normal ml-2">(2024 - Presente)</span>
           </h3>
-          <p
-            style="font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-main);"
-          >
+          <p class="font-semibold mb-2 text-slate-50">
             Middle Developer
           </p>
-          <p style="color: var(--color-text-muted);">
+          <p class="text-slate-400">
             Desarrollo de Web APIs, .net core 8, SQL Server, Azure DevOps, Git,
             Azure Cloud. Scrum / Ágil, Azure DevOps. Soluciones de reportería en
             Azure Functions. Proceso de pruebas, detección y prevención de
             problemas.
           </p>
         </div>
-        <div
-          style="width: 100%; height: 1px; background: var(--color-glass-border);"
-        >
-        </div>
+        <div class="w-full h-px bg-white/10"></div>
         <div>
-          <h3>
-            Jabil Circuit de México <span
-              style="font-size: 1rem; color: var(--color-primary-green);"
-              >(2019 - 2024)</span
-            >
+          <h3 class="font-heading mb-2">
+            Jabil Circuit de México <span class="text-base text-emerald-500 font-normal ml-2">(2019 - 2024)</span>
           </h3>
-          <p
-            style="font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-main);"
-          >
+          <p class="font-semibold mb-2 text-slate-50">
             Programmer Analyst I
           </p>
-          <p style="color: var(--color-text-muted);">
+          <p class="text-slate-400">
             Desarrollo de software, aplicaciones web, APIs, creación de bases de datos.
             Desarrollo en .net framework, SQL Server para bases de datos. Documentación técnica
             y manuales de usuario. Pruebas, detección y prevención de problemas.
           </p>
         </div>
-        <div
-          style="width: 100%; height: 1px; background: var(--color-glass-border);"
-        >
-        </div>
+        <div class="w-full h-px bg-white/10"></div>
         <div>
-          <h3>
-            Talent Network (Jalisco Talent Land) <span
-              style="font-size: 1rem; color: var(--color-primary-green);"
-              >(2017 - 2024)</span
-            >
+          <h3 class="font-heading mb-2">
+            Talent Network (Jalisco Talent Land) <span class="text-base text-emerald-500 font-normal ml-2">(2017 - 2024)</span>
           </h3>
-          <p
-            style="font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-main);"
-          >
+          <p class="font-semibold mb-2 text-slate-50">
             General Incident Leader
           </p>
-          <p style="color: var(--color-text-muted);">
+          <p class="text-slate-400">
             Participación en ediciones. Resolución de conflictos, atención 
             personalizada al cliente, manejo de datos personales, manejo de 
             crisis y estrés.
@@ -163,24 +126,18 @@ const technologies = [
     </section>
 
     <!-- EDUCATION SECTION -->
-    <section
-      id="education"
-      class="container glass-card"
-      style="margin-bottom: 4rem;"
-    >
+    <section id="education" class="container glass-card mb-16">
       <h2 class="text-gradient">Educación</h2>
-      <div
-        style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; padding-bottom: 2rem;"
-      >
+      <div class="mt-8 flex flex-col gap-6 pb-8">
         <div>
-          <h3>Centro de Enseñanza Técnica Industrial</h3>
-          <p style="color: var(--color-text-muted);">
+          <h3 class="font-heading mb-2">Centro de Enseñanza Técnica Industrial</h3>
+          <p class="text-slate-400">
             Ingeniería en Desarrollo de Software (Estudios Universitarios - Graduado)
           </p>
         </div>
         <div>
-          <h3>Preparatoria Número 10 UDG</h3>
-          <p style="color: var(--color-text-muted);">
+          <h3 class="font-heading mb-2">Preparatoria Número 10 UDG</h3>
+          <p class="text-slate-400">
             Técnico Profesional En Informática (Preparatoria - Graduado)
           </p>
         </div>
@@ -188,26 +145,18 @@ const technologies = [
     </section>
 
     <!-- SKILLS & TECHNOLOGIES -->
-    <section
-      id="skills"
-      class="container"
-      style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding-bottom: 0;"
-    >
+    <section id="skills" class="container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pb-0">
       <!-- Domains & Skills -->
       <div class="glass-card">
         <h2 class="text-gradient">Habilidades</h2>
-        <div
-          style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;"
-        >
+        <div class="flex flex-wrap gap-3 mt-6">
           {skills.map((s) => <TechPill name={s} />)}
         </div>
       </div>
       <!-- Technologies -->
       <div class="glass-card">
         <h2 class="text-gradient">Tecnologías</h2>
-        <div
-          style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;"
-        >
+        <div class="flex flex-wrap gap-3 mt-6">
           {technologies.map((t) => <TechPill name={t} />)}
         </div>
       </div>

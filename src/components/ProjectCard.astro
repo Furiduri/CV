@@ -9,50 +9,16 @@ interface Props {
 const { title, description, link, tags = [] } = Astro.props;
 ---
 
-<a href={link} class="glass-card project-card-link">
-  <h3>{title}</h3>
-  <p>{description}</p>
+<a href={link} class="glass-card block !no-underline text-inherit h-full group">
+  <h3 class="mt-0 transition-colors duration-300 group-hover:text-emerald-400">{title}</h3>
+  <p class="text-slate-400 mb-6">{description}</p>
   {tags.length > 0 && (
-    <div class="tags">
-      {tags.map((tag) => <span class="tag">{tag}</span>)}
+    <div class="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-sm border border-emerald-500/20">
+          {tag}
+        </span>
+      ))}
     </div>
   )}
 </a>
-
-<style>
-  .project-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-  }
-
-  .project-card-link:hover h3 {
-    color: var(--color-primary-green-glow);
-  }
-
-  h3 {
-    margin-top: 0;
-    transition: color 0.3s ease;
-  }
-
-  p {
-    color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tag {
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--color-primary-green-glow);
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.85rem;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-  }
-</style>
