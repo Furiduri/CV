@@ -18,7 +18,7 @@ const enActive = currentLocale === "en";
 <header
   class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10 py-4 transition-all"
 >
-  <div class="container flex justify-between items-center">
+  <div class="container flex justify-center  md:justify-between items-center">
     <a
       href={currentLocale === "es" ? "/es/" : "/"}
       class="font-heading font-black text-2xl text-slate-50 flex items-center gap-2 hover:no-underline"
@@ -64,7 +64,7 @@ const enActive = currentLocale === "en";
       </ul>
     </div>
   </div>
-  <div id="mobile-menu" class="md:hidden w-full px-4">
+  <div id="mobile-menu" class="md:hidden w-full px-4 mt-2">
     <ul class="list-none flex gap-8 items-center justify-center">
       <li>
         <a
