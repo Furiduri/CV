@@ -3,30 +3,57 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
+
+const projects = [
+  {
+    title: "PetMePhone",
+    description: "Aplicación Móvil con IA. Desarrollo de aplicación de overlay para tareas en Android aplicando el ciclo completo de Ingeniería de IA (síntesis de requerimientos, generación de assets, arquitectura de código, pruebas y cumplimiento normativo).",
+    tags: ["Android", "IA", "Móvil"],
+    link: "https://github.com/Furiduri/PetMePhone"
+  },
+  {
+    title: "Jalapeño Lab",
+    description: "Jalapeño Store. Colectivo diseñado para dar a los juegos latinoamericanos el escaparate que merecen, impulsando la industria local al conectar autores, tiendas y jugadores. Participo como gestor y coordinador de eventos.",
+    tags: ["Gestión de Eventos", "Comunidad", "Juegos de Mesa"],
+    link: "https://jalapenolab.mx/"
+  },
+  {
+    title: "Juegalajara",
+    description: "Plataforma y Comunidad. Desarrollador principal y gestor del sitio web oficial. Miembro del comité organizador encargado del funcionamiento de la comunidad, así como de la coordinación y gestión de eventos sociales.",
+    tags: ["Frontend", "Comunidad", "Gestión de Eventos"],
+    link: "https://juegalajara.mx/"
+  },
+  {
+    title: "GCatCode",
+    description: "Plataformas Web y Portafolio. Construcción de plataformas web responsivas utilizando Astro, Tailwind CSS y TypeScript, alcanzando métricas de alto rendimiento en Lighthouse.",
+    tags: ["Astro", "Tailwind CSS", "TypeScript"],
+    link: "https://gcatcode.com/"
+  }
+];
 ---
 
-<Layout title="Proyectos | Jorge Osvaldo Perez Mendoza">
+<Layout 
+  title="Proyectos | Jorge Osvaldo Perez Mendoza"
+  description="Explora mis proyectos destacados, desde aplicaciones móviles con IA hasta plataformas comunitarias."
+  lang="es"
+>
   <Header />
   
-  <main class="pt-[120px] container animate-fade-in">
-    <h1 class="text-gradient">Mis Proyectos</h1>
-    <p class="text-slate-400 text-lg mb-12 max-w-[600px]">
-      Explora mis iniciativas fuera del trabajo. Desde proyectos sociales y comunitarios, hasta mi profunda pasión por el diseño de juegos de mesa.
+  <main class="pt-[120px] container animate-fade-in min-h-[70vh]">
+    <h1 class="text-gradient">Proyectos Destacados</h1>
+    <p class="text-zinc-400 text-lg mb-12 max-w-[600px]">
+      Una colección de mis trabajos recientes que abarcan ingeniería de IA, desarrollo web y plataformas comunitarias.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <ProjectCard 
-        title="Proyectos Sociales" 
-        description="Iniciativas enfocadas a la construcción en comunidad, voluntariado, y generar impacto positivo en la sociedad."
-        link="/es/projects/social-projects"
-        tags={["Voluntariado", "Comunidad", "Liderazgo"]}
-      />
-      <ProjectCard 
-        title="Juegos de Mesa" 
-        description="Mi pasión por el diseño de juegos y mecánicas. Explorando nuevas formas de entretener y retar a los jugadores."
-        link="/es/projects/board-games"
-        tags={["Diseño", "Mecánicas", "Pasatiempos"]}
-      />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      {projects.map((project) => (
+        <ProjectCard 
+          title={project.title}
+          description={project.description}
+          tags={project.tags}
+          link={project.link}
+        />
+      ))}
     </div>
   </main>
 

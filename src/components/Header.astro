@@ -16,12 +16,12 @@ const enActive = currentLocale === "en";
 ---
 
 <header
-  class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10 py-4 transition-all"
+  class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-white/10 py-4 transition-all"
 >
   <div class="container flex justify-center  md:justify-between items-center">
     <a
       href={currentLocale === "es" ? "/es/" : "/"}
-      class="font-heading font-black text-2xl text-slate-50 flex items-center gap-2 hover:no-underline"
+      class="font-heading font-black text-2xl text-zinc-100 flex items-center gap-2 hover:no-underline"
     >
       <img src={logoImage.src} alt="Logo" width="50" height="50" />
       Jorge <span class="text-gradient">Perez</span>
@@ -30,7 +30,7 @@ const enActive = currentLocale === "en";
       <ul class="hidden md:flex gap-8 list-none m-0 p-0">
         <li>
           <a
-            class="text-slate-50 font-semibold hover:text-emerald-500 transition-colors"
+            class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
             href={currentLocale === "es" ? "/es/" : "/"}
           >
             {currentLocale === "es" ? "Inicio" : "Home"}
@@ -38,7 +38,7 @@ const enActive = currentLocale === "en";
         </li>
         <li>
           <a
-            class="text-slate-50 font-semibold hover:text-emerald-500 transition-colors"
+            class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
             href={currentLocale === "es" ? "/es/projects" : "/projects"}
           >
             {currentLocale === "es" ? "Proyectos" : "Projects"}
@@ -48,15 +48,15 @@ const enActive = currentLocale === "en";
           <a
             href={targetUrl}
             aria-label="Cambiar Idioma"
-            class="flex gap-1 items-center bg-slate-800/70 border border-white/10 text-slate-50 py-1.5 px-3 rounded-full cursor-pointer font-sans text-xs font-semibold transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_10px_rgba(16,185,129,0.2)] group hover:no-underline"
+            class="flex gap-1 items-center bg-zinc-900/70 border border-white/10 text-zinc-100 py-1.5 px-3 rounded-full cursor-pointer font-sans text-xs font-semibold transition-all duration-300 hover:border-brand-base hover:shadow-[0_0_10px_rgba(0,191,99,0.2)] group hover:no-underline"
           >
             <span
-              class={`transition-colors duration-300 ${enActive ? "text-emerald-400" : "text-slate-400 group-hover:text-slate-50"}`}
+              class={`transition-colors duration-300 ${enActive ? "text-brand-neon" : "text-zinc-400 group-hover:text-zinc-100"}`}
               >EN</span
             >
-            <span class="text-slate-400">/</span>
+            <span class="text-zinc-400">/</span>
             <span
-              class={`transition-colors duration-300 ${esActive ? "text-emerald-400" : "text-slate-400 group-hover:text-slate-50"}`}
+              class={`transition-colors duration-300 ${esActive ? "text-brand-neon" : "text-zinc-400 group-hover:text-zinc-100"}`}
               >ES</span
             >
           </a>
@@ -68,7 +68,7 @@ const enActive = currentLocale === "en";
     <ul class="list-none flex gap-8 items-center justify-center">
       <li>
         <a
-          class="text-slate-50 font-semibold hover:text-emerald-500 transition-colors"
+          class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
           href={currentLocale === "es" ? "/es/" : "/"}
         >
           {currentLocale === "es" ? "Inicio" : "Home"}
@@ -76,7 +76,7 @@ const enActive = currentLocale === "en";
       </li>
       <li>
         <a
-          class="text-slate-50 font-semibold hover:text-emerald-500 transition-colors"
+          class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
           href={currentLocale === "es" ? "/es/projects" : "/projects"}
         >
           {currentLocale === "es" ? "Proyectos" : "Projects"}
@@ -86,15 +86,15 @@ const enActive = currentLocale === "en";
         <a
           href={targetUrl}
           aria-label="Cambiar Idioma"
-          class="flex gap-1 items-center bg-slate-800/70 border border-white/10 text-slate-50 py-1.5 px-3 rounded-full cursor-pointer font-sans text-xs font-semibold transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_10px_rgba(16,185,129,0.2)] group hover:no-underline"
+          class="flex gap-1 items-center bg-zinc-900/70 border border-white/10 text-zinc-100 py-1.5 px-3 rounded-full cursor-pointer font-sans text-xs font-semibold transition-all duration-300 hover:border-brand-base hover:shadow-[0_0_10px_rgba(0,191,99,0.2)] group hover:no-underline"
         >
           <span
-            class={`transition-colors duration-300 ${enActive ? "text-emerald-400" : "text-slate-400 group-hover:text-slate-50"}`}
+            class={`transition-colors duration-300 ${enActive ? "text-brand-neon" : "text-zinc-400 group-hover:text-zinc-100"}`}
             >EN</span
           >
-          <span class="text-slate-400">/</span>
+          <span class="text-zinc-400">/</span>
           <span
-            class={`transition-colors duration-300 ${esActive ? "text-emerald-400" : "text-slate-400 group-hover:text-slate-50"}`}
+            class={`transition-colors duration-300 ${esActive ? "text-brand-neon" : "text-zinc-400 group-hover:text-zinc-100"}`}
             >ES</span
           >
         </a>

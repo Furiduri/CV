@@ -2,6 +2,8 @@
 
 [Español](./README_ES.md) | [English](./README.md)
 
+![CV Banner](public/CVBanner.jpg)
+
 Hello! Welcome to the repository of my interactive web portfolio and Resume. I am a **Software Development Engineer**, specializing in creating innovative and robust web solutions (Backend, Full Stack Web) promoting continuous improvement and code quality.
 
 ## 📄 Download my Resume

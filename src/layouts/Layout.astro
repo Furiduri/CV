@@ -11,7 +11,7 @@ interface Props {
 const {
   title,
   description = "Jorge Osvaldo Perez Mendoza - Portfolio",
-  image = "/favicon.svg",
+  image = "/CVBanner.jpg",
   type = "website",
 } = Astro.props;
 
@@ -57,7 +57,14 @@ const canonicalURL = new URL(url.pathname, Astro.site || url.origin);
       content={new URL(image, Astro.site || url.origin)}
     />
   </head>
-  <body>
-    <slot />
+  <body class="min-h-screen">
+    <div class="fixed inset-0 -z-10 h-full w-full bg-zinc-950">
+      <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      <div class="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-brand-base opacity-20 blur-[100px]"></div>
+    </div>
+    
+    <div class="relative z-10">
+      <slot />
+    </div>
   </body>
 </html>

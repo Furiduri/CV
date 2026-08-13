@@ -3,76 +3,123 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import TechPill from "../../components/TechPill.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
 
-const skills = [
-  "Backend .Net",
-  "Desarrollo Full Stack Web",
-  "Móvil, Escritorio, Híbrido",
-  "Scrum / Ágil",
-  "Atención al Cliente",
-  "Resolución de Incidentes",
-  "Juegos de Mesa (Smart Games)",
+const skillCategories = [
+  {
+    title: "Backend y Núcleo",
+    items: ["C#", ".NET 8 / Core", "ASP.NET Core Web API", ".NET Framework", "EF Core", "LINQ", "Async/Await", "Inyección de Dependencias", "APIs RESTful", "POO", "Patrones de Diseño"]
+  },
+  {
+    title: "Ingeniería de IA y Metodologías",
+    items: ["Ciclo de Vida con IA (SDLC)", "Ingeniería de Prompts y Harness", "Prototipado Rápido", "Scrum / Ágil", "Aprendizaje Continuo"]
+  },
+  {
+    title: "Bases de Datos y Sistemas Empresariales",
+    items: ["Microsoft SQL Server", "T-SQL", "Procedimientos Almacenados", "Optimización de Consultas", "MariaDB", "Básicos de MES y SAP"]
+  },
+  {
+    title: "Nube y DevOps",
+    items: ["Microsoft Azure", "Azure DevOps", "Git", "IIS Web Server", "Firebase", "GCP"]
+  },
+  {
+    title: "Frontend y Desarrollo Web",
+    items: ["TypeScript", "JavaScript (ES6+)", "Astro", "Tailwind CSS", "Angular", "Vue.js", "Bootstrap", "HTML5/CSS3"]
+  },
+  {
+    title: "Testing y Calidad",
+    items: ["Unit Testing (xUnit/NUnit)", "QA y Prevención de Incidentes", "Documentación Técnica"]
+  }
 ];
 
-const technologies = [
-  "Office 360",
-  "CSS",
-  "C#",
-  "SQL",
-  "Javascript",
-  ".net core 6 and 8",
-  "asp.net",
-  ".net framework",
-  "SQL Server",
-  "JQuery",
-  "IIS Server",
-  "Bootstrap",
-  "VBScript/ASP",
-  "Typescript",
-  "Angular",
-  "Vue JS",
-  "MariaDB",
-  "Adobe XD",
-  "Express JS",
-  "AWS",
-  "Azure",
-  "Google Cloud",
-  "Tailwind CSS",
+const projects = [
+  {
+    title: "PetMePhone",
+    description: "Aplicación Móvil con IA. Desarrollo de aplicación de overlay para tareas en Android aplicando el ciclo completo de Ingeniería de IA (síntesis de requerimientos, generación de assets, arquitectura de código, pruebas y cumplimiento normativo).",
+    tags: ["Android", "IA", "Móvil"],
+    link: "https://github.com/Furiduri/PetMePhone"
+  },
+  {
+    title: "Jalapeño Lab",
+    description: "Jalapeño Store. Colectivo diseñado para dar a los juegos latinoamericanos el escaparate que merecen, impulsando la industria local al conectar autores, tiendas y jugadores. Participo como gestor y coordinador de eventos.",
+    tags: ["Gestión de Eventos", "Comunidad", "Juegos de Mesa"],
+    link: "https://jalapenolab.mx/"
+  },
+  {
+    title: "Juegalajara",
+    description: "Plataforma y Comunidad. Desarrollador principal y gestor del sitio web oficial. Miembro del comité organizador encargado del funcionamiento de la comunidad, así como de la coordinación y gestión de eventos sociales.",
+    tags: ["Frontend", "Comunidad", "Gestión de Eventos"],
+    link: "https://juegalajara.mx/"
+  },
+  {
+    title: "GCatCode",
+    description: "Plataformas Web y Portafolio. Construcción de plataformas web responsivas utilizando Astro, Tailwind CSS y TypeScript, alcanzando métricas de alto rendimiento en Lighthouse.",
+    tags: ["Astro", "Tailwind CSS", "TypeScript"],
+    link: "https://gcatcode.com/"
+  }
 ];
+
+const experienceYears = new Date().getFullYear() - 2019;
 ---
 
 <Layout 
-  title="Jorge Osvaldo Perez Mendoza | Portafolio"
-  description="Desarrollador de Software, Backend, Full Stack Web, Voluntario Activo y Cazador de Experiencias. Tecnologías .NET, Azure, SQL Server."
+  title="Jorge Osvaldo Perez Mendoza | Portafolio y CV"
+  description={`Ingeniero en Desarrollo de Software con más de ${experienceYears} años de experiencia creando sistemas backend de alto rendimiento, APIs web y soluciones en la nube usando C#, ASP.NET Core y SQL Server.`}
   image="/favicon.svg"
 >
   <Header />
 
   <main class="pt-20">
     <!-- HERO SECTION -->
-    <section class="container flex flex-col justify-center min-h-[80vh] animate-fade-in">
-      <p class="text-emerald-500 font-semibold font-heading mb-4">
-        Hola, soy
-      </p>
-      <h1>
-        Jorge Osvaldo <br /><span class="text-gradient">Perez Mendoza</span>
-      </h1>
-      <h2 class="text-slate-400 text-2xl md:text-3xl mt-4 mb-8">
-        Ingeniero en Desarrollo de Software
-      </h2>
-      <p class="max-w-[600px] text-lg text-slate-400 mb-12">
-        Desarrollador de Software, Backend, Full Stack Web, Voluntario Activo y 
-        Cazador de Experiencias. Apasionado por la tecnología y los juegos de mesa, 
-        especializado en crear soluciones web innovadoras que promueven 
-        la mejora continua.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="#experience" class="btn-primary no-underline text-center">Ver Experiencia</a>
-        <a
-          href="mailto:Jorge.Furiduri@gmail.com"
-          class="btn-primary no-underline text-center !bg-transparent border !border-emerald-500 !text-emerald-500 hover:!bg-emerald-500/10 hover:!text-emerald-400"
-          >Contáctame</a
-        >
+    <section class="container flex flex-col justify-center min-h-[85vh] animate-fade-in text-center md:text-left">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        
+        <!-- Avatar profile styling like Linktree_Furiduri -->
+        <div class="relative group shrink-0">
+          <div class="absolute -inset-1 bg-gradient-to-r from-brand-base to-brand-neon rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+          <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-zinc-900 bg-zinc-800 overflow-hidden shadow-2xl flex items-center justify-center p-4">
+            <img src="/favicon.svg" alt="Logo de GCatCode - Jorge Osvaldo Perez Mendoza" class="w-full h-full object-contain" />
+          </div>
+        </div>
+
+        <div>
+          <p class="text-brand-base font-semibold font-heading mb-4">
+            Hola, soy
+          </p>
+          <h1>
+            Jorge Osvaldo <br /><span class="text-gradient">Perez Mendoza</span>
+          </h1>
+          <h2 class="text-zinc-400 text-2xl md:text-3xl mt-4 mb-6">
+            Ingeniero en Desarrollo de Software | Backend .NET Developer
+          </h2>
+          <p class="max-w-[700px] text-lg text-zinc-400 mb-10 leading-relaxed">
+            Ingeniero en Desarrollo de Software con licencia profesional y más de {experienceYears} años de experiencia creando sistemas backend de alto rendimiento, APIs web y soluciones empresariales en la nube. Aprendiz proactivo y autodidacta, experto en aprovechar <strong>flujos de trabajo asistidos por LLMs y Arquitectura de IA</strong> en todo el ciclo de vida del desarrollo.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center md:justify-start items-center">
+            <a href="#experience" class="btn-primary no-underline text-center">Ver Experiencia</a>
+            <a
+              href="https://gcatcode.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary no-underline text-center !bg-transparent border !border-brand-base !text-brand-base hover:!bg-brand-base/10 hover:!text-brand-neon"
+              >Contáctame</a
+            >
+            <div class="flex gap-4 md:ml-4 items-center text-zinc-400">
+              <a href="mailto:Jorge.Furiduri@gmail.com" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Email">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" /><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" /></svg>
+              </a>
+              <a href="https://github.com/Furiduri" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="GitHub">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+              </a>
+              <a href="https://linkedin.com/in/furiduri/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="LinkedIn">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
+              </a>
+              <a href="https://instagram.com/furiduri/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Instagram">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" clip-rule="evenodd" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -82,83 +129,97 @@ const technologies = [
       <div class="mt-8 flex flex-col gap-8 pb-8">
         <div>
           <h3 class="font-heading mb-2">
-            Resser Tecnologías <span class="text-base text-emerald-500 font-normal ml-2">(2024 - Presente)</span>
+            Resser Tecnologías <span class="text-base text-brand-base font-normal ml-2">(2024 - 2026)</span>
           </h3>
-          <p class="font-semibold mb-2 text-slate-50">
-            Middle Developer
+          <p class="font-semibold mb-2 text-zinc-50">
+            Middle Backend Developer
           </p>
-          <p class="text-slate-400">
-            Desarrollo de Web APIs, .net core 8, SQL Server, Azure DevOps, Git,
-            Azure Cloud. Scrum / Ágil, Azure DevOps. Soluciones de reportería en
-            Azure Functions. Proceso de pruebas, detección y prevención de
-            problemas.
-          </p>
+          <ul class="text-zinc-400 list-disc pl-5 space-y-2">
+            <li>Arquitectura y desarrollo de APIs Web RESTful robustas usando C# y .NET Core 8, dando soporte a servicios críticos de telemetría y gestión de flotas.</li>
+            <li>Implementación de procesos automáticos en segundo plano y pipelines de reportes aprovechando Azure Functions y servicios en la nube de Azure, mejorando la velocidad de entrega de datos operativos.</li>
+            <li>Administración de bases de datos relacionales en SQL Server, escribiendo consultas T-SQL complejas y procedimientos almacenados para reducir tiempos de ejecución en el backend.</li>
+            <li>Liderazgo en entregas de Sprints y flujos de integración continua a través de Azure DevOps y Git, estableciendo rigurosos estándares de revisión de código y testing QA que disminuyeron las tasas de errores en producción.</li>
+          </ul>
         </div>
         <div class="w-full h-px bg-white/10"></div>
         <div>
           <h3 class="font-heading mb-2">
-            Jabil Circuit de México <span class="text-base text-emerald-500 font-normal ml-2">(2019 - 2024)</span>
+            Jabil Circuit de México <span class="text-base text-brand-base font-normal ml-2">(2019 - 2024)</span>
           </h3>
-          <p class="font-semibold mb-2 text-slate-50">
+          <p class="font-semibold mb-2 text-zinc-50">
             Programmer Analyst I
           </p>
-          <p class="text-slate-400">
-            Desarrollo de software, aplicaciones web, APIs, creación de bases de datos.
-            Desarrollo en .net framework, SQL Server para bases de datos. Documentación técnica
-            y manuales de usuario. Pruebas, detección y prevención de problemas.
-          </p>
+          <ul class="text-zinc-400 list-disc pl-5 space-y-2">
+            <li>Diseño, desarrollo y mantenimiento de aplicaciones web empresariales y APIs backend internas utilizando .NET Framework (C#) y Microsoft SQL Server.</li>
+            <li>Colaboración con equipos de operaciones de manufactura para dar soporte a flujos de datos, reportes e integraciones con Sistemas de Ejecución de Manufactura (MES) y SAP.</li>
+            <li>Elaboración de documentación técnica exhaustiva de arquitectura, especificaciones de APIs y manuales de usuario final para optimizar la capacitación entre equipos y el cumplimiento de normas.</li>
+            <li>Realización de pruebas funcionales y de regresión sistemáticas, identificando cuellos de botella y previniendo anomalías en los sistemas de ejecución.</li>
+            <li>Colaboración con equipos de ingeniería multifuncionales e internacionales en entornos ágiles para desplegar actualizaciones de características en servidores IIS.</li>
+          </ul>
         </div>
         <div class="w-full h-px bg-white/10"></div>
         <div>
           <h3 class="font-heading mb-2">
-            Talent Network (Jalisco Talent Land) <span class="text-base text-emerald-500 font-normal ml-2">(2017 - 2024)</span>
+            Talent Network (Jalisco Talent Land) <span class="text-base text-brand-base font-normal ml-2">(2017 - 2024)</span>
           </h3>
-          <p class="font-semibold mb-2 text-slate-50">
+          <p class="font-semibold mb-2 text-zinc-50">
             General Incident Leader
           </p>
-          <p class="text-slate-400">
-            Participación en ediciones. Resolución de conflictos, atención 
-            personalizada al cliente, manejo de datos personales, manejo de 
-            crisis y estrés.
-          </p>
+          <ul class="text-zinc-400 list-disc pl-5 space-y-2">
+            <li>Dirección de respuesta a incidentes, resolución de crisis y operaciones de servicio al cliente para la convención de innovación tecnológica más grande de América Latina con más de 40,000 asistentes.</li>
+            <li>Coordinación de equipos de soporte multidisciplinarios bajo escenarios de alta presión, garantizando el cumplimiento de los estándares de privacidad de datos y protocolos de resolución rápida.</li>
+          </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects" class="container mb-16">
+      <h2 class="text-gradient mb-8">Proyectos Destacados y Liderazgo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {projects.map((project) => (
+          <ProjectCard 
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            link={project.link}
+          />
+        ))}
       </div>
     </section>
 
     <!-- EDUCATION SECTION -->
     <section id="education" class="container glass-card mb-16">
-      <h2 class="text-gradient">Educación</h2>
+      <h2 class="text-gradient">Educación y Credenciales</h2>
       <div class="mt-8 flex flex-col gap-6 pb-8">
         <div>
-          <h3 class="font-heading mb-2">Centro de Enseñanza Técnica Industrial</h3>
-          <p class="text-slate-400">
-            Ingeniería en Desarrollo de Software (Estudios Universitarios - Graduado)
+          <h3 class="font-heading mb-2">Centro de Enseñanza Técnica Industrial (CETI)</h3>
+          <p class="text-zinc-400">
+            <strong>Licenciatura en Ingeniería en Desarrollo de Software</strong> (Bachelor of Science in Software Development Engineering) <br />
+            Graduado 2023 | Cédula Profesional (Federal): No. 13980801
           </p>
         </div>
         <div>
-          <h3 class="font-heading mb-2">Preparatoria Número 10 UDG</h3>
-          <p class="text-slate-400">
-            Técnico Profesional En Informática (Preparatoria - Graduado)
+          <h3 class="font-heading mb-2">Escuela Preparatoria No. 10 – Universidad de Guadalajara (UDG)</h3>
+          <p class="text-zinc-400">
+            <strong>Técnico Profesional en Informática</strong> (Professional Technician in Computer Science)
           </p>
         </div>
       </div>
     </section>
 
     <!-- SKILLS & TECHNOLOGIES -->
-    <section id="skills" class="container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pb-0">
-      <!-- Domains & Skills -->
-      <div class="glass-card">
-        <h2 class="text-gradient">Habilidades</h2>
-        <div class="flex flex-wrap gap-3 mt-6">
-          {skills.map((s) => <TechPill name={s} />)}
-        </div>
-      </div>
-      <!-- Technologies -->
-      <div class="glass-card">
-        <h2 class="text-gradient">Tecnologías</h2>
-        <div class="flex flex-wrap gap-3 mt-6">
-          {technologies.map((t) => <TechPill name={t} />)}
-        </div>
+    <section id="skills" class="container mb-16">
+      <h2 class="text-gradient mb-8 text-center md:text-left">Habilidades Técnicas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skillCategories.map((category) => (
+          <div class="glass-card flex flex-col h-full">
+            <h3 class="font-heading mb-4 text-zinc-100">{category.title}</h3>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              {category.items.map((item) => <TechPill name={item} />)}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   </main>

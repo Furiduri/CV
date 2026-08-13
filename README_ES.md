@@ -2,6 +2,8 @@
 
 [Español](./README_ES.md) | [English](./README.md)
 
+![CV Banner](public/CVBanner.jpg)
+
 ¡Hola! Bienvenido al repositorio de mi portafolio web interactivo y Currículum Vitae. Soy **Ingeniero en Desarrollo de Software**, especializado en crear soluciones web innovadoras y robustas (Backend, Full Stack Web) promoviendo la mejora continua y la calidad del código.
 
 ## 📄 Descarga mi Currículum
