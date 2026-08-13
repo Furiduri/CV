@@ -2,17 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap');
 
 @theme {
+  --color-brand-base: #00bf63;
+  --color-brand-neon: #7ed957;
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-slate-900 text-slate-50 font-sans antialiased leading-relaxed;
+    @apply bg-zinc-950 text-zinc-100 font-sans antialiased leading-relaxed selection:bg-brand-neon/30 selection:text-brand-neon;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-slate-50 mb-4;
+    @apply font-heading text-zinc-100 mb-4;
   }
   
   h1 {
@@ -24,11 +26,11 @@
   }
   
   a {
-    @apply text-emerald-500 transition-all duration-300;
+    @apply text-brand-base transition-all duration-300;
   }
   
   a:hover {
-    @apply text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.4)];
+    @apply text-brand-neon drop-shadow-[0_0_8px_rgba(126,217,87,0.4)];
   }
 
   section {
@@ -42,22 +44,22 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-emerald-500 to-emerald-400 bg-clip-text text-transparent inline-block;
+    @apply bg-gradient-to-r from-brand-base to-brand-neon bg-clip-text text-transparent inline-block;
   }
   
   .glass-card {
-    @apply bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 transition-all duration-300;
+    @apply bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 rounded-2xl p-6 md:p-8 transition-all duration-300;
   }
   
   .glass-card:hover {
-    @apply -translate-y-1 border-emerald-500/50 shadow-[0_10px_30px_-10px_rgba(16,185,129,0.2)];
+    @apply -translate-y-1 border-brand-base/50 shadow-[0_10px_30px_-10px_rgba(0,191,99,0.2)];
   }
   
   .btn-primary {
-    @apply inline-block bg-emerald-500 text-slate-900 px-6 py-3 rounded-lg font-semibold font-heading uppercase tracking-wider transition-all duration-300 border-none cursor-pointer;
+    @apply inline-block bg-brand-base text-zinc-950 px-6 py-3 rounded-lg font-semibold font-heading uppercase tracking-wider transition-all duration-300 border-none cursor-pointer;
   }
   
   .btn-primary:hover {
-    @apply bg-emerald-400 scale-105 shadow-[0_0_15px_rgba(16,185,129,0.5)] text-slate-900;
+    @apply bg-brand-neon scale-105 shadow-[0_0_15px_rgba(0,191,99,0.5)] text-zinc-950;
   }
 }

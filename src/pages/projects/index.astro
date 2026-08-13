@@ -3,30 +3,57 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: "PetMePhone",
+    description: "AI-Powered Mobile Overlay. Engineered an Android overlay application for task automation, driving the full AI Engineering lifecycle from requirements synthesis to prompt architecture, LLM validation, and policy compliance.",
+    tags: ["Android", "AI", "Mobile"],
+    link: "https://github.com/Furiduri/PetMePhone"
+  },
+  {
+    title: "Jalapeño Lab",
+    description: "Jalapeño Store. A collective designed to give Latin American board games the showcase they deserve, boosting the local industry by connecting authors, stores, and players. Acting as Event Manager and Coordinator.",
+    tags: ["Event Management", "Community Building", "Board Games"],
+    link: "https://jalapenolab.mx/"
+  },
+  {
+    title: "Juegalajara",
+    description: "Platform & Community. Lead developer and manager of the Juegalajara website. Organizing committee member in charge of community operations, as well as coordinating and managing social events.",
+    tags: ["Frontend", "Community", "Event Management"],
+    link: "https://juegalajara.mx/"
+  },
+  {
+    title: "GCatCode",
+    description: "Web Platforms & Portfolio. Built responsive web platforms using Astro, Tailwind CSS, and TypeScript, achieving high performance metrics on Lighthouse.",
+    tags: ["Astro", "Tailwind CSS", "TypeScript"],
+    link: "https://gcatcode.com/"
+  }
+];
 ---
 
-<Layout title="Projects | Jorge Osvaldo Perez Mendoza">
+<Layout 
+  title="Projects | Jorge Osvaldo Perez Mendoza"
+  description="Explore my featured projects, from AI-powered mobile apps to community platforms."
+  lang="en"
+>
   <Header />
   
-  <main class="pt-[120px] container animate-fade-in">
-    <h1 class="text-gradient">My Projects</h1>
-    <p class="text-slate-400 text-lg mb-12 max-w-[600px]">
-      Explore my ventures outside of work. From social and community building initiatives to my profound passion for board game design.
+  <main class="pt-[120px] container animate-fade-in min-h-[70vh]">
+    <h1 class="text-gradient">Featured Projects</h1>
+    <p class="text-zinc-400 text-lg mb-12 max-w-[600px]">
+      A collection of my recent work spanning AI engineering, web development, and community platforms.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <ProjectCard 
-        title="Social Projects" 
-        description="Initiatives focused on community building, volunteering, and making a positive impact on society."
-        link="/projects/social-projects"
-        tags={["Volunteering", "Community", "Leadership"]}
-      />
-      <ProjectCard 
-        title="Board Games" 
-        description="My passion for board game design and mechanics. Exploring new ways to entertain and challenge players."
-        link="/projects/board-games"
-        tags={["Game Design", "Mechanics", "Passions"]}
-      />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      {projects.map((project) => (
+        <ProjectCard 
+          title={project.title}
+          description={project.description}
+          tags={project.tags}
+          link={project.link}
+        />
+      ))}
     </div>
   </main>
 

@@ -10,12 +10,12 @@ const { title, description, link, tags = [] } = Astro.props;
 ---
 
 <a href={link} class="glass-card block !no-underline text-inherit h-full group">
-  <h3 class="mt-0 transition-colors duration-300 group-hover:text-emerald-400">{title}</h3>
-  <p class="text-slate-400 mb-6">{description}</p>
+  <h3 class="mt-0 transition-colors duration-300 group-hover:text-brand-neon">{title}</h3>
+  <p class="text-zinc-400 mb-6">{description}</p>
   {tags.length > 0 && (
     <div class="flex flex-wrap gap-2">
       {tags.map((tag) => (
-        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-sm border border-emerald-500/20">
+        <span class="bg-brand-base/10 text-brand-neon px-3 py-1 rounded-full text-sm border border-brand-base/20">
           {tag}
         </span>
       ))}
