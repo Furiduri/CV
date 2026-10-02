@@ -72,14 +72,14 @@ export function format(template: string, values: Record<string, string | number>
   return template.replace(/\{(\w+)\}/g, (match, key) => (key in values ? String(values[key]) : match));
 }
 
-// Path of the current page without its locale prefix, e.g. "/es/projects/" -> "projects".
+// Path of the current page without its locale prefix, e.g. "/en/cv/projects/" -> "cv/projects".
 export function getUnlocalizedPath(pathname: string): string {
   const segments = pathname.split("/").filter(Boolean);
   if (isLocale(segments[0]) && segments[0] !== defaultLocale) segments.shift();
   return segments.join("/");
 }
 
-// Localized URL of a route, e.g. ("es", "projects") -> "/es/projects/".
+// Localized URL of a route, e.g. ("en", "cv/projects") -> "/en/cv/projects/".
 export function getLocalizedUrl(locale: Locale, path = ""): string {
   return getRelativeLocaleUrl(locale, path);
 }

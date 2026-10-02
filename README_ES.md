@@ -55,7 +55,7 @@ Si deseas correr este proyecto de manera local, necesitas Node.js `>= 22.12.0`. 
    npm run dev
    ```
 
-El proyecto estará disponible por defecto en `http://localhost:4321`.
+El CV estará disponible por defecto en `http://localhost:4321/cv/` (Español, el idioma predeterminado) y `http://localhost:4321/en/cv/` (Inglés).
 
 ## 📬 Contacto
 

@@ -11,4 +11,4 @@ export type Locale = keyof typeof hreflangByLocale;
 
 export const locales = Object.keys(hreflangByLocale) as Locale[];
 
-export const defaultLocale: Locale = "en";
+export const defaultLocale: Locale = "es";

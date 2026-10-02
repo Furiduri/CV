@@ -16,9 +16,12 @@ copy, the skills / projects / experience data, `CV.md`, `README.md`,
 ## Hard Rules
 
 - **One template per route; copy lives in dictionaries.** Each route has a
-  single template under `src/pages/[...lang]/` (`index.astro`,
-  `projects/index.astro`) whose `getStaticPaths` emits one page per configured
-  locale. Visible copy lives in `src/i18n/locales/<locale>.ts`, typed by
+  single template under `src/pages/[...lang]/` (`cv/index.astro`,
+  `cv/projects/index.astro`) whose `getStaticPaths` emits one page per configured
+  locale. The default locale is Spanish (`es`, unprefixed: `/cv/`); English
+  lives under `/en/` (`/en/cv/`). The site root `/` is reserved for the
+  upcoming landing page and is redirected to `/cv/` in `firebase.json` until
+  then. Visible copy lives in `src/i18n/locales/<locale>.ts`, typed by
   `src/i18n/types.ts`. Locale-independent data (companies, years, links, tech
   names) lives once in `src/data/*.ts` and is joined with the dictionary by
   `id`. Never hard-code copy in a template or component, and never duplicate a
@@ -88,7 +91,8 @@ copy, the skills / projects / experience data, `CV.md`, `README.md`,
 3. Make the change in every dictionary (and the shared data, if a fact changed);
    keep keys and array lengths identical.
 4. `npm run build` (it fails on dictionary drift); then check every locale of the
-   route in the preview (`/` and `/es`, `/projects` and `/es/projects`), desktop
+   route in the preview (`/cv/` and `/en/cv/`, `/cv/projects/` and
+   `/en/cv/projects/`), desktop
    and mobile width.
 5. If a README or `CV.md` changed, check parity and every claim against the repo.
 
