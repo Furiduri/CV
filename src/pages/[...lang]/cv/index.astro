@@ -1,16 +1,16 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import TechPill from "../../components/TechPill.astro";
-import ProjectCard from "../../components/ProjectCard.astro";
-import { education } from "../../data/education";
-import { experience } from "../../data/experience";
-import { experienceYears } from "../../data/profile";
-import { projects } from "../../data/projects";
-import { skillCategories } from "../../data/skills";
-import type { Locale } from "../../i18n/config";
-import { format, getLocaleStaticPaths, useTranslations } from "../../i18n/utils";
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import TechPill from "../../../components/TechPill.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
+import { education } from "../../../data/education";
+import { experience } from "../../../data/experience";
+import { experienceYears } from "../../../data/profile";
+import { projects } from "../../../data/projects";
+import { skillCategories } from "../../../data/skills";
+import type { Locale } from "../../../i18n/config";
+import { format, getLocaleStaticPaths, useTranslations } from "../../../i18n/utils";
 
 export function getStaticPaths() {
   return getLocaleStaticPaths();

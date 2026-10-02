@@ -5,8 +5,9 @@ import { getLocalizedUrl, resolveLocale, useTranslations } from "../i18n/utils";
 
 const currentLocale = resolveLocale(Astro.currentLocale);
 const t = useTranslations(currentLocale);
-const homeUrl = getLocalizedUrl(currentLocale);
-const projectsUrl = getLocalizedUrl(currentLocale, "projects");
+// The CV lives under /cv until the landing page owns the site root.
+const homeUrl = getLocalizedUrl(currentLocale, "cv");
+const projectsUrl = getLocalizedUrl(currentLocale, "cv/projects");
 ---
 
 <header
