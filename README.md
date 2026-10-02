@@ -27,13 +27,15 @@ This project is the source code for my personal website, designed to be fast, ac
 ### 🛠️ Core Technologies
 
 - **[Astro](https://astro.build/)**: Web framework optimized for speed and content delivery.
-- **HTML/CSS and JavaScript**: All implemented with Vanilla CSS and core tools without relying on heavy external utilities to keep the site ultra-lightweight.
+- **[Tailwind CSS 4](https://tailwindcss.com/)**: Utility-first styling through the `@tailwindcss/vite` plugin. Design tokens (colors and fonts) live in `src/styles/global.css`, and only the classes in use end up in the final CSS.
+- **[@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)**: Generates the sitemap at build time.
+- **[Firebase Hosting](https://firebase.google.com/docs/hosting) + GitHub Actions**: Every pull request gets a preview deployment, and every merge to `main` deploys to production.
 
 ---
 
 ## 🚀 Installation and Local Execution
 
-If you want to run this project locally, follow these instructions:
+If you want to run this project locally, you need Node.js `>= 22.12.0`. Follow these instructions:
 
 1. Clone the repository:
 

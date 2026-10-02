@@ -27,13 +27,15 @@ Este proyecto es el código fuente de mi sitio web personal, diseñado para ser 
 ### 🛠️ Tecnologías Principales
 
 - **[Astro](https://astro.build/)**: Framework web optimizado para velocidad y entrega de contenido.
-- **HTML/CSS y JavaScript**: Todo implementado con Vanilla CSS y herramientas core sin depender de utilidades pesadas externas para mantener el sitio ultraligero.
+- **[Tailwind CSS 4](https://tailwindcss.com/)**: Estilos con clases de utilidad mediante el plugin `@tailwindcss/vite`. Los tokens de diseño (colores y tipografías) viven en `src/styles/global.css`, y solo las clases en uso terminan en el CSS final.
+- **[@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)**: Genera el sitemap en tiempo de compilación.
+- **[Firebase Hosting](https://firebase.google.com/docs/hosting) + GitHub Actions**: Cada pull request recibe un despliegue de vista previa, y cada merge a `main` despliega a producción.
 
 ---
 
 ## 🚀 Instalación y Ejecución Local
 
-Si deseas correr este proyecto de manera local, sigue estas instrucciones:
+Si deseas correr este proyecto de manera local, necesitas Node.js `>= 22.12.0`. Sigue estas instrucciones:
 
 1. Clona el repositorio:
 
