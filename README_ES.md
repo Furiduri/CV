@@ -55,7 +55,7 @@ Si deseas correr este proyecto de manera local, necesitas Node.js `>= 22.12.0`. 
    npm run dev
    ```
 
-El CV estará disponible por defecto en `http://localhost:4321/cv/` (Español, el idioma predeterminado) y `http://localhost:4321/en/cv/` (Inglés).
+La landing de GCatcode estará disponible por defecto en `http://localhost:4321/` (Español, el idioma predeterminado) y `http://localhost:4321/en/` (Inglés); el CV en `/cv/` y `/en/cv/`; los términos y el aviso de privacidad en `/terminos/` y `/privacidad/` (y sus versiones en `/en/`).
 
 ## 📬 Contacto
 

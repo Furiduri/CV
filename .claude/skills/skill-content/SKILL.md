@@ -16,15 +16,15 @@ copy, the skills / projects / experience data, `CV.md`, `README.md`,
 ## Hard Rules
 
 - **One template per route; copy lives in dictionaries.** Each route has a
-  single template under `src/pages/[...lang]/` (`cv/index.astro`,
-  `cv/projects/index.astro`) whose `getStaticPaths` emits one page per configured
-  locale. The default locale is Spanish (`es`, unprefixed: `/cv/`); English
-  lives under `/en/` (`/en/cv/`). The site root `/` is reserved for the
-  upcoming landing page and is redirected to `/cv/` in `firebase.json` until
-  then. Visible copy lives in `src/i18n/locales/<locale>.ts`, typed by
-  `src/i18n/types.ts`. Locale-independent data (companies, years, links, tech
-  names) lives once in `src/data/*.ts` and is joined with the dictionary by
-  `id`. Never hard-code copy in a template or component, and never duplicate a
+  single template under `src/pages/[...lang]/` (`index.astro` for the GCatcode
+  landing, `terminos/`, `privacidad/`, `cv/`, `cv/projects/`) whose
+  `getStaticPaths` emits one page per configured locale. Route slugs are not
+  translated. The default locale is Spanish (`es`, unprefixed: `/`, `/cv/`);
+  English lives under `/en/` (`/en/`, `/en/cv/`). Visible copy lives in
+  `src/i18n/locales/<locale>.ts`, typed by `src/i18n/types.ts`.
+  Locale-independent data (companies, years, links, tech names, business
+  contact and prices in `src/data/business.ts`) lives once in `src/data/*.ts`
+  and is joined with the dictionary by `id` or injected via `{placeholders}`. Never hard-code copy in a template or component, and never duplicate a
   page per locale.
 - **Copy changes edit every dictionary in the same commit.** Adding, removing or
   renaming a key, or changing an array's length, in one dictionary without the
