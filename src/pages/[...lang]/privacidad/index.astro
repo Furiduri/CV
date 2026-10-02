@@ -1,0 +1,33 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import LegalDocument from "../../../components/LegalDocument.astro";
+import { businessPlaceholders } from "../../../data/business";
+import type { Locale } from "../../../i18n/config";
+import { format, getLocaleStaticPaths, useTranslations } from "../../../i18n/utils";
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t.meta.privacy.title}
+  description={format(t.meta.privacy.description, businessPlaceholders)}
+>
+  <Header variant="landing" />
+
+  <main class="pt-32 pb-8 container">
+    <LegalDocument document={t.legal.privacy} />
+  </main>
+
+  <Footer variant="landing" />
+</Layout>

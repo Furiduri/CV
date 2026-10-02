@@ -36,6 +36,15 @@
   section {
     @apply py-24;
   }
+
+  /* Anchored sections clear the fixed header. */
+  section[id] {
+    @apply scroll-mt-20;
+  }
+
+  :where(a, button, summary):focus-visible {
+    @apply outline-2 outline-offset-4 outline-brand-neon rounded-sm;
+  }
 }
 
 @layer components {

@@ -1,75 +1,92 @@
 ---
 import logoImage from "../assets/Logo_Gcatcode.svg";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
-import { getLocalizedUrl, resolveLocale, useTranslations } from "../i18n/utils";
+import { businessPlaceholders, whatsappUrl } from "../data/business";
+import { format, getLocalizedUrl, resolveLocale, useTranslations } from "../i18n/utils";
 
+interface Props {
+  // "cv": personal CV navigation. "landing": GCatcode business navigation
+  // (landing and legal pages).
+  variant?: "cv" | "landing";
+}
+
+const { variant = "cv" } = Astro.props;
 const currentLocale = resolveLocale(Astro.currentLocale);
 const t = useTranslations(currentLocale);
-// The CV lives under /cv until the landing page owns the site root.
-const homeUrl = getLocalizedUrl(currentLocale, "cv");
+
+const cvUrl = getLocalizedUrl(currentLocale, "cv");
 const projectsUrl = getLocalizedUrl(currentLocale, "cv/projects");
+const landingUrl = getLocalizedUrl(currentLocale);
+// Absolute anchors so the same links work from the legal pages.
+const landingLinks = [
+  { href: `${landingUrl}#services`, label: t.nav.services },
+  { href: `${landingUrl}#method`, label: t.nav.method },
+  { href: `${landingUrl}#case-study`, label: t.nav.caseStudy },
+  { href: `${landingUrl}#about`, label: t.nav.about },
+  { href: `${landingUrl}#faq`, label: t.nav.faq },
+];
+const freeCallUrl = whatsappUrl(format(t.landing.whatsappMessages.freeCall, businessPlaceholders));
+const linkClass = "text-zinc-100 font-semibold hover:text-brand-base transition-colors";
 ---
 
 <header
   class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-white/10 py-4 transition-all"
 >
-  <div class="container flex justify-center  md:justify-between items-center">
-    <a
-      href={homeUrl}
-      class="font-heading font-black text-2xl text-zinc-100 flex items-center gap-2 hover:no-underline"
-    >
-      <img src={logoImage.src} alt="Logo" width="50" height="50" />
-      Jorge <span class="text-gradient">Perez</span>
-    </a>
-    <div class="hidden md:flex items-center gap-4 md:gap-8">
-      <ul class="hidden md:flex gap-8 list-none m-0 p-0">
-        <li>
-          <a
-            class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
-            href={homeUrl}
-          >
-            {t.nav.home}
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
-            href={projectsUrl}
-          >
-            {t.nav.projects}
-          </a>
-        </li>
-        <li>
-          <LanguageSwitcher />
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div id="mobile-menu" class="md:hidden w-full px-4 mt-2">
-    <ul class="list-none flex gap-8 items-center justify-center">
-      <li>
-        <a
-          class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
-          href={homeUrl}
-        >
-          {t.nav.home}
-        </a>
-      </li>
-      <li>
-        <a
-          class="text-zinc-100 font-semibold hover:text-brand-base transition-colors"
-          href={projectsUrl}
-        >
-          {t.nav.projects}
-        </a>
-      </li>
-      <li>
+  {variant === "landing" ? (
+    <div class="container flex justify-between items-center gap-4">
+      <a
+        href={landingUrl}
+        aria-label={t.nav.brandHome}
+        class="font-heading font-black text-2xl text-zinc-100 flex items-center gap-2 hover:no-underline"
+      >
+        <img src={logoImage.src} alt="" width="44" height="44" />
+        <span>G<span class="text-gradient">Catcode</span></span>
+      </a>
+      <nav aria-label={t.nav.mainNav} class="hidden lg:block">
+        <ul class="flex gap-6 list-none m-0 p-0">
+          {landingLinks.map(({ href, label }) => (
+            <li><a class={linkClass} href={href}>{label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="flex items-center gap-3">
         <LanguageSwitcher />
-      </li>
-    </ul>
-  </div>
+        <a
+          href={freeCallUrl}
+          target="_blank"
+          rel="noopener"
+          class="btn-primary no-underline !px-4 !py-2 text-xs hidden sm:inline-block"
+        >
+          {t.nav.contactCta}
+          <span class="sr-only"> {t.landing.newTabNote}</span>
+        </a>
+      </div>
+    </div>
+  ) : (
+    <Fragment>
+      <div class="container flex justify-center  md:justify-between items-center">
+        <a
+          href={cvUrl}
+          class="font-heading font-black text-2xl text-zinc-100 flex items-center gap-2 hover:no-underline"
+        >
+          <img src={logoImage.src} alt="Logo" width="50" height="50" />
+          Jorge <span class="text-gradient">Perez</span>
+        </a>
+        <div class="hidden md:flex items-center gap-4 md:gap-8">
+          <ul class="hidden md:flex gap-8 list-none m-0 p-0">
+            <li><a class={linkClass} href={cvUrl}>{t.nav.home}</a></li>
+            <li><a class={linkClass} href={projectsUrl}>{t.nav.projects}</a></li>
+            <li><LanguageSwitcher /></li>
+          </ul>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden w-full px-4 mt-2">
+        <ul class="list-none flex gap-8 items-center justify-center">
+          <li><a class={linkClass} href={cvUrl}>{t.nav.home}</a></li>
+          <li><a class={linkClass} href={projectsUrl}>{t.nav.projects}</a></li>
+          <li><LanguageSwitcher /></li>
+        </ul>
+      </div>
+    </Fragment>
+  )}
 </header>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {});
-</script>

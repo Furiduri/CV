@@ -1,0 +1,279 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Icon, { type IconName } from "../../components/Icon.astro";
+import TechPill from "../../components/TechPill.astro";
+import { businessPlaceholders, caseStudy, mailtoUrl, business, whatsappUrl } from "../../data/business";
+import { education } from "../../data/education";
+import { experienceYears } from "../../data/profile";
+import type { Locale } from "../../i18n/config";
+import { format, getLocaleStaticPaths, getLocalizedUrl, useTranslations } from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const l = t.landing;
+
+const license = education.find((entry) => "licenseNumber" in entry)?.licenseNumber ?? "";
+const values = { ...businessPlaceholders, years: experienceYears, license };
+const f = (text: string) => format(text, values);
+
+const whatsapp = {
+  general: whatsappUrl(f(l.whatsappMessages.general)),
+  freeCall: whatsappUrl(f(l.whatsappMessages.freeCall)),
+  advisory: whatsappUrl(f(l.whatsappMessages.advisory)),
+};
+const termsUrl = getLocalizedUrl(lang, "terminos");
+const privacyUrl = getLocalizedUrl(lang, "privacidad");
+const cvUrl = getLocalizedUrl(lang, "cv");
+
+const problemIcons: IconName[] = ["arrowPath", "chats", "currency"];
+const services: { icon: IconName; item: { title: string; text: string } }[] = [
+  { icon: "globe", item: l.services.items.web },
+  { icon: "phone", item: l.services.items.mobile },
+  { icon: "desktop", item: l.services.items.desktop },
+  { icon: "academic", item: l.services.items.advisory },
+];
+const methodPoints: { icon: IconName; item: { title: string; text: string } }[] = [
+  { icon: "clock", item: l.method.points.cycles },
+  { icon: "checkCircle", item: l.method.points.results },
+  { icon: "arrowPath", item: l.method.points.flexibility },
+];
+const faqItems = [
+  { item: l.faq.items.freeCall },
+  { item: l.faq.items.inPerson },
+  { item: l.faq.items.advisoryPrice },
+  { item: l.faq.items.projectPayment },
+  { item: l.faq.items.warranty, link: { href: termsUrl, label: l.faq.termsLink } },
+  { item: l.faq.items.ai, link: { href: privacyUrl, label: l.faq.privacyLink } },
+];
+
+const outlineButton =
+  "btn-primary no-underline text-center !bg-transparent border !border-brand-base !text-brand-base hover:!bg-brand-base/10 hover:!text-brand-neon";
+const iconBadge = "inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-base/10 text-brand-neon border border-brand-base/20 mb-4";
+---
+
+<Layout title={t.meta.landing.title} description={f(t.meta.landing.description)}>
+  <Header variant="landing" />
+
+  <main class="pt-20">
+    <!-- HERO -->
+    <section class="container flex flex-col justify-center min-h-[85vh] text-center md:text-left" aria-labelledby="hero-title">
+      <p class="text-brand-base font-semibold font-heading mb-4">{l.hero.eyebrow}</p>
+      <h1 id="hero-title" class="max-w-4xl text-4xl md:text-6xl">
+        <span class="text-gradient">{l.hero.title}</span>
+      </h1>
+      <p class="max-w-3xl text-lg md:text-xl text-zinc-300 mb-10 leading-relaxed mx-auto md:mx-0">{f(l.hero.subtitle)}</p>
+      <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
+        <a href={whatsapp.general} target="_blank" rel="noopener" class="btn-primary no-underline text-center">
+          {l.hero.primaryCta}<span class="sr-only"> {l.newTabNote}</span>
+        </a>
+        <a href="#free-call" class={outlineButton}>{l.hero.secondaryCta}</a>
+      </div>
+      <p class="text-sm text-zinc-400 mt-6 mb-0">{f(l.hero.note)}</p>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="container" aria-labelledby="problem-title">
+      <h2 id="problem-title" class="text-gradient">{l.problem.title}</h2>
+      <p class="text-lg text-zinc-400 max-w-2xl mb-10">{l.problem.intro}</p>
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none m-0 p-0">
+        {l.problem.items.map((item, index) => (
+          <li class="glass-card">
+            <span class={iconBadge}><Icon name={problemIcons[index] ?? "checkCircle"} /></span>
+            <h3 class="text-xl">{item.title}</h3>
+            <p class="text-zinc-400 m-0">{item.text}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container" aria-labelledby="services-title">
+      <h2 id="services-title" class="text-gradient">{l.services.title}</h2>
+      <p class="text-lg text-zinc-400 max-w-2xl mb-10">{l.services.intro}</p>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 list-none m-0 p-0">
+        {services.map(({ icon, item }) => (
+          <li class="glass-card">
+            <span class={iconBadge}><Icon name={icon} /></span>
+            <h3 class="text-xl">{item.title}</h3>
+            <p class="text-zinc-400 m-0">{item.text}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- METHOD -->
+    <section id="method" class="container" aria-labelledby="method-title">
+      <div class="glass-card hover:!translate-y-0">
+        <h2 id="method-title" class="text-gradient">{l.method.title}</h2>
+        <p class="text-lg text-zinc-400 max-w-3xl mb-10">{l.method.intro}</p>
+        <ol class="grid grid-cols-1 md:grid-cols-3 gap-8 list-none m-0 p-0">
+          {methodPoints.map(({ icon, item }) => (
+            <li>
+              <span class={iconBadge}><Icon name={icon} /></span>
+              <h3 class="text-xl">{f(item.title)}</h3>
+              <p class="text-zinc-400 m-0">{f(item.text)}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section id="case-study" class="container" aria-labelledby="case-study-title">
+      <p class="text-brand-base font-semibold font-heading mb-2">{l.caseStudy.eyebrow}</p>
+      <h2 id="case-study-title" class="text-gradient">{l.caseStudy.title}</h2>
+      <p class="text-lg text-zinc-400 max-w-3xl mb-10">{l.caseStudy.intro}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="glass-card">
+          <h3 class="text-xl">{l.caseStudy.challengeLabel}</h3>
+          <p class="text-zinc-400 m-0">{l.caseStudy.challenge}</p>
+        </div>
+        <div class="glass-card">
+          <h3 class="text-xl">{l.caseStudy.solutionLabel}</h3>
+          <p class="text-zinc-400 mb-4">{l.caseStudy.solution}</p>
+          <ul class="list-none m-0 p-0 space-y-2 text-zinc-300">
+            {l.caseStudy.features.map((feature) => (
+              <li class="flex gap-2"><Icon name="check" class="w-5 h-5 shrink-0 mt-0.5 text-brand-neon" />{feature}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="glass-card flex flex-col">
+          <h3 class="text-xl">{l.caseStudy.resultLabel}</h3>
+          <p class="text-zinc-400 mb-6">{l.caseStudy.result}</p>
+          <h4 class="text-sm uppercase tracking-wider text-zinc-400 mb-2">{l.caseStudy.stackLabel}</h4>
+          <div class="flex flex-wrap gap-2 mb-6">
+            {caseStudy.stack.map((tech) => <TechPill name={tech} />)}
+          </div>
+          <a href={caseStudy.url} target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-2 font-semibold">
+            {l.caseStudy.linkLabel}
+            <Icon name="external" class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="container" aria-labelledby="trust-title">
+      <h2 id="trust-title" class="text-gradient">{l.trust.title}</h2>
+      <p class="text-lg text-zinc-400 max-w-3xl mb-10">{l.trust.intro}</p>
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none m-0 p-0">
+        <li class="glass-card">
+          <span class={iconBadge}><Icon name="shield" /></span>
+          <h3 class="text-xl">{l.trust.privacy.title}</h3>
+          <p class="text-zinc-400 m-0">{l.trust.privacy.text} <a href={privacyUrl}>{l.trust.privacy.linkLabel}</a>.</p>
+        </li>
+        <li class="glass-card">
+          <span class={iconBadge}><Icon name="eye" /></span>
+          <h3 class="text-xl">{l.trust.review.title}</h3>
+          <p class="text-zinc-400 m-0">{l.trust.review.text}</p>
+        </li>
+        <li class="glass-card">
+          <span class={iconBadge}><Icon name="checkCircle" /></span>
+          <h3 class="text-xl">{f(l.trust.warranty.title)}</h3>
+          <p class="text-zinc-400 mb-4">{f(l.trust.warranty.text)}</p>
+          <a href={termsUrl} class="font-semibold">{l.trust.warranty.linkLabel}</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="container" aria-labelledby="about-title">
+      <div class="glass-card hover:!translate-y-0 flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
+        <div class="relative group shrink-0">
+          <div class="absolute -inset-1 bg-gradient-to-r from-brand-base to-brand-neon rounded-full blur opacity-25"></div>
+          <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-zinc-900 bg-zinc-800 overflow-hidden shadow-2xl flex items-center justify-center p-4">
+            <img src="/favicon.svg" alt={l.about.avatarAlt} width="128" height="128" class="w-full h-full object-contain" loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <h2 id="about-title" class="text-gradient">{l.about.title}</h2>
+          <p class="text-lg text-zinc-300 mb-4">{f(l.about.intro)}</p>
+          <p class="text-zinc-400 mb-8">
+            <strong class="text-zinc-100">{l.about.missionLabel}:</strong> {l.about.mission}
+          </p>
+          <a href={cvUrl} class={outlineButton}>{l.about.cvLink}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE CALL + PAID ADVISORY -->
+    <section id="free-call" class="container" aria-labelledby="free-call-title">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <div class="glass-card hover:!translate-y-0 lg:col-span-3 border-brand-base/40">
+          <span class="inline-block bg-brand-base/10 text-brand-neon px-3 py-1 rounded-full text-sm font-semibold border border-brand-base/20 mb-4">{l.freeCall.badge}</span>
+          <h2 id="free-call-title" class="text-gradient">{l.freeCall.title}</h2>
+          <p class="text-lg text-zinc-300 mb-6">{f(l.freeCall.text)}</p>
+          <ul class="list-none m-0 p-0 mb-8 flex flex-col sm:flex-row flex-wrap gap-x-6 gap-y-2 text-zinc-300">
+            {l.freeCall.details.map((detail) => (
+              <li class="flex items-start gap-2"><Icon name="check" class="w-5 h-5 shrink-0 mt-0.5 text-brand-neon" />{f(detail)}</li>
+            ))}
+          </ul>
+          <a href={whatsapp.freeCall} target="_blank" rel="noopener" class="btn-primary no-underline text-center">
+            {l.freeCall.cta}<span class="sr-only"> {l.newTabNote}</span>
+          </a>
+        </div>
+        <div class="glass-card hover:!translate-y-0 lg:col-span-2 flex flex-col">
+          <h3 class="text-2xl">{l.freeCall.advisory.title}</h3>
+          <p class="mb-4">
+            <span class="font-heading font-black text-4xl text-zinc-100">{f(l.freeCall.advisory.price)}</span>
+            <span class="text-zinc-400"> {l.freeCall.advisory.unit}</span>
+            <span class="block text-sm font-semibold text-brand-neon">{l.freeCall.advisory.taxNote}</span>
+          </p>
+          <p class="text-zinc-400 mb-3">{l.freeCall.advisory.intro}</p>
+          <ul class="list-disc pl-5 space-y-2 text-zinc-300 mb-8">
+            {l.freeCall.advisory.examples.map((example) => <li>{example}</li>)}
+          </ul>
+          <a href={whatsapp.advisory} target="_blank" rel="noopener" class={`${outlineButton} mt-auto`}>
+            {l.freeCall.advisory.cta}<span class="sr-only"> {l.newTabNote}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container max-w-4xl" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="text-gradient mb-8">{l.faq.title}</h2>
+      <div class="flex flex-col gap-4">
+        {faqItems.map(({ item, link }) => (
+          <details class="group glass-card !p-0 hover:!translate-y-0">
+            <summary class="flex justify-between items-center gap-4 cursor-pointer list-none p-6 font-heading font-bold text-lg text-zinc-100 [&::-webkit-details-marker]:hidden">
+              {item.question}
+              <Icon name="chevronDown" class="w-5 h-5 shrink-0 text-brand-neon transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-6 pb-6 text-zinc-400">
+              <p class="m-0">{f(item.answer)}</p>
+              {link && <a href={link.href} class="inline-block mt-3 font-semibold">{link.label}</a>}
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="container" aria-labelledby="final-cta-title">
+      <div class="rounded-2xl border border-brand-base/40 bg-gradient-to-r from-brand-base/15 to-brand-neon/10 p-8 md:p-12 text-center">
+        <h2 id="final-cta-title">{l.finalCta.title}</h2>
+        <p class="text-lg text-zinc-300 max-w-2xl mx-auto mb-8">{l.finalCta.text}</p>
+        <a href={whatsapp.general} target="_blank" rel="noopener" class="btn-primary no-underline inline-flex items-center gap-2">
+          <Icon name="chat" class="w-5 h-5" />
+          {l.finalCta.cta}<span class="sr-only"> {l.newTabNote}</span>
+        </a>
+        <p class="text-sm text-zinc-400 mt-6 mb-0">
+          {l.finalCta.emailLabel} <a href={mailtoUrl}>{business.email}</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer variant="landing" />
+</Layout>

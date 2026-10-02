@@ -3,17 +3,145 @@ import type { ExperienceId } from "../data/experience";
 import type { ProjectId } from "../data/projects";
 import type { SkillCategoryId, SkillTermId } from "../data/skills";
 
+// A legal document section: each block is a paragraph (string) or a bullet
+// list (string[]). Strings may use the business `{placeholders}`.
+export interface LegalSection {
+  title: string;
+  blocks: (string | string[])[];
+}
+
+export interface LegalDocument {
+  heading: string;
+  intro: string;
+  sections: LegalSection[];
+}
+
+interface TitledText {
+  title: string;
+  text: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 // Shape every locale dictionary must satisfy. `{years}` placeholders are
 // replaced at render time with the computed years of experience.
 export interface Dictionary {
   meta: {
     home: { title: string; description: string };
     projects: { title: string; description: string };
+    landing: { title: string; description: string };
+    terms: { title: string; description: string };
+    privacy: { title: string; description: string };
   };
   nav: {
     home: string;
     projects: string;
     switchLanguage: string;
+    // Landing navigation (also used on the legal pages).
+    mainNav: string;
+    brandHome: string;
+    services: string;
+    method: string;
+    caseStudy: string;
+    about: string;
+    faq: string;
+    contactCta: string;
+  };
+  // GCatcode sales landing. Strings may use the business `{placeholders}`
+  // from src/data/business.ts and `{years}`.
+  landing: {
+    whatsappMessages: { general: string; freeCall: string; advisory: string };
+    newTabNote: string;
+    hero: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      primaryCta: string;
+      secondaryCta: string;
+      note: string;
+    };
+    problem: { title: string; intro: string; items: TitledText[] };
+    services: {
+      title: string;
+      intro: string;
+      items: { web: TitledText; mobile: TitledText; desktop: TitledText; advisory: TitledText };
+    };
+    method: {
+      title: string;
+      intro: string;
+      points: { cycles: TitledText; results: TitledText; flexibility: TitledText };
+    };
+    caseStudy: {
+      eyebrow: string;
+      title: string;
+      intro: string;
+      challengeLabel: string;
+      challenge: string;
+      solutionLabel: string;
+      solution: string;
+      features: string[];
+      resultLabel: string;
+      result: string;
+      stackLabel: string;
+      linkLabel: string;
+    };
+    trust: {
+      title: string;
+      intro: string;
+      // Rendered as `text <a>linkLabel</a>`.
+      privacy: TitledText & { linkLabel: string };
+      review: TitledText;
+      warranty: TitledText & { linkLabel: string };
+    };
+    about: {
+      title: string;
+      avatarAlt: string;
+      intro: string;
+      missionLabel: string;
+      mission: string;
+      cvLink: string;
+    };
+    freeCall: {
+      title: string;
+      text: string;
+      badge: string;
+      details: string[];
+      cta: string;
+      advisory: {
+        title: string;
+        price: string;
+        unit: string;
+        taxNote: string;
+        intro: string;
+        examples: string[];
+        cta: string;
+      };
+    };
+    faq: {
+      title: string;
+      items: {
+        freeCall: FaqItem;
+        inPerson: FaqItem;
+        advisoryPrice: FaqItem;
+        projectPayment: FaqItem;
+        warranty: FaqItem;
+        ai: FaqItem;
+      };
+      termsLink: string;
+      privacyLink: string;
+    };
+    finalCta: { title: string; text: string; cta: string; emailLabel: string };
+  };
+  legal: {
+    updatedLabel: string;
+    updatedDate: string;
+    prevailNote: string;
+    backHome: string;
+    terms: LegalDocument;
+    privacy: LegalDocument;
   };
   hero: {
     avatarAlt: string;
@@ -49,5 +177,14 @@ export interface Dictionary {
   };
   footer: {
     builtWith: string;
+    tagline: string;
+    legalNav: string;
+    home: string;
+    cv: string;
+    terms: string;
+    privacy: string;
+    whatsapp: string;
+    email: string;
+    rights: string;
   };
 }
