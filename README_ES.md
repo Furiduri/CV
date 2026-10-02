@@ -20,7 +20,7 @@ Este proyecto es el código fuente de mi sitio web personal, diseñado para ser 
 
 ### ✨ Características
 
-- **Internacionalización (i18n):** Soporte bilingüe (Inglés y Español) mediante el enrutamiento y plantillas nativas.
+- **Internacionalización (i18n):** Soporte bilingüe (Inglés y Español) con una sola plantilla por ruta y diccionarios de traducción por idioma (agregar un idioma consiste en añadir un diccionario y registrar el locale), además de enlaces hreflang alternos en las páginas y el sitemap.
 - **Optimización de Buscadores (SEO):** Implementación integral con Open Graph, Sitemap dinámico y Twitter Cards para una alta visibilidad al compartirse.
 - **Diseño Moderno:** Interfaz responsiva y amigable (Glassmorphism, gradientes fluidos y transiciones suaves).
 

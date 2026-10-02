@@ -1,0 +1,33 @@
+---
+import { hreflangByLocale, locales } from "../i18n/config";
+import { getLocalizedUrl, getUnlocalizedPath, resolveLocale, useTranslations } from "../i18n/utils";
+
+const currentLocale = resolveLocale(Astro.currentLocale);
+const t = useTranslations(currentLocale);
+// The current page in every configured locale.
+const unlocalizedPath = getUnlocalizedPath(Astro.url.pathname);
+const languageLinks = locales.map((locale) => ({
+  locale,
+  href: getLocalizedUrl(locale, unlocalizedPath),
+  active: locale === currentLocale,
+}));
+---
+
+<div
+  role="group"
+  aria-label={t.nav.switchLanguage}
+  class="flex gap-1 items-center bg-zinc-900/70 border border-white/10 text-zinc-100 py-1.5 px-3 rounded-full font-sans text-xs font-semibold transition-all duration-300 hover:border-brand-base hover:shadow-[0_0_10px_rgba(0,191,99,0.2)]"
+>
+  {languageLinks.map(({ locale, href, active }, index) => (
+    <Fragment>
+      {index > 0 && <span class="text-zinc-400">/</span>}
+      <a
+        href={href}
+        hreflang={hreflangByLocale[locale]}
+        aria-current={active ? "true" : undefined}
+        class={`transition-colors duration-300 hover:no-underline ${active ? "text-brand-neon" : "text-zinc-400 hover:text-zinc-100"}`}
+        >{locale.toUpperCase()}</a
+      >
+    </Fragment>
+  ))}
+</div>

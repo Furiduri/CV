@@ -20,7 +20,7 @@ This project is the source code for my personal website, designed to be fast, ac
 
 ### ✨ Features
 
-- **Internationalization (i18n):** Bilingual support (English and Spanish) through native routing and templates.
+- **Internationalization (i18n):** Bilingual support (English and Spanish) with one template per route and per-locale translation dictionaries (adding a language means adding a dictionary and registering the locale), plus hreflang alternates in pages and the sitemap.
 - **Search Engine Optimization (SEO):** Comprehensive implementation with Open Graph, dynamic Sitemap, and Twitter Cards for high visibility when shared.
 - **Modern Design:** Responsive and user-friendly interface (Glassmorphism, fluid gradients, and smooth transitions).
 
