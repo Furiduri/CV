@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { defaultLocale, hreflangByLocale, locales } from "../i18n/config";
+import { getLocalizedUrl, getUnlocalizedPath, resolveLocale } from "../i18n/utils";
 
 interface Props {
   title: string;
@@ -16,8 +18,16 @@ const {
 } = Astro.props;
 
 const url = Astro.url;
-const locale = url.pathname.startsWith("/es") ? "es" : "en";
+const locale = resolveLocale(Astro.currentLocale);
 const canonicalURL = new URL(url.pathname, Astro.site || url.origin);
+
+// Same route in every configured locale, for hreflang alternates.
+const unlocalizedPath = getUnlocalizedPath(url.pathname);
+const alternates = locales.map((alternateLocale) => ({
+  hreflang: hreflangByLocale[alternateLocale],
+  href: new URL(getLocalizedUrl(alternateLocale, unlocalizedPath), Astro.site || url.origin),
+}));
+const defaultAlternate = new URL(getLocalizedUrl(defaultLocale, unlocalizedPath), Astro.site || url.origin);
 ---
 
 <!doctype html>
@@ -30,6 +40,12 @@ const canonicalURL = new URL(url.pathname, Astro.site || url.origin);
 
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Alternate languages -->
+    {alternates.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={defaultAlternate} />
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>

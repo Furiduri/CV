@@ -1,12 +1,13 @@
 ---
+import { resolveLocale, useTranslations } from "../i18n/utils";
 
+const t = useTranslations(resolveLocale(Astro.currentLocale));
 ---
 
 <footer class="text-center py-16 border-t border-white/10 mt-16 text-zinc-400">
   <div class="container">
     <p class="mb-6">
-      &copy; {new Date().getFullYear()} Jorge Osvaldo Perez Mendoza. Built with 💚🎲
-      and Astro.
+      &copy; {new Date().getFullYear()} Jorge Osvaldo Perez Mendoza. {t.footer.builtWith}
     </p>
     <div class="flex justify-center gap-6 items-center text-zinc-400">
       <a href="mailto:Jorge.Furiduri@gmail.com" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Email">
