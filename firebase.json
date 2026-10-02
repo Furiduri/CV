@@ -21,16 +21,6 @@
         "regex": "^/es/projects/?$",
         "destination": "/cv/projects/",
         "type": 301
-      },
-      {
-        "regex": "^/$",
-        "destination": "/cv/",
-        "type": 302
-      },
-      {
-        "regex": "^/en/?$",
-        "destination": "/en/cv/",
-        "type": 302
       }
     ]
   }
