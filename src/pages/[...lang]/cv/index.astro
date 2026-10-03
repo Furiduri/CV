@@ -4,6 +4,7 @@ import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import TechPill from "../../../components/TechPill.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
+import { mailtoUrl } from "../../../data/business";
 import { education } from "../../../data/education";
 import { experience } from "../../../data/experience";
 import { experienceYears } from "../../../data/profile";
@@ -69,7 +70,7 @@ const years = { years: experienceYears };
               >{t.hero.contact}</a
             >
             <div class="flex gap-4 md:ml-4 items-center text-zinc-400">
-              <a href="mailto:Jorge.Furiduri@gmail.com" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Email">
+              <a href={mailtoUrl} class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Email">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" /><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" /></svg>
               </a>
               <a href="https://github.com/Furiduri" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="GitHub">
