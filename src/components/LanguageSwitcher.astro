@@ -20,12 +20,12 @@ const languageLinks = locales.map((locale) => ({
 >
   {languageLinks.map(({ locale, href, active }, index) => (
     <Fragment>
-      {index > 0 && <span class="text-zinc-400">/</span>}
+      {index > 0 && <span class="text-zinc-300" aria-hidden="true">/</span>}
       <a
         href={href}
         hreflang={hreflangByLocale[locale]}
         aria-current={active ? "true" : undefined}
-        class={`transition-colors duration-300 hover:no-underline ${active ? "text-brand-neon" : "text-zinc-400 hover:text-zinc-100"}`}
+        class={`transition-colors duration-300 hover:no-underline ${active ? "text-brand-neon" : "text-zinc-300 hover:text-zinc-50"}`}
         >{locale.toUpperCase()}</a
       >
     </Fragment>

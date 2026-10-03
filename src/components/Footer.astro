@@ -22,7 +22,7 @@ const siteLinks = [
 const generalWhatsappUrl = whatsappUrl(format(t.landing.whatsappMessages.general, businessPlaceholders));
 ---
 
-<footer class="text-center py-16 border-t border-white/10 mt-16 text-zinc-400">
+<footer class="text-center py-16 border-t border-white/10 mt-16 text-zinc-300">
   <div class="container flex flex-col items-center gap-8">
     {variant === "landing" ? (
       <Fragment>
@@ -51,7 +51,7 @@ const generalWhatsappUrl = whatsappUrl(format(t.landing.whatsappMessages.general
         </ul>
       </Fragment>
     ) : (
-<div class="flex justify-center gap-6 items-center text-zinc-400">
+<div class="flex justify-center gap-6 items-center text-zinc-300">
         <a href={mailtoUrl} class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Email">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" /><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" /></svg>
         </a>
@@ -69,7 +69,7 @@ const generalWhatsappUrl = whatsappUrl(format(t.landing.whatsappMessages.general
     <nav aria-label={t.footer.legalNav}>
       <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 list-none m-0 p-0 text-sm">
         {siteLinks.map(({ href, label }) => (
-          <li><a href={href} class="text-zinc-400 hover:text-brand-neon">{label}</a></li>
+          <li><a href={href} class="text-zinc-300 hover:text-brand-neon">{label}</a></li>
         ))}
       </ul>
     </nav>
