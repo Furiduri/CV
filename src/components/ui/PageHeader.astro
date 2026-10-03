@@ -1,0 +1,15 @@
+---
+import GradientText from "./GradientText.astro";
+
+// Page title (h1 with the brand gradient) and an optional intro paragraph.
+interface Props {
+  id: string;
+  title: string;
+  intro?: string;
+}
+
+const { id, title, intro } = Astro.props;
+---
+
+<h1 id={id}><GradientText>{title}</GradientText></h1>
+{intro && <p class="mb-12 max-w-[600px] text-lg text-zinc-400">{intro}</p>}
