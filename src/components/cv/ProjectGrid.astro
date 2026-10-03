@@ -8,14 +8,15 @@ export interface ProjectSummary {
   link: string;
 }
 
-// Two-column grid of project cards.
+// Grid of project cards: two columns, or three on wide screens.
 interface Props {
   projects: ProjectSummary[];
+  columns?: 2 | 3;
 }
 
-const { projects } = Astro.props;
+const { projects, columns = 2 } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<div class:list={["grid grid-cols-1 gap-6 md:grid-cols-2", columns === 3 && "lg:grid-cols-3"]}>
   {projects.map((project) => <ProjectCard {...project} />)}
 </div>

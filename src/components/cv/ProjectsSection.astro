@@ -8,13 +8,14 @@ interface Props {
   id: string;
   title: string;
   projects: ProjectSummary[];
+  columns?: 2 | 3;
 }
 
-const { id, title, projects } = Astro.props;
+const { id, title, projects, columns } = Astro.props;
 const headingId = `${id}-title`;
 ---
 
 <Section id={id} labelledby={headingId}>
   <SectionHeading id={headingId} accent={false} class="mb-8"><GradientText>{title}</GradientText></SectionHeading>
-  <ProjectGrid projects={projects} />
+  <ProjectGrid projects={projects} columns={columns} />
 </Section>

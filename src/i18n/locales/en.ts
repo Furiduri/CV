@@ -103,6 +103,7 @@ export default {
   projectsPage: {
     heading: "Featured Projects",
     intro: "A collection of my recent work spanning AI engineering, web development, and community platforms.",
+    moreProjects: "More projects",
     descriptionOverrides: {
       gcatcode: "Web Platforms & Portfolio. Built responsive web platforms using Astro, Tailwind CSS, and TypeScript, achieving high performance metrics on Lighthouse.",
     },

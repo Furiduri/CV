@@ -103,6 +103,7 @@ export default {
   projectsPage: {
     heading: "Proyectos Destacados",
     intro: "Una colección de mis trabajos recientes que abarcan ingeniería de IA, desarrollo web y plataformas comunitarias.",
+    moreProjects: "Más proyectos",
     descriptionOverrides: {
       gcatcode: "Plataformas Web y Portafolio. Construcción de plataformas web responsivas utilizando Astro, Tailwind CSS y TypeScript, alcanzando métricas de alto rendimiento en Lighthouse.",
     },
