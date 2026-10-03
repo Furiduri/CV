@@ -1,0 +1,18 @@
+---
+// Neutral section heading. Headings stay white so the green accent keeps its
+// meaning; `accent` adds the short green bar above the text.
+interface Props {
+  id: string;
+  level?: 1 | 2 | 3;
+  accent?: boolean;
+  class?: string;
+}
+
+const { id, level = 2, accent = true, class: className } = Astro.props;
+const Tag = `h${level}` as "h1" | "h2" | "h3";
+---
+
+<Tag id={id} class:list={["text-zinc-50", className]}>
+  {accent && <span aria-hidden="true" class="mb-5 block h-1 w-12 rounded-full bg-gradient-to-r from-brand-base to-brand-neon"></span>}
+  <slot />
+</Tag>

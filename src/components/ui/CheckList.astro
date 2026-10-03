@@ -1,0 +1,28 @@
+---
+import Icon from "../Icon.astro";
+
+// List with a green check per item. `inline` lays the items out in a row that
+// wraps on narrow screens.
+interface Props {
+  items: string[];
+  layout?: "stack" | "inline";
+  class?: string;
+}
+
+const { items, layout = "stack", class: className } = Astro.props;
+---
+
+<ul
+  class:list={[
+    "m-0 list-none p-0",
+    layout === "inline" ? "flex flex-col flex-wrap gap-x-6 gap-y-2 sm:flex-row" : "space-y-2",
+    className,
+  ]}
+>
+  {items.map((item) => (
+    <li class="flex items-start gap-2">
+      <Icon name="check" class="mt-0.5 h-5 w-5 shrink-0 text-brand-neon" />
+      {item}
+    </li>
+  ))}
+</ul>

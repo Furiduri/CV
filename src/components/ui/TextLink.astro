@@ -1,0 +1,27 @@
+---
+import Icon from "../Icon.astro";
+
+// Inline text link: brand-neon (APCA Lc ~70) and underlined, so it reads as a
+// link without relying on color alone.
+interface Props {
+  href: string;
+  external?: boolean;
+  class?: string;
+}
+
+const { href, external = false, class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener" : undefined}
+  class:list={[
+    "font-semibold text-brand-neon underline decoration-brand-neon/40 underline-offset-4 hover:decoration-brand-neon",
+    external && "inline-flex items-center gap-2",
+    className,
+  ]}
+>
+  <slot />
+  {external && <Icon name="external" class="h-4 w-4" />}
+</a>
