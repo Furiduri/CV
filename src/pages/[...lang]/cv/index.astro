@@ -1,17 +1,21 @@
 ---
+// CV page. Container only (ADR-0001): it joins the shared data with the
+// dictionary, formats the copy and composes the cv/ sections.
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
-import TechPill from "../../../components/TechPill.astro";
-import ProjectCard from "../../../components/ProjectCard.astro";
-import { mailtoUrl } from "../../../data/business";
+import CvHero from "../../../components/cv/CvHero.astro";
+import EducationSection from "../../../components/cv/EducationSection.astro";
+import ExperienceSection from "../../../components/cv/ExperienceSection.astro";
+import ProjectsSection from "../../../components/cv/ProjectsSection.astro";
+import SkillsSection from "../../../components/cv/SkillsSection.astro";
 import { education } from "../../../data/education";
 import { experience } from "../../../data/experience";
-import { experienceYears } from "../../../data/profile";
+import { experienceYears, profileName, socialLinks, websiteUrl } from "../../../data/profile";
 import { projects } from "../../../data/projects";
 import { skillCategories } from "../../../data/skills";
 import type { Locale } from "../../../i18n/config";
-import { format, getLocaleStaticPaths, useTranslations } from "../../../i18n/utils";
+import { formatDeep, getLocaleStaticPaths, useTranslations } from "../../../i18n/utils";
 
 export function getStaticPaths() {
   return getLocaleStaticPaths();
@@ -23,144 +27,52 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const years = { years: experienceYears };
+const values = { years: experienceYears };
+const meta = formatDeep(t.meta.home, values);
+
+const jobs = experience.map((job) => ({
+  company: job.company,
+  period: `${job.startYear} - ${job.endYear}`,
+  role: t.experience[job.id].role,
+  bullets: t.experience[job.id].bullets,
+}));
+const projectSummaries = projects.map((project) => ({
+  title: project.title,
+  description: t.projects[project.id].description,
+  tags: t.projects[project.id].tags,
+  link: project.link,
+}));
+const educationEntries = education.map((entry) => ({
+  institution: entry.institution,
+  degree: t.education.entries[entry.id].degree,
+  degreeAlt: t.education.entries[entry.id].degreeAlt,
+  note:
+    "licenseNumber" in entry
+      ? `${t.education.graduatedLabel} ${entry.graduationYear} | ${t.education.licenseLabel}: No. ${entry.licenseNumber}`
+      : undefined,
+}));
+const skillGroups = skillCategories.map((category) => ({
+  title: t.skills.categories[category.id],
+  items: category.items.map((item) => (typeof item === "string" ? item : t.skills.terms[item.term])),
+}));
 ---
 
-
-<Layout 
-  title={t.meta.home.title}
-  description={format(t.meta.home.description, years)}
-  image="/favicon.svg"
->
+<Layout title={meta.title} description={meta.description} image="/favicon.svg">
   <Header />
 
   <main class="pt-20">
-    <!-- HERO SECTION -->
-    <section class="container flex flex-col justify-center min-h-[85vh] animate-fade-in text-center md:text-left">
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-        
-        <!-- Avatar profile styling like Linktree_Furiduri -->
-        <div class="relative group shrink-0">
-          <div class="absolute -inset-1 bg-gradient-to-r from-brand-base to-brand-neon rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-          <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-zinc-900 bg-zinc-800 overflow-hidden shadow-2xl flex items-center justify-center p-4">
-            <img src="/favicon.svg" alt={t.hero.avatarAlt} class="w-full h-full object-contain" />
-          </div>
-        </div>
-
-        <div>
-          <p class="text-brand-base font-semibold font-heading mb-4">
-            {t.hero.greeting}
-          </p>
-          <h1>
-            Jorge Osvaldo <br /><span class="text-gradient">Perez Mendoza</span>
-          </h1>
-          <h2 class="text-zinc-400 text-2xl md:text-3xl mt-4 mb-6">
-            {t.hero.headline}
-          </h2>
-          <p class="max-w-[700px] text-lg text-zinc-400 mb-10 leading-relaxed">
-            {format(t.hero.summary.lead, years)} <strong>{t.hero.summary.highlight}</strong> {t.hero.summary.trail}
-          </p>
-          <div class="flex flex-wrap gap-4 justify-center md:justify-start items-center">
-            <a href="#experience" class="btn-primary no-underline text-center">{t.hero.viewExperience}</a>
-            <a
-              href="https://gcatcode.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary no-underline text-center !bg-transparent border !border-brand-base !text-brand-base hover:!bg-brand-base/10 hover:!text-brand-neon"
-              >{t.hero.contact}</a
-            >
-            <div class="flex gap-4 md:ml-4 items-center text-zinc-400">
-              <a href={mailtoUrl} class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Email">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" /><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" /></svg>
-              </a>
-              <a href="https://github.com/Furiduri" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="GitHub">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-              </a>
-              <a href="https://linkedin.com/in/furiduri/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="LinkedIn">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
-              </a>
-              <a href="https://instagram.com/furiduri/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neon transition-colors hover:scale-110" aria-label="Instagram">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" clip-rule="evenodd" /></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="container glass-card mb-16">
-      <h2 class="text-gradient">{t.sections.experience}</h2>
-      <div class="mt-8 flex flex-col gap-8 pb-8">
-        {experience.map((job, index) => (
-          <Fragment>
-            {index > 0 && <div class="w-full h-px bg-white/10"></div>}
-            <div>
-              <h3 class="font-heading mb-2">
-                {job.company} <span class="text-base text-brand-base font-normal ml-2">({job.startYear} - {job.endYear})</span>
-              </h3>
-              <p class="font-semibold mb-2 text-zinc-50">
-                {t.experience[job.id].role}
-              </p>
-              <ul class="text-zinc-400 list-disc pl-5 space-y-2">
-                {t.experience[job.id].bullets.map((bullet) => <li>{bullet}</li>)}
-              </ul>
-            </div>
-          </Fragment>
-        ))}
-      </div>
-    </section>
-
-    <!-- FEATURED PROJECTS -->
-    <section id="projects" class="container mb-16">
-      <h2 class="text-gradient mb-8">{t.sections.featuredProjects}</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project) => (
-          <ProjectCard 
-            title={project.title}
-            description={t.projects[project.id].description}
-            tags={t.projects[project.id].tags}
-            link={project.link}
-          />
-        ))}
-      </div>
-    </section>
-
-    <!-- EDUCATION SECTION -->
-    <section id="education" class="container glass-card mb-16">
-      <h2 class="text-gradient">{t.sections.education}</h2>
-      <div class="mt-8 flex flex-col gap-6 pb-8">
-        {education.map((entry) => (
-          <div>
-            <h3 class="font-heading mb-2">{entry.institution}</h3>
-            <p class="text-zinc-400">
-              <strong>{t.education.entries[entry.id].degree}</strong> ({t.education.entries[entry.id].degreeAlt})
-              {"licenseNumber" in entry && (
-                <Fragment>
-                  <br />
-                  {`${t.education.graduatedLabel} ${entry.graduationYear} | ${t.education.licenseLabel}: No. ${entry.licenseNumber}`}
-                </Fragment>
-              )}
-            </p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- SKILLS & TECHNOLOGIES -->
-    <section id="skills" class="container mb-16">
-      <h2 class="text-gradient mb-8 text-center md:text-left">{t.sections.skills}</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skillCategories.map((category) => (
-          <div class="glass-card flex flex-col h-full">
-            <h3 class="font-heading mb-4 text-zinc-100">{t.skills.categories[category.id]}</h3>
-            <div class="flex flex-wrap gap-2 mt-auto">
-              {category.items.map((item) => <TechPill name={typeof item === "string" ? item : t.skills.terms[item.term]} />)}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+    <CvHero
+      copy={formatDeep(t.hero, values)}
+      name={profileName}
+      avatarSrc="/favicon.svg"
+      experienceHref="#experience"
+      contactHref={websiteUrl}
+      socialLinks={socialLinks}
+    />
+    <ExperienceSection id="experience" title={t.sections.experience} jobs={jobs} />
+    <ProjectsSection id="projects" title={t.sections.featuredProjects} projects={projectSummaries} />
+    <EducationSection id="education" title={t.sections.education} entries={educationEntries} />
+    <SkillsSection id="skills" title={t.sections.skills} categories={skillGroups} />
   </main>
 
   <Footer />

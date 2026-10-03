@@ -1,0 +1,53 @@
+---
+import Button from "../ui/Button.astro";
+import GradientText from "../ui/GradientText.astro";
+import Section from "../ui/Section.astro";
+import SocialLinks from "../ui/SocialLinks.astro";
+import type { SocialNetwork } from "../../data/profile";
+import type { Dictionary } from "../../i18n/types";
+
+interface Props {
+  copy: Dictionary["hero"];
+  name: { given: string; family: string };
+  avatarSrc: string;
+  experienceHref: string;
+  contactHref: string;
+  socialLinks: { network: SocialNetwork; label: string; href: string }[];
+}
+
+const { copy, name, avatarSrc, experienceHref, contactHref, socialLinks } = Astro.props;
+---
+
+<Section labelledby="cv-hero-title">
+  <!-- 85vh tall in total: the section adds 12rem of vertical padding. -->
+  <div class="flex min-h-[calc(85vh-12rem)] flex-col justify-center text-center md:text-left">
+    <div class="flex flex-col items-center gap-8 md:flex-row md:items-start">
+      <div class="group relative shrink-0">
+        <div
+          aria-hidden="true"
+          class="absolute -inset-1 rounded-full bg-gradient-to-r from-brand-base to-brand-neon opacity-25 blur transition duration-1000 group-hover:opacity-50 group-hover:duration-200"
+        >
+        </div>
+        <div class="relative flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border-4 border-zinc-900 bg-zinc-800 p-4 shadow-2xl md:h-48 md:w-48">
+          <img src={avatarSrc} alt={copy.avatarAlt} class="h-full w-full object-contain" />
+        </div>
+      </div>
+
+      <div>
+        <p class="mb-4 font-heading font-semibold text-brand-base">{copy.greeting}</p>
+        <h1 id="cv-hero-title">
+          {name.given} <br /><GradientText>{name.family}</GradientText>
+        </h1>
+        <h2 class="mb-6 mt-4 text-2xl text-zinc-400 md:text-3xl">{copy.headline}</h2>
+        <p class="mb-10 max-w-[700px] text-lg leading-relaxed text-zinc-400">
+          {copy.summary.lead} <strong>{copy.summary.highlight}</strong> {copy.summary.trail}
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+          <Button href={experienceHref}>{copy.viewExperience}</Button>
+          <Button href={contactHref} variant="secondary" external>{copy.contact}</Button>
+          <SocialLinks links={socialLinks} class="text-zinc-400 md:ml-4" />
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

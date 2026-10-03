@@ -2,6 +2,7 @@
 import logoImage from "../assets/Logo_Gcatcode.svg";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 import Button from "./ui/Button.astro";
+import GradientText from "./ui/GradientText.astro";
 import { businessPlaceholders, whatsappUrl } from "../data/business";
 import { format, getLocalizedUrl, resolveLocale, useTranslations } from "../i18n/utils";
 
@@ -41,7 +42,7 @@ const linkClass = "text-zinc-100 font-semibold hover:text-brand-base transition-
         class="font-heading font-black text-2xl text-zinc-100 flex items-center gap-2 hover:no-underline"
       >
         <img src={logoImage.src} alt="" width="44" height="44" />
-        <span>G<span class="text-gradient">Catcode</span></span>
+        <span>G<GradientText>Catcode</GradientText></span>
       </a>
       <nav aria-label={t.nav.mainNav} class="hidden lg:block">
         <ul class="flex gap-6 list-none m-0 p-0">
@@ -65,7 +66,7 @@ const linkClass = "text-zinc-100 font-semibold hover:text-brand-base transition-
           class="font-heading font-black text-2xl text-zinc-100 flex items-center gap-2 hover:no-underline"
         >
           <img src={logoImage.src} alt="Logo" width="50" height="50" />
-          Jorge <span class="text-gradient">Perez</span>
+          Jorge <GradientText>Perez</GradientText>
         </a>
         <div class="hidden md:flex items-center gap-4 md:gap-8">
           <ul class="hidden md:flex gap-8 list-none m-0 p-0">

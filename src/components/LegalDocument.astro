@@ -1,4 +1,5 @@
 ---
+import GradientText from "./ui/GradientText.astro";
 import { businessPlaceholders, legalLastUpdated } from "../data/business";
 import type { LegalDocument } from "../i18n/types";
 import { format, getLocalizedUrl, resolveLocale, useTranslations } from "../i18n/utils";
@@ -15,7 +16,7 @@ const f = (text: string) => format(text, businessPlaceholders);
 
 <article class="max-w-3xl mx-auto">
   <header class="mb-12">
-    <h1 class="text-4xl md:text-5xl"><span class="text-gradient">{document.heading}</span></h1>
+    <h1 class="text-4xl md:text-5xl"><GradientText>{document.heading}</GradientText></h1>
     <p class="text-sm text-zinc-400 m-0">
       {t.legal.updatedLabel} <time datetime={legalLastUpdated}>{t.legal.updatedDate}</time>
     </p>

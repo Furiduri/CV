@@ -1,0 +1,35 @@
+---
+import Card from "../ui/Card.astro";
+import GradientText from "../ui/GradientText.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import TechPill from "../ui/TechPill.astro";
+
+export interface SkillCategory {
+  title: string;
+  items: string[];
+}
+
+interface Props {
+  id: string;
+  title: string;
+  categories: SkillCategory[];
+}
+
+const { id, title, categories } = Astro.props;
+const headingId = `${id}-title`;
+---
+
+<Section id={id} labelledby={headingId}>
+  <SectionHeading id={headingId} accent={false} class="mb-8"><GradientText>{title}</GradientText></SectionHeading>
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {categories.map((category) => (
+      <Card class="flex h-full flex-col">
+        <h3 class="mb-4 font-heading text-zinc-100">{category.title}</h3>
+        <div class="mt-auto flex flex-wrap gap-2">
+          {category.items.map((item) => <TechPill name={item} />)}
+        </div>
+      </Card>
+    ))}
+  </div>
+</Section>
