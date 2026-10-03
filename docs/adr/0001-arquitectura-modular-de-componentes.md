@@ -1,6 +1,6 @@
 # ADR-0001: Arquitectura modular de componentes
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-02
 
 ## Contexto
@@ -90,8 +90,8 @@ solo para el armazón del sitio (punto 5 de la decisión).
   el caso de Juegalajara en `/cv/projects/`.
 - Las páginas quedan cortas y muestran de un vistazo qué secciones tienen y de
   dónde salen sus datos.
-- Las props tipadas con el diccionario hacen que el build falle si a una
-  sección le falta un texto.
+- Las props tipadas con el diccionario permiten que el editor señale un texto
+  faltante o mal nombrado al usar una sección.
 - Cada componente se revisa por separado, y un cambio de estilo de un botón se
   hace en un solo lugar.
 
@@ -105,12 +105,16 @@ solo para el armazón del sitio (punto 5 de la decisión).
   las clases `.glass-card` y `.btn-primary` (issue #21).
 - Ningún chequeo automático hace cumplir esta regla; depende de la revisión y
   de la skill `skill-content`.
+- Los tipos de las props no se verifican en el build: `npm run build` no corre
+  `astro check` ni `tsc`, y el CI solo ejecuta `npm run build`. Una prop mal
+  pasada se detecta en el editor o al renderizar, no antes.
 
 ## Verificación pendiente
 
 - El PR #20 todavía no cumple esta decisión; se refactoriza antes de mergear.
 - La migración del CV queda en el issue #21.
 - No existe una regla de lint que detecte secciones en línea en una página.
+- No existe verificación de tipos automática (`astro check` no está instalado).
 
 ## Alcance
 
