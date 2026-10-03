@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import Button from "../ui/Button.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import TextLink from "../ui/TextLink.astro";
+import type { LandingPhoto } from "../../data/landingPhotos";
+import type { Dictionary } from "../../i18n/types";
+
+// Closing call to action over a decorative photo. The dark overlay keeps every
+// line above APCA Lc 90 even over the brightest pixel of the photo. The
+// `footnote` slot renders below the panel (photo credits).
+interface Props {
+  copy: Dictionary["landing"]["finalCta"];
+  photo: LandingPhoto;
+  ctaHref: string;
+  email: string;
+  emailHref: string;
+  newTabLabel: string;
+}
+
+const { copy, photo, ctaHref, email, emailHref, newTabLabel } = Astro.props;
+---
+
+<Section labelledby="final-cta-title">
+  <div class="relative isolate overflow-hidden rounded-3xl border border-white/10">
+    <Image
+      src={photo.src}
+      width={photo.width}
+      height={photo.height}
+      widths={[640, 1200, 2400]}
+      sizes="(min-width: 1152px) 1088px, 92vw"
+      alt=""
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+    />
+    <div aria-hidden="true" class="absolute inset-0 -z-10 bg-gradient-to-t from-zinc-950 via-zinc-950/85 to-zinc-950/70"></div>
+    <div aria-hidden="true" class="absolute inset-0 -z-10 bg-gradient-to-r from-brand-base/20 to-transparent"></div>
+    <div class="px-6 py-16 text-center md:px-12 md:py-24">
+      <SectionHeading id="final-cta-title" accent={false} class="text-3xl md:text-5xl">{copy.title}</SectionHeading>
+      <p class="mx-auto mb-10 max-w-2xl text-lg text-zinc-100 md:text-xl">{copy.text}</p>
+      <Button href={ctaHref} icon="chat" newTabLabel={newTabLabel}>{copy.cta}</Button>
+      <p class="mb-0 mt-8 text-zinc-100">
+        {copy.emailLabel} <TextLink href={emailHref}>{email}</TextLink>
+      </p>
+    </div>
+  </div>
+  <slot name="footnote" />
+</Section>

@@ -1,0 +1,56 @@
+---
+import Button from "../ui/Button.astro";
+import Chip from "../ui/Chip.astro";
+import Eyebrow from "../ui/Eyebrow.astro";
+import Glow from "../ui/Glow.astro";
+import PhotoFrame from "../ui/PhotoFrame.astro";
+import Section from "../ui/Section.astro";
+import type { LandingPhoto } from "../../data/landingPhotos";
+import type { Dictionary } from "../../i18n/types";
+
+interface Props {
+  copy: Dictionary["landing"]["hero"];
+  photo: LandingPhoto;
+  photoAlt: string;
+  // Highlights floating over the photo.
+  chips: { offer: { title: string; text: string }; delivery: string };
+  primaryHref: string;
+  secondaryHref: string;
+  newTabLabel: string;
+}
+
+const { copy, photo, photoAlt, chips, primaryHref, secondaryHref, newTabLabel } = Astro.props;
+---
+
+<Section labelledby="hero-title">
+  <Glow slot="background" class="-right-32 top-10 bg-teal-400/10" />
+  <div class="grid grid-cols-1 items-center gap-14 lg:min-h-[78vh] lg:grid-cols-12">
+    <div class="text-center lg:col-span-7 lg:text-left">
+      <Eyebrow>{copy.eyebrow}</Eyebrow>
+      <h1 id="hero-title" class="text-4xl md:text-6xl">
+        <span class="text-gradient">{copy.title}</span>
+      </h1>
+      <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-200 md:text-xl lg:mx-0">{copy.subtitle}</p>
+      <div class="flex flex-col flex-wrap justify-center gap-4 sm:flex-row lg:justify-start">
+        <Button href={primaryHref} icon="chat" newTabLabel={newTabLabel}>{copy.primaryCta}</Button>
+        <Button href={secondaryHref} variant="secondary">{copy.secondaryCta}</Button>
+      </div>
+      <p class="mx-auto mb-0 mt-6 max-w-2xl text-sm text-zinc-300 lg:mx-0">{copy.note}</p>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
+      <PhotoFrame
+        image={photo}
+        alt={photoAlt}
+        widths={[400, 800, 1200]}
+        sizes="(min-width: 1024px) 440px, (min-width: 640px) 384px, 90vw"
+        loading="eager"
+        fetchpriority="high"
+        shade
+        class="aspect-[4/5]"
+      />
+      <Chip icon="chat" tone="solid" title={chips.offer.title} text={chips.offer.text} class="absolute bottom-6 left-3 lg:-left-10 lg:bottom-12" />
+      <Chip icon="clock" title={chips.delivery} class="absolute right-3 top-6 max-w-[15rem] lg:-right-6 lg:top-10" />
+    </div>
+  </div>
+</Section>

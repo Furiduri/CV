@@ -20,12 +20,6 @@ export const business = {
 // human-readable date lives in each dictionary (`legal.updatedDate`).
 export const legalLastUpdated = "2026-10-02";
 
-export const caseStudy = {
-  name: "Juegalajara",
-  url: "https://juegalajara.mx/",
-  stack: ["Astro", "Firebase", "Tailwind CSS"],
-} as const;
-
 // WhatsApp click-to-chat link with a prefilled message.
 export function whatsappUrl(message: string): string {
   return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(message)}`;

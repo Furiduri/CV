@@ -1,0 +1,45 @@
+---
+import Button from "../ui/Button.astro";
+import Card from "../ui/Card.astro";
+import CheckList from "../ui/CheckList.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { Dictionary } from "../../i18n/types";
+
+// Free discovery call next to the paid hourly advisory.
+interface Props {
+  id: string;
+  copy: Dictionary["landing"]["freeCall"];
+  freeCallHref: string;
+  advisoryHref: string;
+  newTabLabel: string;
+}
+
+const { id, copy, freeCallHref, advisoryHref, newTabLabel } = Astro.props;
+const headingId = `${id}-title`;
+---
+
+<Section id={id} labelledby={headingId}>
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-5">
+    <Card tone="highlight" class="lg:col-span-3">
+      <span class="mb-4 inline-block rounded-full bg-brand-neon px-3 py-1 text-sm font-bold text-zinc-950">{copy.badge}</span>
+      <SectionHeading id={headingId} accent={false}>{copy.title}</SectionHeading>
+      <p class="mb-6 text-lg text-zinc-200">{copy.text}</p>
+      <CheckList items={copy.details} layout="inline" class="mb-8 text-zinc-100" />
+      <Button href={freeCallHref} newTabLabel={newTabLabel}>{copy.cta}</Button>
+    </Card>
+    <Card class="flex flex-col lg:col-span-2">
+      <h3 class="text-2xl">{copy.advisory.title}</h3>
+      <p class="mb-4">
+        <span class="font-heading text-4xl font-black text-zinc-50">{copy.advisory.price}</span>
+        <span class="text-zinc-300"> {copy.advisory.unit}</span>
+        <span class="block text-sm font-semibold text-brand-neon">{copy.advisory.taxNote}</span>
+      </p>
+      <p class="mb-3 text-zinc-300">{copy.advisory.intro}</p>
+      <ul class="mb-8 list-disc space-y-2 pl-5 text-zinc-200 marker:text-brand-neon">
+        {copy.advisory.examples.map((example) => <li>{example}</li>)}
+      </ul>
+      <Button href={advisoryHref} variant="secondary" newTabLabel={newTabLabel} class="mt-auto">{copy.advisory.cta}</Button>
+    </Card>
+  </div>
+</Section>

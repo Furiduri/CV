@@ -1,0 +1,44 @@
+---
+import Icon from "../Icon.astro";
+import Card from "../ui/Card.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import TextLink from "../ui/TextLink.astro";
+import type { Dictionary } from "../../i18n/types";
+
+interface Props {
+  id: string;
+  copy: Dictionary["landing"]["faq"];
+  termsHref: string;
+  privacyHref: string;
+}
+
+const { id, copy, termsHref, privacyHref } = Astro.props;
+const headingId = `${id}-title`;
+const items = [
+  { item: copy.items.freeCall },
+  { item: copy.items.inPerson },
+  { item: copy.items.advisoryPrice },
+  { item: copy.items.projectPayment },
+  { item: copy.items.warranty, link: { href: termsHref, label: copy.termsLink } },
+  { item: copy.items.ai, link: { href: privacyHref, label: copy.privacyLink } },
+];
+---
+
+<Section id={id} labelledby={headingId} narrow>
+  <SectionHeading id={headingId} class="mb-8">{copy.title}</SectionHeading>
+  <div class="flex flex-col gap-4">
+    {items.map(({ item, link }) => (
+      <Card as="details" padded={false} class="group">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-heading text-lg font-bold text-zinc-50 [&::-webkit-details-marker]:hidden">
+          {item.question}
+          <Icon name="chevronDown" class="h-5 w-5 shrink-0 text-brand-neon transition-transform group-open:rotate-180" />
+        </summary>
+        <div class="px-6 pb-6 text-zinc-300">
+          <p class="m-0">{item.answer}</p>
+          {link && <TextLink href={link.href} class="mt-3 inline-block">{link.label}</TextLink>}
+        </div>
+      </Card>
+    ))}
+  </div>
+</Section>
