@@ -11,6 +11,7 @@ principal: **un ADR aceptado no se edita, se supera con uno nuevo.**
 | # | Decisión | Estado | Fecha |
 | --- | --- | --- | --- |
 | [0000](0000-proceso-de-adr.md) | Proceso de registro de decisiones de arquitectura | Aceptada | 2026-10-02 |
+| [0001](0001-arquitectura-modular-de-componentes.md) | Arquitectura modular de componentes | Propuesta | 2026-10-02 |
 
 ## Pendientes
 
