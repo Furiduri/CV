@@ -11,7 +11,8 @@ metadata:
 
 Load when changing anything the visitor reads or a search engine indexes: page
 copy, the skills / projects / experience data, `CV.md`, `README.md`,
-`README_ES.md`, `Layout.astro` meta tags, or when adding a page or component.
+`README_ES.md`, `Layout.astro` meta tags, or when adding a page, section or
+component.
 
 ## Hard Rules
 
@@ -39,6 +40,17 @@ copy, the skills / projects / experience data, `CV.md`, `README.md`,
 - **A new page is one template**: `src/pages/[...lang]/<route>/index.astro`
   using `getLocaleStaticPaths()` and `useTranslations(lang)`; build its links
   with `getLocalizedUrl` (wraps `astro:i18n`), never with string prefixes.
+- **Modular by default (ADR-0001).** A page template only composes: it resolves
+  the locale, formats the dictionary placeholders, computes page data (URLs,
+  WhatsApp links) and passes it down. Every section is a presentational
+  component in `src/components/<feature>/` (`landing/`, `case-study/`, `cv/`)
+  that receives copy and data through typed props and never reads the
+  dictionary, `Astro.currentLocale` or `src/data/` itself. Repeated UI elements
+  (buttons, section headings, frames, eyebrows) are components in
+  `src/components/ui/` with their styles inside. A section used by more than
+  one page lives in its feature folder, not in the first page's folder. Only
+  the site shell (`Layout`, `Header`, `Footer`, `LanguageSwitcher`) may read
+  the locale itself. Never write section markup inline in a page.
 - **Facts come from `CV.md`.** Never invent or "improve" employers, dates,
   titles, metrics or license numbers. If the site and `CV.md` disagree, stop and
   report the evidence; do not pick one silently.
@@ -76,6 +88,8 @@ copy, the skills / projects / experience data, `CV.md`, `README.md`,
 | Site and `CV.md` disagree | Stop, report with evidence, ask which is right |
 | `CV.md` changed | Tell the user the PDF is stale |
 | New page or route | One template under `src/pages/[...lang]/`; reuse `Layout`, `Header`, `Footer` |
+| New section or repeated UI element | Component in `src/components/<feature>/` or `ui/`, data via props (ADR-0001) |
+| Section already exists on another page | Reuse the component; move it to its feature folder if it sits in a page's folder |
 | New language | Add `src/i18n/locales/<code>.ts` and register it in `src/i18n/config.ts` |
 | Build fails with `[i18n] Dictionaries are out of parity` | Add the named path to that dictionary; never delete the key from the default locale to silence it |
 | New color, font or spacing need | Add a token in `@theme`; do not hardcode |
@@ -110,7 +124,8 @@ language.
 - `src/i18n/config.ts` — locales, default locale and hreflang map.
 - `src/i18n/utils.ts` — parity guard, `useTranslations`, URL helpers.
 - `src/i18n/locales/*.ts` — per-locale dictionaries; `src/data/*.ts` — shared facts.
-- `src/styles/global.css` — design tokens and shared components.
+- `src/styles/global.css` — design tokens and base styles.
+- `docs/adr/0001-arquitectura-modular-de-componentes.md` — modular pages and components.
 - `astro.config.mjs` — `site`, i18n routing and sitemap (fed by `src/i18n/config.ts`).
 - `.claude/skills/skill-workflow/SKILL.md` — role split and verification discipline.
 - `.claude/skills/skill-pr/SKILL.md` — branch and pull request rules.

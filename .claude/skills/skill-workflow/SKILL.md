@@ -49,8 +49,11 @@ delivered.
 - **When the user overrides your recommendation, state the risk once, record it
   in the PR body as assumed, and then build it fully.** Do not relitigate and do
   not water the work down.
-- This repo has no ADR process. A decision that is non-obvious and expensive to
-  revert goes in the PR body, in the Summary.
+- **Architecture decisions are ADRs.** A decision that is non-obvious and
+  expensive to revert gets an ADR under `docs/adr/`, following `skill-docs` and
+  ADR-0000 (the same system as Glink). The PR links the ADR instead of
+  restating it. Read `docs/adr/README.md` before starting work: code that
+  contradicts an accepted ADR is a defect.
 - Reply in the user's language. Project artifacts follow `skill-content`.
 
 ## Decision Gates
@@ -62,6 +65,8 @@ delivered.
 | Visual change | Verify in the preview at desktop and mobile width, EN and ES |
 | Decision shapes the user's public image | Ask the user; never decide on their behalf |
 | Routine technical detail with an obvious default | Decide, state the assumption, move on |
+| Non-obvious decision, costly to revert | Write an ADR (`skill-docs`) as `Propuesta`; the user accepts it |
+| Work contradicts an accepted ADR | Stop; change the code or supersede the ADR, never ignore it |
 | A check fails | Read the real error before acting; do not retry blindly or weaken the check |
 | The spec contradicts the code or `CV.md` | Stop and say so with the evidence; do not pick silently |
 | A defect turns up while doing something else | Reproduce it, create the issue, mention the number, return to the task |
