@@ -1,4 +1,7 @@
 ---
+import Card from "../ui/Card.astro";
+
+// Project summary that links to the project.
 interface Props {
   title: string;
   description: string;
@@ -9,16 +12,16 @@ interface Props {
 const { title, description, link, tags = [] } = Astro.props;
 ---
 
-<a href={link} class="glass-card block !no-underline text-inherit h-full group">
+<Card as="a" href={link} interactive class="group block h-full text-inherit no-underline">
   <h3 class="mt-0 transition-colors duration-300 group-hover:text-brand-neon">{title}</h3>
-  <p class="text-zinc-400 mb-6">{description}</p>
+  <p class="mb-6 text-zinc-400">{description}</p>
   {tags.length > 0 && (
     <div class="flex flex-wrap gap-2">
       {tags.map((tag) => (
-        <span class="bg-brand-base/10 text-brand-neon px-3 py-1 rounded-full text-sm border border-brand-base/20">
+        <span class="rounded-full border border-brand-base/20 bg-brand-base/10 px-3 py-1 text-sm text-brand-neon">
           {tag}
         </span>
       ))}
     </div>
   )}
-</a>
+</Card>

@@ -1,0 +1,45 @@
+---
+import Card from "../ui/Card.astro";
+import GradientText from "../ui/GradientText.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+export interface EducationEntry {
+  institution: string;
+  degree: string;
+  degreeAlt: string;
+  // Extra line, e.g. graduation year and license number.
+  note?: string;
+}
+
+interface Props {
+  id: string;
+  title: string;
+  entries: EducationEntry[];
+}
+
+const { id, title, entries } = Astro.props;
+const headingId = `${id}-title`;
+---
+
+<Section id={id} labelledby={headingId} spacing="compact">
+  <Card>
+    <SectionHeading id={headingId} accent={false}><GradientText>{title}</GradientText></SectionHeading>
+    <div class="mt-8 flex flex-col gap-6 pb-8">
+      {entries.map((entry) => (
+        <div>
+          <h3 class="mb-2 font-heading">{entry.institution}</h3>
+          <p class="text-zinc-400">
+            <strong>{entry.degree}</strong> ({entry.degreeAlt})
+            {entry.note && (
+              <Fragment>
+                <br />
+                {entry.note}
+              </Fragment>
+            )}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Card>
+</Section>

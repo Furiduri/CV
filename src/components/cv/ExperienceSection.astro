@@ -1,0 +1,44 @@
+---
+import Card from "../ui/Card.astro";
+import GradientText from "../ui/GradientText.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+export interface Job {
+  company: string;
+  period: string;
+  role: string;
+  bullets: string[];
+}
+
+interface Props {
+  id: string;
+  title: string;
+  jobs: Job[];
+}
+
+const { id, title, jobs } = Astro.props;
+const headingId = `${id}-title`;
+---
+
+<Section id={id} labelledby={headingId} spacing="compact">
+  <Card>
+    <SectionHeading id={headingId} accent={false}><GradientText>{title}</GradientText></SectionHeading>
+    <div class="mt-8 flex flex-col gap-8 pb-8">
+      {jobs.map((job, index) => (
+        <Fragment>
+          {index > 0 && <div aria-hidden="true" class="h-px w-full bg-white/10"></div>}
+          <div>
+            <h3 class="mb-2 font-heading">
+              {job.company} <span class="ml-2 text-base font-normal text-brand-base">({job.period})</span>
+            </h3>
+            <p class="mb-2 font-semibold text-zinc-50">{job.role}</p>
+            <ul class="list-disc space-y-2 pl-5 text-zinc-400">
+              {job.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </div>
+        </Fragment>
+      ))}
+    </div>
+  </Card>
+</Section>
