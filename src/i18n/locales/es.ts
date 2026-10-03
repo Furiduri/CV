@@ -326,6 +326,15 @@ export default {
       cta: "Escríbenos por WhatsApp",
       emailLabel: "¿Prefieres el correo? Escríbenos a",
     },
+    images: {
+      hero: "Comerciante sonriente con el pulgar arriba detrás del mostrador de su tienda",
+      problem: "Escritorio cubierto de pilas de papeles y carpetas",
+      services: "Dueña de negocio sonriente cobrando a un cliente en una terminal de punto de venta",
+      method: "Dos personas planean un proyecto con notas adhesivas en una pared de vidrio",
+      caseStudyDesktop: "Página de inicio de juegalajara.mx en una computadora",
+      caseStudyMobile: "Página de inicio de juegalajara.mx en un celular",
+    },
+    photoCredits: { lead: "Fotos de", on: "en" },
   },
   legal: {
     updatedLabel: "Última actualización:",

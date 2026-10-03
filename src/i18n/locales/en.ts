@@ -326,6 +326,15 @@ export default {
       cta: "Message us on WhatsApp",
       emailLabel: "Prefer email? Write to us at",
     },
+    images: {
+      hero: "Smiling shop owner giving a thumbs up behind the counter of his store",
+      problem: "Desk covered in piles of paper and folders",
+      services: "Smiling business owner checking out a customer at a point-of-sale terminal",
+      method: "Two people plan a project with sticky notes on a glass wall",
+      caseStudyDesktop: "The juegalajara.mx home page on a computer",
+      caseStudyMobile: "The juegalajara.mx home page on a phone",
+    },
+    photoCredits: { lead: "Photos by", on: "on" },
   },
   legal: {
     updatedLabel: "Last updated:",

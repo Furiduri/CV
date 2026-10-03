@@ -19,6 +19,12 @@ export default defineConfig({
     }
   },
 
+  // Landing photos are downloaded and optimized at build time, so visitors
+  // never request images.unsplash.com.
+  image: {
+    domains: ["images.unsplash.com"]
+  },
+
   integrations: [
     sitemap({
       i18n: { defaultLocale, locales: hreflangByLocale }

@@ -134,6 +134,18 @@ export interface Dictionary {
       privacyLink: string;
     };
     finalCta: { title: string; text: string; cta: string; emailLabel: string };
+    // Alt text for the landing imagery; photo sources and authors live in
+    // src/data/landingPhotos.ts.
+    images: {
+      hero: string;
+      problem: string;
+      services: string;
+      method: string;
+      caseStudyDesktop: string;
+      caseStudyMobile: string;
+    };
+    // Rendered as `lead <author links> on <a>Unsplash</a>.`
+    photoCredits: { lead: string; on: string };
   };
   legal: {
     updatedLabel: string;
