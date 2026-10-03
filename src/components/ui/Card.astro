@@ -1,0 +1,28 @@
+---
+// Translucent card. `interactive` lifts it on hover; leave it off for cards
+// that are not clickable. `highlight` tints it with the brand accent. Replaces
+// the global `.glass-card` class for new code (issue #21 migrates the rest).
+interface Props {
+  as?: "div" | "li" | "details";
+  tone?: "default" | "highlight";
+  interactive?: boolean;
+  padded?: boolean;
+  class?: string;
+}
+
+const { as: Tag = "div", tone = "default", interactive = false, padded = true, class: className } = Astro.props;
+---
+
+<Tag
+  class:list={[
+    "rounded-2xl border backdrop-blur-md transition-all duration-300",
+    tone === "highlight"
+      ? "border-brand-base/40 bg-gradient-to-br from-brand-base/15 via-zinc-900/60 to-zinc-900/60"
+      : "border-zinc-800/50 bg-zinc-900/50",
+    interactive && "hover:-translate-y-1 hover:border-brand-base/50 hover:shadow-xl hover:shadow-brand-base/10",
+    padded && "p-6 md:p-8",
+    className,
+  ]}
+>
+  <slot />
+</Tag>

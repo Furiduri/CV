@@ -1,0 +1,44 @@
+---
+import Icon, { type IconName } from "../Icon.astro";
+import PhotoFrame from "../ui/PhotoFrame.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { LandingPhoto } from "../../data/landingPhotos";
+import type { Dictionary } from "../../i18n/types";
+
+interface Props {
+  id: string;
+  copy: Dictionary["landing"]["method"];
+  photo: LandingPhoto;
+  photoAlt: string;
+}
+
+const { id, copy, photo, photoAlt } = Astro.props;
+const headingId = `${id}-title`;
+const points: { icon: IconName; item: { title: string; text: string } }[] = [
+  { icon: "clock", item: copy.points.cycles },
+  { icon: "checkCircle", item: copy.points.results },
+  { icon: "arrowPath", item: copy.points.flexibility },
+];
+---
+
+<Section id={id} labelledby={headingId}>
+  <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <div>
+      <SectionHeading id={headingId}>{copy.title}</SectionHeading>
+      <p class="mb-10 text-lg text-zinc-300">{copy.intro}</p>
+      <ol class="m-0 ml-6 flex list-none flex-col gap-8 border-l border-white/10 p-0">
+        {points.map(({ icon, item }) => (
+          <li class="relative pl-10">
+            <span class="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border border-brand-base/40 bg-zinc-950 text-brand-neon">
+              <Icon name={icon} />
+            </span>
+            <h3 class="mb-1 pt-2 text-xl">{item.title}</h3>
+            <p class="m-0 text-zinc-300">{item.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <PhotoFrame image={photo} alt={photoAlt} widths={[480, 800, 1200]} sizes="(min-width: 1024px) 540px, 92vw" class="aspect-[4/3]" />
+  </div>
+</Section>

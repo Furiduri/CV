@@ -1,0 +1,11 @@
+---
+// Decorative blurred light behind a section. The caller sets its position and
+// color through `class` (e.g. "-right-32 top-10 bg-teal-400/10").
+interface Props {
+  class: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div aria-hidden="true" class:list={["pointer-events-none absolute h-[30rem] w-[30rem] rounded-full blur-[120px]", className]}></div>

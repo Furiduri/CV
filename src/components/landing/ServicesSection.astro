@@ -1,0 +1,51 @@
+---
+import type { IconName } from "../Icon.astro";
+import Card from "../ui/Card.astro";
+import IconBadge from "../ui/IconBadge.astro";
+import PhotoFrame from "../ui/PhotoFrame.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { LandingPhoto } from "../../data/landingPhotos";
+import type { Dictionary } from "../../i18n/types";
+
+interface Props {
+  id: string;
+  copy: Dictionary["landing"]["services"];
+  photo: LandingPhoto;
+  photoAlt: string;
+}
+
+const { id, copy, photo, photoAlt } = Astro.props;
+const headingId = `${id}-title`;
+const services: { icon: IconName; item: { title: string; text: string } }[] = [
+  { icon: "globe", item: copy.items.web },
+  { icon: "phone", item: copy.items.mobile },
+  { icon: "desktop", item: copy.items.desktop },
+  { icon: "academic", item: copy.items.advisory },
+];
+---
+
+<Section id={id} labelledby={headingId} tone="band">
+  <div class="mb-12 max-w-3xl">
+    <SectionHeading id={headingId}>{copy.title}</SectionHeading>
+    <p class="m-0 text-lg text-zinc-300">{copy.intro}</p>
+  </div>
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+    <PhotoFrame
+      image={photo}
+      alt={photoAlt}
+      widths={[480, 800, 1200]}
+      sizes="(min-width: 1024px) 360px, 92vw"
+      class="aspect-[4/3] lg:col-span-4 lg:aspect-auto lg:min-h-full"
+    />
+    <ul class="m-0 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:col-span-8">
+      {services.map(({ icon, item }) => (
+        <Card as="li" interactive>
+          <IconBadge name={icon} class="mb-4" />
+          <h3 class="text-xl">{item.title}</h3>
+          <p class="m-0 text-zinc-300">{item.text}</p>
+        </Card>
+      ))}
+    </ul>
+  </div>
+</Section>

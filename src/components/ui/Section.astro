@@ -1,0 +1,24 @@
+---
+// Page section with the site container. `band` adds the full-bleed tinted
+// background that alternates the rhythm of a long page; the `background` slot
+// holds decorative layers (glows, photos) behind the content.
+interface Props {
+  id?: string;
+  labelledby: string;
+  tone?: "plain" | "band";
+  narrow?: boolean;
+}
+
+const { id, labelledby, tone = "plain", narrow = false } = Astro.props;
+---
+
+<section
+  id={id}
+  aria-labelledby={labelledby}
+  class:list={["relative overflow-hidden", tone === "band" && "border-y border-white/5 bg-zinc-900/60"]}
+>
+  <slot name="background" />
+  <div class:list={["container relative", narrow && "max-w-4xl"]}>
+    <slot />
+  </div>
+</section>

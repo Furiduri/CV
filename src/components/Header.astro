@@ -1,6 +1,7 @@
 ---
 import logoImage from "../assets/Logo_Gcatcode.svg";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
+import Button from "./ui/Button.astro";
 import { businessPlaceholders, whatsappUrl } from "../data/business";
 import { format, getLocalizedUrl, resolveLocale, useTranslations } from "../i18n/utils";
 
@@ -51,15 +52,9 @@ const linkClass = "text-zinc-100 font-semibold hover:text-brand-base transition-
       </nav>
       <div class="flex items-center gap-3">
         <LanguageSwitcher />
-        <a
-          href={freeCallUrl}
-          target="_blank"
-          rel="noopener"
-          class="btn-primary no-underline !px-4 !py-2 text-xs hidden sm:inline-block"
-        >
-          {t.nav.contactCta}
-          <span class="sr-only"> {t.landing.newTabNote}</span>
-        </a>
+        <span class="hidden sm:inline-flex">
+          <Button href={freeCallUrl} size="sm" newTabLabel={t.landing.newTabNote}>{t.nav.contactCta}</Button>
+        </span>
       </div>
     </div>
   ) : (

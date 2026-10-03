@@ -1,0 +1,45 @@
+---
+import type { IconName } from "../Icon.astro";
+import IconBadge from "../ui/IconBadge.astro";
+import PhotoFrame from "../ui/PhotoFrame.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { LandingPhoto } from "../../data/landingPhotos";
+import type { Dictionary } from "../../i18n/types";
+
+interface Props {
+  copy: Dictionary["landing"]["problem"];
+  photo: LandingPhoto;
+  photoAlt: string;
+}
+
+const { copy, photo, photoAlt } = Astro.props;
+const icons: IconName[] = ["arrowPath", "chats", "currency"];
+---
+
+<Section labelledby="problem-title">
+  <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <PhotoFrame
+      image={photo}
+      alt={photoAlt}
+      widths={[480, 800, 1200]}
+      sizes="(min-width: 1024px) 540px, 92vw"
+      class="order-last aspect-[4/3] lg:order-first"
+    />
+    <div>
+      <SectionHeading id="problem-title">{copy.title}</SectionHeading>
+      <p class="mb-10 text-lg text-zinc-300">{copy.intro}</p>
+      <ul class="m-0 flex list-none flex-col gap-8 p-0">
+        {copy.items.map((item, index) => (
+          <li class="flex gap-5">
+            <IconBadge name={icons[index] ?? "checkCircle"} />
+            <div>
+              <h3 class="mb-1 text-xl">{item.title}</h3>
+              <p class="m-0 text-zinc-300">{item.text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Section>

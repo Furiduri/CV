@@ -72,6 +72,19 @@ export function format(template: string, values: Record<string, string | number>
   return template.replace(/\{(\w+)\}/g, (match, key) => (key in values ? String(values[key]) : match));
 }
 
+// Applies `format` to every string of a dictionary slice and keeps its shape,
+// so a page can hand finished copy to presentational components (ADR-0001).
+export function formatDeep<T>(value: T, values: Record<string, string | number>): T {
+  if (typeof value === "string") return format(value, values) as unknown as T;
+  if (Array.isArray(value)) return value.map((item) => formatDeep(item, values)) as unknown as T;
+  if (value !== null && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, formatDeep(item, values)]),
+    ) as T;
+  }
+  return value;
+}
+
 // Path of the current page without its locale prefix, e.g. "/en/cv/projects/" -> "cv/projects".
 export function getUnlocalizedPath(pathname: string): string {
   const segments = pathname.split("/").filter(Boolean);

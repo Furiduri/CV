@@ -1,0 +1,41 @@
+---
+import Card from "../ui/Card.astro";
+import IconBadge from "../ui/IconBadge.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import TextLink from "../ui/TextLink.astro";
+import type { Dictionary } from "../../i18n/types";
+
+interface Props {
+  copy: Dictionary["landing"]["trust"];
+  privacyHref: string;
+  termsHref: string;
+}
+
+const { copy, privacyHref, termsHref } = Astro.props;
+---
+
+<Section labelledby="trust-title">
+  <div class="mb-12 max-w-3xl">
+    <SectionHeading id="trust-title">{copy.title}</SectionHeading>
+    <p class="m-0 text-lg text-zinc-300">{copy.intro}</p>
+  </div>
+  <ul class="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3">
+    <Card as="li" interactive>
+      <IconBadge name="shield" class="mb-4" />
+      <h3 class="text-xl">{copy.privacy.title}</h3>
+      <p class="m-0 text-zinc-300">{copy.privacy.text} <TextLink href={privacyHref}>{copy.privacy.linkLabel}</TextLink>.</p>
+    </Card>
+    <Card as="li" interactive>
+      <IconBadge name="eye" class="mb-4" />
+      <h3 class="text-xl">{copy.review.title}</h3>
+      <p class="m-0 text-zinc-300">{copy.review.text}</p>
+    </Card>
+    <Card as="li" interactive>
+      <IconBadge name="checkCircle" class="mb-4" />
+      <h3 class="text-xl">{copy.warranty.title}</h3>
+      <p class="mb-4 text-zinc-300">{copy.warranty.text}</p>
+      <TextLink href={termsHref}>{copy.warranty.linkLabel}</TextLink>
+    </Card>
+  </ul>
+</Section>

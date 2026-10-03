@@ -1,0 +1,27 @@
+---
+import type { Locale } from "../../i18n/config";
+
+// "Photos by A, B and C on Unsplash." The author list is joined the way the
+// locale writes lists ("A, B y C" / "A, B, and C").
+interface Props {
+  lang: Locale;
+  lead: string;
+  on: string;
+  authors: { name: string; url: string }[];
+  source: { name: string; url: string };
+}
+
+const { lang, lead, on, authors, source } = Astro.props;
+
+let authorIndex = 0;
+const parts = new Intl.ListFormat(lang, { type: "conjunction" })
+  .formatToParts(authors.map((author) => author.name))
+  .map((part) => (part.type === "element" ? { text: part.value, url: authors[authorIndex++]?.url } : { text: part.value }));
+const linkClass = "text-zinc-200 underline underline-offset-2 hover:text-brand-neon";
+---
+
+<p class="mb-0 mt-6 text-center text-sm text-zinc-300">
+  {lead}{" "}
+  {parts.map(({ text, url }) => (url ? <a href={url} target="_blank" rel="noopener" class={linkClass}>{text}</a> : text))}{" "}
+  {on} <a href={source.url} target="_blank" rel="noopener" class={linkClass}>{source.name}</a>.
+</p>

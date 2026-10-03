@@ -1,0 +1,30 @@
+---
+import Icon, { type IconName } from "../Icon.astro";
+
+// Floating label with an icon, used over photos. The caller positions it
+// through `class`.
+interface Props {
+  icon: IconName;
+  title: string;
+  text?: string;
+  tone?: "solid" | "soft";
+  class?: string;
+}
+
+const { icon, title, text, tone = "soft", class: className } = Astro.props;
+---
+
+<div class:list={["flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/90 px-4 py-3 shadow-xl backdrop-blur-md", className]}>
+  <span
+    class:list={[
+      "flex h-10 w-10 shrink-0 items-center justify-center rounded-full",
+      tone === "solid" ? "bg-brand-neon text-zinc-950" : "border border-brand-base/30 bg-brand-base/15 text-brand-neon",
+    ]}
+  >
+    <Icon name={icon} class="h-5 w-5" />
+  </span>
+  <p class="m-0 text-sm font-bold leading-snug text-zinc-50">
+    {title}
+    {text && <span class="block font-normal text-zinc-300">{text}</span>}
+  </p>
+</div>

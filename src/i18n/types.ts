@@ -26,6 +26,24 @@ interface FaqItem {
   answer: string;
 }
 
+// Copy of a case study section, shared by every page that shows it.
+export interface CaseStudyCopy {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  challengeLabel: string;
+  challenge: string;
+  solutionLabel: string;
+  solution: string;
+  features: string[];
+  resultLabel: string;
+  result: string;
+  stackLabel: string;
+  linkLabel: string;
+  // Alt text for the desktop and mobile screenshots.
+  images: { desktop: string; mobile: string };
+}
+
 // Shape every locale dictionary must satisfy. `{years}` placeholders are
 // replaced at render time with the computed years of experience.
 export interface Dictionary {
@@ -74,20 +92,6 @@ export interface Dictionary {
       intro: string;
       points: { cycles: TitledText; results: TitledText; flexibility: TitledText };
     };
-    caseStudy: {
-      eyebrow: string;
-      title: string;
-      intro: string;
-      challengeLabel: string;
-      challenge: string;
-      solutionLabel: string;
-      solution: string;
-      features: string[];
-      resultLabel: string;
-      result: string;
-      stackLabel: string;
-      linkLabel: string;
-    };
     trust: {
       title: string;
       intro: string;
@@ -134,6 +138,21 @@ export interface Dictionary {
       privacyLink: string;
     };
     finalCta: { title: string; text: string; cta: string; emailLabel: string };
+    // Alt text for the landing imagery; photo sources and authors live in
+    // src/data/landingPhotos.ts.
+    images: {
+      hero: string;
+      problem: string;
+      services: string;
+      method: string;
+    };
+    // Rendered as `lead <author links> on <a>Unsplash</a>.`
+    photoCredits: { lead: string; on: string };
+  };
+  // Case studies, keyed by id; data and screenshots live in
+  // src/data/caseStudies.ts.
+  caseStudies: {
+    juegalajara: CaseStudyCopy;
   };
   legal: {
     updatedLabel: string;

@@ -1,0 +1,14 @@
+---
+import Icon, { type IconName } from "../Icon.astro";
+
+interface Props {
+  name: IconName;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+---
+
+<span class:list={["inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-brand-base/20 bg-brand-base/10 text-brand-neon", className]}>
+  <Icon name={name} />
+</span>
