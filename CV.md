@@ -1,7 +1,7 @@
 # Jorge Osvaldo Perez Mendoza
 **Software Development Engineer | Backend .NET Developer**
 
-Zapopan, Jalisco, Mexico | Jorge.Furiduri@gmail.com | +52 (33) 2173 9884  
+Zapopan, Jalisco, Mexico | contacto@gcatcode.com | +52 (33) 2173 9884  
 **Website**: [gcatcode.com](https://gcatcode.com/) | **LinkedIn**: [linkedin.com/in/furiduri](https://www.linkedin.com/in/furiduri/) | **GitHub**: [github.com/Furiduri](https://github.com/Furiduri/)
 
 ---

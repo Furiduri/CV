@@ -5,7 +5,7 @@ export const business = {
   brand: "GCatcode",
   legalName: "Jorge Osvaldo Perez Mendoza",
   location: "Zapopan, Jalisco, México",
-  email: "Jorge.Furiduri@gmail.com",
+  email: "contacto@gcatcode.com",
   phoneDisplay: "+52 (33) 2173 9884",
   // International format without symbols, as wa.me expects it.
   whatsappNumber: "523321739884",

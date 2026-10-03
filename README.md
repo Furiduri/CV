@@ -61,5 +61,5 @@ The GCatcode landing page will be available by default at `http://localhost:4321
 
 If you want to chat about technology, job opportunities, or my passion for Board Games, feel free to contact me!
 
-- **Email:** Jorge.Furiduri@gmail.com
+- **Email:** contacto@gcatcode.com
 - **Live Website:** [cv.gcatcode.com](https://cv.gcatcode.com)
