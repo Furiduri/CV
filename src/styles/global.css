@@ -71,4 +71,67 @@
   .btn-primary:hover {
     @apply bg-brand-neon scale-105 shadow-[0_0_15px_rgba(0,191,99,0.5)] text-zinc-950;
   }
+
+  /*
+   * Landing components. Contrast is checked with APCA, not only WCAG 2: on a
+   * near-black background WCAG 2 overstates contrast. Body copy uses zinc-300
+   * or lighter (Lc ~81; zinc-400 is only Lc ~50), and small text never uses
+   * brand-base (Lc ~55). Green is the accent (~10% of the page): CTAs and key
+   * highlights only; headings stay neutral.
+   */
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2 bg-brand-neon text-zinc-950 px-6 py-3 rounded-lg text-center text-sm sm:text-base font-bold font-heading uppercase tracking-wide sm:tracking-wider no-underline transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-cta:hover {
+    @apply text-zinc-950 -translate-y-0.5 shadow-[0_8px_24px_-6px_rgba(126,217,87,0.6)] drop-shadow-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-zinc-500 text-zinc-50 px-6 py-3 rounded-lg text-center text-sm sm:text-base font-bold font-heading uppercase tracking-wide sm:tracking-wider no-underline transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-outline:hover {
+    @apply border-brand-neon bg-brand-neon/10 text-brand-neon drop-shadow-none;
+  }
+
+  .link {
+    @apply text-brand-neon font-semibold underline decoration-brand-neon/40 underline-offset-4;
+  }
+
+  .link:hover {
+    @apply decoration-brand-neon;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-base/30 bg-brand-base/10 px-3 py-1 text-sm font-semibold text-zinc-100 mb-5;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-2 w-2 shrink-0 rounded-full bg-brand-neon;
+  }
+
+  /* Neutral section heading with a short accent bar above it. */
+  .section-heading {
+    @apply text-zinc-50;
+  }
+
+  .section-heading::before {
+    content: "";
+    @apply block h-1 w-12 rounded-full bg-gradient-to-r from-brand-base to-brand-neon mb-5;
+  }
+
+  /* Full-bleed band that alternates the section rhythm. */
+  .band {
+    @apply bg-zinc-900/60 border-y border-white/5;
+  }
+
+  .photo-frame {
+    @apply relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 shadow-2xl shadow-black/50;
+  }
+
+  .chip {
+    @apply flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/90 px-4 py-3 shadow-xl backdrop-blur-md;
+  }
 }
