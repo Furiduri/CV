@@ -1,4 +1,8 @@
 ---
+// Brand fonts are self-hosted (ADR-0002): bundled from npm, never requested
+// from a third-party CDN.
+import "@fontsource-variable/inter";
+import "@fontsource-variable/outfit";
 import "../styles/global.css";
 import { defaultLocale, hreflangByLocale, locales } from "../i18n/config";
 import { getLocalizedUrl, getUnlocalizedPath, resolveLocale } from "../i18n/utils";
