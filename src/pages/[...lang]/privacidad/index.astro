@@ -2,10 +2,10 @@
 import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
-import LegalDocument from "../../../components/LegalDocument.astro";
-import { businessPlaceholders } from "../../../data/business";
+import LegalDocument from "../../../components/legal/LegalDocument.astro";
+import { businessPlaceholders, legalLastUpdated } from "../../../data/business";
 import type { Locale } from "../../../i18n/config";
-import { format, getLocaleStaticPaths, useTranslations } from "../../../i18n/utils";
+import { format, formatDeep, getLocaleStaticPaths, getLocalizedUrl, useTranslations } from "../../../i18n/utils";
 
 export function getStaticPaths() {
   return getLocaleStaticPaths();
@@ -26,7 +26,12 @@ const t = useTranslations(lang);
   <Header variant="landing" />
 
   <main class="pt-32 pb-8 container">
-    <LegalDocument document={t.legal.privacy} />
+    <LegalDocument
+      document={formatDeep(t.legal.privacy, businessPlaceholders)}
+      labels={t.legal}
+      updatedIso={legalLastUpdated}
+      homeHref={getLocalizedUrl(lang)}
+    />
   </main>
 
   <Footer variant="landing" />
