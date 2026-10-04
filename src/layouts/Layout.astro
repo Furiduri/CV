@@ -8,6 +8,9 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  // Pages that must not be indexed (the 404 page): no canonical, no hreflang
+  // alternates and a robots noindex tag.
+  noindex?: boolean;
 }
 
 const {
@@ -15,6 +18,7 @@ const {
   description = "Jorge Osvaldo Perez Mendoza - Portfolio",
   image = "/CVBanner.jpg",
   type = "website",
+  noindex = false,
 } = Astro.props;
 
 const url = Astro.url;
@@ -38,14 +42,20 @@ const defaultAlternate = new URL(getLocalizedUrl(defaultLocale, unlocalizedPath)
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalURL} />
+    {noindex ? (
+      <meta name="robots" content="noindex" />
+    ) : (
+      <Fragment>
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
 
-    <!-- Alternate languages -->
-    {alternates.map(({ hreflang, href }) => (
-      <link rel="alternate" hreflang={hreflang} href={href} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={defaultAlternate} />
+        <!-- Alternate languages -->
+        {alternates.map(({ hreflang, href }) => (
+          <link rel="alternate" hreflang={hreflang} href={href} />
+        ))}
+        <link rel="alternate" hreflang="x-default" href={defaultAlternate} />
+      </Fragment>
+    )}
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>

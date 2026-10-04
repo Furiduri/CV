@@ -1,0 +1,20 @@
+---
+import logoImage from "../../assets/Logo_Gcatcode.svg";
+
+// Logo plus brand name linking home. The slot holds the name ("GCatcode",
+// "Jorge Perez"). `label` names the link for screen readers when the visible
+// name alone is not enough.
+interface Props {
+  href: string;
+  label?: string;
+  logoAlt: string;
+  logoSize: number;
+}
+
+const { href, label, logoAlt, logoSize } = Astro.props;
+---
+
+<a href={href} aria-label={label} class="font-heading font-black text-2xl text-zinc-100 flex items-center gap-2 hover:no-underline">
+  <img src={logoImage.src} alt={logoAlt} width={logoSize} height={logoSize} />
+  <slot />
+</a>
