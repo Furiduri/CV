@@ -1,27 +1,28 @@
 ---
-import GradientText from "./ui/GradientText.astro";
-import { businessPlaceholders, legalLastUpdated } from "../data/business";
-import type { LegalDocument } from "../i18n/types";
-import { format, getLocalizedUrl, resolveLocale, useTranslations } from "../i18n/utils";
+import GradientText from "../ui/GradientText.astro";
+import type { Dictionary, LegalDocument } from "../../i18n/types";
 
+// Legal document (terms, privacy notice). Presentational (ADR-0001): the page
+// passes the formatted document, the shared labels and the links.
 interface Props {
   document: LegalDocument;
+  labels: Pick<Dictionary["legal"], "updatedLabel" | "updatedDate" | "prevailNote" | "backHome">;
+  // ISO date of the last revision, for the <time> element.
+  updatedIso: string;
+  homeHref: string;
 }
 
-const { document } = Astro.props;
-const locale = resolveLocale(Astro.currentLocale);
-const t = useTranslations(locale);
-const f = (text: string) => format(text, businessPlaceholders);
+const { document, labels, updatedIso, homeHref } = Astro.props;
 ---
 
 <article class="max-w-3xl mx-auto">
   <header class="mb-12">
     <h1 class="text-4xl md:text-5xl"><GradientText>{document.heading}</GradientText></h1>
     <p class="text-sm text-zinc-400 m-0">
-      {t.legal.updatedLabel} <time datetime={legalLastUpdated}>{t.legal.updatedDate}</time>
+      {labels.updatedLabel} <time datetime={updatedIso}>{labels.updatedDate}</time>
     </p>
-    <p class="text-sm text-zinc-400 mt-2">{t.legal.prevailNote}</p>
-    <p class="text-lg text-zinc-300 mt-6">{f(document.intro)}</p>
+    <p class="text-sm text-zinc-400 mt-2">{labels.prevailNote}</p>
+    <p class="text-lg text-zinc-300 mt-6">{document.intro}</p>
   </header>
 
   <ol class="list-none m-0 p-0 flex flex-col gap-10">
@@ -34,10 +35,10 @@ const f = (text: string) => format(text, businessPlaceholders);
           <div class="flex flex-col gap-4 text-zinc-300">
             {section.blocks.map((block) =>
               typeof block === "string" ? (
-                <p class="m-0">{f(block)}</p>
+                <p class="m-0">{block}</p>
               ) : (
                 <ul class="list-disc pl-6 m-0 space-y-2">
-                  {block.map((item) => <li>{f(item)}</li>)}
+                  {block.map((item) => <li>{item}</li>)}
                 </ul>
               ),
             )}
@@ -48,6 +49,6 @@ const f = (text: string) => format(text, businessPlaceholders);
   </ol>
 
   <p class="mt-16">
-    <a href={getLocalizedUrl(locale)} class="font-semibold">&larr; {t.legal.backHome}</a>
+    <a href={homeHref} class="font-semibold">&larr; {labels.backHome}</a>
   </p>
 </article>
