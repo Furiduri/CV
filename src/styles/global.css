@@ -41,10 +41,6 @@
     @apply text-brand-neon drop-shadow-[0_0_8px_rgba(126,217,87,0.4)];
   }
 
-  section {
-    @apply py-24;
-  }
-
   /* Anchored sections clear the fixed header. */
   section[id] {
     @apply scroll-mt-20;

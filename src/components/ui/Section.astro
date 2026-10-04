@@ -20,7 +20,9 @@ const { id, labelledby, tone = "plain", spacing = "default", narrow = false } = 
   class:list={[
     "relative overflow-hidden",
     tone === "band" && "border-y border-white/5 bg-zinc-900/60",
-    spacing === "compact" && "py-8",
+    // 8px grid: 56px on phones, 64px from md up, so two stacked sections
+    // leave about 112-128px between their contents.
+    spacing === "compact" ? "py-8" : "py-14 md:py-16",
   ]}
 >
   <slot name="background" />
