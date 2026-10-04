@@ -9,7 +9,7 @@ import { defaultLocale, hreflangByLocale, locales } from "./src/i18n/config.ts";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://cv.gcatcode.com",
+  site: "https://gcatcode.com",
 
   i18n: {
     defaultLocale,

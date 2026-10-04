@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cv.gcatcode.com/sitemap-index.xml
+Sitemap: https://gcatcode.com/sitemap-index.xml

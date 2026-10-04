@@ -13,7 +13,7 @@ Load when work on the `Furiduri/CV` repository starts or resumes: a new session,
 a request to continue, or a request to begin a change or numbered GitHub issue.
 
 This repository is a personal portfolio and CV (Astro + Tailwind, static,
-bilingual EN/ES) deployed to Firebase Hosting at `cv.gcatcode.com`. The agent is
+bilingual EN/ES) deployed to Firebase Hosting at `gcatcode.com`. The agent is
 the developer: it writes pages, components, styles, CI, issues and pull
 requests. The user owns what the site says about them and reviews what is
 delivered.
