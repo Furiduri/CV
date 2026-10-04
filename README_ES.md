@@ -62,4 +62,4 @@ La landing de GCatcode estará disponible por defecto en `http://localhost:4321/
 Si deseas platicar sobre tecnología, oportunidades laborales, o mi afición por los Juegos de Mesa, ¡no dudes en contactarme!
 
 - **Email:** contacto@gcatcode.com
-- **Sitio Web en Vivo:** [cv.gcatcode.com](https://cv.gcatcode.com)
+- **Sitio Web en Vivo:** [gcatcode.com](https://gcatcode.com) (CV en [gcatcode.com/cv](https://gcatcode.com/cv/))

@@ -24,7 +24,7 @@ when creating the branch for a change or issue.
 - **Create the new branch before touching a single file.** Branch from an updated
   `main`, never from a merged branch and never from another task's branch.
 - **Merging publishes.** A push to `main` deploys to production at
-  `cv.gcatcode.com`. Open the PR; do not merge it without the user's explicit go.
+  `gcatcode.com`. Open the PR; do not merge it without the user's explicit go.
 - **Issue link, or say there is none.** If an issue exists for the work, the body
   links exactly one: `Closes #N` only when the PR completes every closure
   criterion, otherwise `Refs #N` and list what remains. If no issue applies
