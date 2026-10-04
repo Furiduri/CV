@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap');
 
 /*
  * Color usage. Contrast is checked with APCA, not only WCAG 2: on this
@@ -13,8 +12,8 @@
 @theme {
   --color-brand-base: #00bf63;
   --color-brand-neon: #7ed957;
-  --font-sans: 'Inter', sans-serif;
-  --font-heading: 'Outfit', sans-serif;
+  --font-sans: 'Inter Variable', sans-serif;
+  --font-heading: 'Outfit Variable', sans-serif;
 }
 
 @layer base {
