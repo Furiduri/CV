@@ -12,6 +12,7 @@ principal: **un ADR aceptado no se edita, se supera con uno nuevo.**
 | --- | --- | --- | --- |
 | [0000](0000-proceso-de-adr.md) | Proceso de registro de decisiones de arquitectura | Aceptada | 2026-10-02 |
 | [0001](0001-arquitectura-modular-de-componentes.md) | Arquitectura modular de componentes | Aceptada | 2026-10-02 |
+| [0002](0002-recursos-servidos-desde-el-propio-sitio.md) | Recursos servidos desde el propio sitio | Propuesta | 2026-10-03 |
 
 ## Pendientes
 
@@ -22,4 +23,3 @@ PR que las implementó):
   defecto (PR #10, PR #12).
 - Hosting en Firebase con despliegue de vista previa por PR y producción al
   mergear a `main`.
-- Optimización de las fotos de Unsplash en el build (PR #20, todavía abierto).
