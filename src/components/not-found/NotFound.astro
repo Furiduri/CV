@@ -1,0 +1,70 @@
+---
+import Button from "../ui/Button.astro";
+import BrandLink from "../ui/BrandLink.astro";
+import Glow from "../ui/Glow.astro";
+import GradientText from "../ui/GradientText.astro";
+import TextLink from "../ui/TextLink.astro";
+import type { Locale } from "../../i18n/config";
+import type { Dictionary } from "../../i18n/types";
+
+export interface NotFoundVariant {
+  locale: Locale;
+  // Path prefix that selects this variant (e.g. "/en/"); the default locale
+  // has none and is shown unless another variant matches.
+  pathPrefix?: string;
+  copy: Dictionary["notFound"];
+  homeHref: string;
+  cvHref: string;
+  otherLanguage: { href: string; lang: Locale };
+}
+
+// One 404 page for every locale: Firebase Hosting serves the same 404.html for
+// any missing path. The first variant is visible by default; an inline script
+// shows the variant whose path prefix matches the requested URL.
+interface Props {
+  variants: NotFoundVariant[];
+}
+
+const { variants } = Astro.props;
+---
+
+{variants.map(({ locale, pathPrefix, copy, homeHref, cvHref, otherLanguage }, index) => (
+  <main
+    data-not-found={locale}
+    data-path-prefix={pathPrefix}
+    data-title={copy.title}
+    lang={locale}
+    hidden={index > 0}
+    class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-16 text-center"
+  >
+    <Glow class="left-1/2 top-1/4 -translate-x-1/2 bg-brand-base/15" />
+    <BrandLink href={homeHref} label={copy.brandHome} logoAlt="" logoSize={44}>
+      <span>G<GradientText>Catcode</GradientText></span>
+    </BrandLink>
+    <p aria-hidden="true" class="relative mb-0 mt-12 font-heading text-8xl font-black leading-none md:text-9xl">
+      <GradientText>404</GradientText>
+    </p>
+    <h1 class="relative mt-6 text-3xl text-zinc-50 md:text-5xl">{copy.heading}</h1>
+    <p class="relative mx-auto max-w-xl text-lg text-zinc-300">{copy.text}</p>
+    <div class="relative mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+      <Button href={homeHref}>{copy.homeCta}</Button>
+      <Button href={cvHref} variant="secondary">{copy.cvCta}</Button>
+    </div>
+    <p class="relative mb-0 mt-8" lang={otherLanguage.lang}>
+      <TextLink href={otherLanguage.href}>{copy.otherLanguage}</TextLink>
+    </p>
+  </main>
+))}
+
+<script is:inline>
+  (() => {
+    const variants = [...document.querySelectorAll("[data-not-found]")];
+    const match = variants.find(
+      (variant) => variant.dataset.pathPrefix && location.pathname.startsWith(variant.dataset.pathPrefix),
+    );
+    if (!match) return;
+    for (const variant of variants) variant.hidden = variant !== match;
+    document.documentElement.lang = match.lang;
+    document.title = match.dataset.title;
+  })();
+</script>

@@ -149,6 +149,19 @@ export interface Dictionary {
     // Rendered as `lead <author links> on <a>Unsplash</a>.`
     photoCredits: { lead: string; on: string };
   };
+  // 404 page. One build serves every locale: the page picks the variant that
+  // matches the requested path.
+  notFound: {
+    title: string;
+    description: string;
+    heading: string;
+    text: string;
+    homeCta: string;
+    cvCta: string;
+    // Link to the other language's home page, labelled in that language.
+    otherLanguage: string;
+    brandHome: string;
+  };
   // Case studies, keyed by id; data and screenshots live in
   // src/data/caseStudies.ts.
   caseStudies: {

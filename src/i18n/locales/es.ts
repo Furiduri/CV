@@ -316,6 +316,16 @@ export default {
     },
     photoCredits: { lead: "Fotos de", on: "en" },
   },
+  notFound: {
+    title: "Página no encontrada | GCatcode",
+    description: "La página que buscas no existe o cambió de dirección.",
+    heading: "Esta página no existe",
+    text: "Puede que el enlace esté mal escrito o que la página haya cambiado de dirección. Desde aquí puedes volver al sitio.",
+    homeCta: "Ir al inicio",
+    cvCta: "Ver el CV",
+    otherLanguage: "View the site in English",
+    brandHome: "GCatcode, ir al inicio",
+  },
   caseStudies: {
     juegalajara: {
       eyebrow: "Caso real",

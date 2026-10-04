@@ -1,0 +1,27 @@
+---
+// 404 page. Container only (ADR-0001). Firebase Hosting serves this single
+// 404.html for every missing path, so it carries every locale's copy and
+// NotFound shows the one that matches the requested path.
+import Layout from "../layouts/Layout.astro";
+import NotFound from "../components/not-found/NotFound.astro";
+import { defaultLocale, locales } from "../i18n/config";
+import { getLocalizedUrl, useTranslations } from "../i18n/utils";
+
+const ordered = [defaultLocale, ...locales.filter((locale) => locale !== defaultLocale)];
+const variants = ordered.map((locale) => {
+  const otherLanguage = locales.find((candidate) => candidate !== locale) ?? defaultLocale;
+  return {
+    locale,
+    pathPrefix: locale === defaultLocale ? undefined : `/${locale}/`,
+    copy: useTranslations(locale).notFound,
+    homeHref: getLocalizedUrl(locale),
+    cvHref: getLocalizedUrl(locale, "cv"),
+    otherLanguage: { href: getLocalizedUrl(otherLanguage), lang: otherLanguage },
+  };
+});
+const copy = useTranslations(defaultLocale).notFound;
+---
+
+<Layout title={copy.title} description={copy.description} noindex>
+  <NotFound variants={variants} />
+</Layout>

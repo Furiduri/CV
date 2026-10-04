@@ -316,6 +316,16 @@ export default {
     },
     photoCredits: { lead: "Photos by", on: "on" },
   },
+  notFound: {
+    title: "Page not found | GCatcode",
+    description: "The page you are looking for does not exist or has moved.",
+    heading: "This page does not exist",
+    text: "The link may be mistyped, or the page may have moved. From here you can head back to the site.",
+    homeCta: "Go to the home page",
+    cvCta: "See the CV",
+    otherLanguage: "Ver el sitio en español",
+    brandHome: "GCatcode, go to the home page",
+  },
   caseStudies: {
     juegalajara: {
       eyebrow: "Case study",
