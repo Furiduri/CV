@@ -1,6 +1,6 @@
 # ADR-0009: Pago por módulo y cambios en el desarrollo a la medida
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

@@ -1,6 +1,6 @@
 # ADR-0011: Propiedad del código
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

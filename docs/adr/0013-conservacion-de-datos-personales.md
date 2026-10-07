@@ -1,6 +1,6 @@
 # ADR-0013: Conservación de datos personales y datos bancarios
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

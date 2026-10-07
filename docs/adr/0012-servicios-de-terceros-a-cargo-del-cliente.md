@@ -1,6 +1,6 @@
 # ADR-0012: Servicios de terceros a cargo del cliente
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

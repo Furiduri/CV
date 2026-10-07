@@ -1,6 +1,6 @@
 # ADR-0008: Alcance de la garantía
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

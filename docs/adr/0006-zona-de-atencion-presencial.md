@@ -1,6 +1,6 @@
 # ADR-0006: Zona de atención presencial
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

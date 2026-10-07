@@ -1,6 +1,6 @@
 # ADR-0007: Grabaciones y material de capacitación
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

@@ -1,6 +1,6 @@
 # ADR-0005: Pago y agenda de las sesiones de asesoría
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto
