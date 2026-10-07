@@ -10,6 +10,8 @@ export const business = {
   // International format without symbols, as wa.me expects it.
   whatsappNumber: "523321739884",
   hourlyRateMxn: 500,
+  // The hourly rate covers sessions up to this size; larger groups are quoted (ADR-0004).
+  advisoryMaxAttendees: 3,
   freeCallMinutes: 30,
   cycleBusinessDays: 10,
   cycleWeeks: 2,
@@ -18,7 +20,7 @@ export const business = {
 
 // ISO date of the last revision of the terms and the privacy notice; the
 // human-readable date lives in each dictionary (`legal.updatedDate`).
-export const legalLastUpdated = "2026-10-02";
+export const legalLastUpdated = "2026-10-06";
 
 // WhatsApp click-to-chat link with a prefilled message.
 export function whatsappUrl(message: string): string {
@@ -35,6 +37,7 @@ export const businessPlaceholders = {
   email: business.email,
   phone: business.phoneDisplay,
   rate: business.hourlyRateMxn,
+  attendees: business.advisoryMaxAttendees,
   minutes: business.freeCallMinutes,
   cycleDays: business.cycleBusinessDays,
   cycleWeeks: business.cycleWeeks,

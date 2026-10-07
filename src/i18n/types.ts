@@ -116,11 +116,13 @@ export interface Dictionary {
       cta: string;
       advisory: {
         title: string;
+        pricePrefix: string;
         price: string;
         unit: string;
         taxNote: string;
         intro: string;
         examples: string[];
+        scopeNote: string;
         cta: string;
       };
     };
