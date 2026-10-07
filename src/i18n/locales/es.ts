@@ -242,7 +242,7 @@ export default {
     about: {
       title: "Sobre mí",
       avatarAlt: "Logo de GCatcode",
-      intro: "Soy Jorge Osvaldo Perez Mendoza, Ingeniero en Desarrollo de Software titulado (cédula profesional {license}). Llevo más de {years} años ayudando a empresas a resolver problemas complejos con tecnología.",
+      intro: "Soy Jorge Osvaldo Perez Mendoza, Ingeniero en Desarrollo de Software titulado. Llevo más de {years} años ayudando a empresas a resolver problemas complejos con tecnología.",
       missionLabel: "Mi misión",
       mission: "Traducir tus dolores de cabeza diarios en plataformas, aplicaciones o sistemas que simplemente funcionan.",
       cvLink: "Ver mi CV",

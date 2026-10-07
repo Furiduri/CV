@@ -242,7 +242,7 @@ export default {
     about: {
       title: "About me",
       avatarAlt: "GCatcode logo",
-      intro: "I'm Jorge Osvaldo Perez Mendoza, a licensed Software Development Engineer (Mexican professional license {license}). For more than {years} years I have been helping companies solve complex problems with technology.",
+      intro: "I'm Jorge Osvaldo Perez Mendoza, a licensed Software Development Engineer. For more than {years} years I have been helping companies solve complex problems with technology.",
       missionLabel: "My mission",
       mission: "To turn your daily headaches into platforms, apps or systems that simply work.",
       cvLink: "View my CV",

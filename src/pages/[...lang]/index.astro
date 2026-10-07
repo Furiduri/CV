@@ -17,7 +17,6 @@ import TrustSection from "../../components/landing/TrustSection.astro";
 import PhotoCredits from "../../components/ui/PhotoCredits.astro";
 import { business, businessPlaceholders, mailtoUrl, whatsappUrl } from "../../data/business";
 import { caseStudies } from "../../data/caseStudies";
-import { education } from "../../data/education";
 import { landingPhotos, unsplashUrl } from "../../data/landingPhotos";
 import { experienceYears } from "../../data/profile";
 import type { Locale } from "../../i18n/config";
@@ -34,8 +33,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const license = education.find((entry) => "licenseNumber" in entry)?.licenseNumber ?? "";
-const values = { ...businessPlaceholders, years: experienceYears, license };
+const values = { ...businessPlaceholders, years: experienceYears };
 const l = formatDeep(t.landing, values);
 const meta = formatDeep(t.meta.landing, values);
 

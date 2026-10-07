@@ -57,7 +57,8 @@ when creating the branch for a change or issue.
 | Second PR depends on the first | Merge the first, rebase onto `main`, then open the second |
 | Any change under `src/`, `public/`, or config | `npm run build` must pass and be reported |
 | Visible change | Also verified in the preview, EN and ES, desktop and mobile; say which |
-| Only docs, skills or `.claude/` changed | No build required; say so explicitly |
+| Only docs, skills or `.claude/` changed | No build required; say so explicitly. The Firebase preview workflow only runs for paths that change the built site, so no preview URL is posted |
+| PR touches `docs/adr/` | The `ADR status` check must pass: every ADR accepted or rejected before merge |
 | Anything under `.atl/` appears in `git status` | Leave it out |
 
 ## Execution Steps
@@ -72,7 +73,8 @@ when creating the branch for a change or issue.
    Changes (table of file to change), Verification — including what was **not**
    verified — and Pending.
 6. `gh pr edit <n> --add-label "<label>"` if a label applies.
-7. CI posts a Firebase preview URL on the PR. Check it with `gh pr checks <n>`
+7. When the PR changes the built site (`src/`, `public/`, build or Firebase
+   config), CI posts a Firebase preview URL. Check it with `gh pr checks <n>`
    and report the URL. Until that check finishes, the preview is unverified; say
    so.
 
