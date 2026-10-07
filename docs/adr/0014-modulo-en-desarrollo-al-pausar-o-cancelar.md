@@ -1,6 +1,6 @@
 # ADR-0014: Módulo en desarrollo al pausar o cancelar
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto
