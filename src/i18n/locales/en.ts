@@ -12,7 +12,7 @@ export default {
     },
     landing: {
       title: "GCatcode | Custom technology solutions",
-      description: "We build custom websites, mobile apps and desktop systems for your business. Deliveries every {cycleWeeks} weeks, you pay for results, and the first meeting is free, online or in person in Guadalajara.",
+      description: "We build custom websites, mobile apps and desktop systems for your business. Deliveries every {cycleWeeks} weeks, you pay for results, and the first meeting is free, online or in person in Zapopan and Guadalajara.",
     },
     terms: {
       title: "Terms and Conditions | GCatcode",
@@ -161,7 +161,7 @@ export default {
       subtitle: "We build the technology you need to make the most of your time. Forget complicated, expensive software: at GCatcode we design digital solutions tailored to you, step by step, with results from the very first delivery.",
       primaryCta: "I want to optimize my business",
       secondaryCta: "Book your free meeting",
-      note: "First meeting free and with no commitment, up to {minutes} minutes, online or in person in the Guadalajara metropolitan area.",
+      note: "First meeting free and with no commitment, up to {minutes} minutes, online or in person in Zapopan and Guadalajara.",
     },
     problem: {
       title: "Sound familiar?",
@@ -213,11 +213,11 @@ export default {
         },
         results: {
           title: "You pay for results, not hours",
-          text: "Every cycle ends with a key feature you can already use in your business (web, mobile or desktop).",
+          text: "You pay per module, and each one is delivered working, ready to use in your business (web, mobile or desktop).",
         },
         flexibility: {
           title: "Full flexibility",
-          text: "Got a new idea? If we haven't started a module yet, we swap it at no extra cost.",
+          text: "Got a new idea? If we haven't started a module yet, we change it: we only adjust its quote, with no fee for the change.",
         },
       },
     },
@@ -249,11 +249,11 @@ export default {
     },
     freeCall: {
       title: "Not sure where to start? Let's talk.",
-      text: "Sometimes the biggest obstacle is not knowing what technology your business needs. Book a free, no-commitment meeting of up to {minutes} minutes, online or in person in the Guadalajara metropolitan area (ZMG): we listen to your problem and point you toward the ideal technology solution, in plain language.",
+      text: "Sometimes the biggest obstacle is not knowing what technology your business needs. Book a free, no-commitment meeting of up to {minutes} minutes, online or in person in Zapopan and Guadalajara: we listen to your problem and point you toward the ideal technology solution, in plain language.",
       badge: "Free",
       details: [
         "Up to {minutes} minutes",
-        "Video call or in person in the ZMG",
+        "Video call or in person in Zapopan and Guadalajara",
         "No commitment",
       ],
       cta: "Book my free meeting",
@@ -282,7 +282,7 @@ export default {
         },
         inPerson: {
           question: "Do you meet in person?",
-          answer: "Yes, in the Guadalajara metropolitan area. We also meet online by video call.",
+          answer: "Yes, in Zapopan and Guadalajara, with no travel charge. In other locations, we quote the session with travel expenses included. We also meet online by video call.",
         },
         advisoryPrice: {
           question: "How much does the advisory cost?",
@@ -290,11 +290,11 @@ export default {
         },
         projectPayment: {
           question: "How is a project paid?",
-          answer: "In {cycleWeeks}-week cycles ({cycleDays} business days). You pay for the features we deliver working, not for hours.",
+          answer: "Per module, not per hour. The first module starts with a {deposit}% deposit and is paid off on delivery; the following ones are paid before they start. Each module is delivered working, in {cycleWeeks}-week cycles ({cycleDays} business days).",
         },
         warranty: {
           question: "What does the warranty cover?",
-          answer: "During the {warrantyDays} days after delivery, we fix defects in what we delivered at no cost. It does not cover new features, scope changes or failures caused by third-party modifications.",
+          answer: "During the {warrantyDays} days after each development module is delivered, we fix defects in what we delivered at no cost. It does not cover new features, scope changes, failures caused by third-party modifications or changes to third-party platforms.",
         },
         ai: {
           question: "Do you use AI with my data?",
@@ -385,9 +385,9 @@ export default {
           blocks: [
             "All prices are expressed in Mexican pesos (MXN) and include Value Added Tax (IVA).",
             [
-              "Initial meeting: free, lasting up to {minutes} minutes, by video call or in person in the Guadalajara metropolitan area.",
+              "Initial meeting: free, lasting up to {minutes} minutes, by video call or in person in Zapopan and Guadalajara, Jalisco.",
               "Advisory, training and technical support: from ${rate} MXN per hour, VAT (IVA) included, according to the scope described in the next section.",
-              "Custom development: quoted per development cycle, according to the features agreed for each cycle.",
+              "Custom development: quoted per module, as described in the “Custom development” section.",
             ],
           ],
         },
@@ -405,24 +405,112 @@ export default {
           ],
         },
         {
-          title: "Cycle-based development",
+          title: "Session payment, rescheduling and cancellation",
+          blocks: [
+            "To confirm an advisory, training or technical support session, you pay a deposit of {deposit}% of its total cost. The rest is paid when the session ends.",
+            "Each session lasts at least 1 hour and is charged in full hours. For time beyond the last full hour:",
+            [
+              "Up to {graceMinutes} minutes are not charged.",
+              "More than {graceMinutes} minutes are charged as an additional hour.",
+            ],
+            "That {graceMinutes}-minute margin is reserved between scheduled sessions to cover delays on the client's side or technical ones.",
+            "Rescheduling {noticeHours} hours or more in advance: free of charge, up to {maxEarlyReschedules} times per session. If you need to reschedule more times, you may cancel with a full refund.",
+            "Rescheduling less than {noticeHours} hours in advance:",
+            [
+              "The deposit paid is applied to the new date.",
+              "To reschedule, the amount paid must reach {lateTopUp}% of the session's total cost. If it already does, you pay nothing additional. This payment is deducted from the session total.",
+              "Allowed up to {maxLateReschedules} times per session. An additional request is treated as a cancellation less than {noticeHours} hours in advance.",
+            ],
+            "The new date cannot be more than one month after the session's original date. If we do not accept the new date, you may choose another one within that period or cancel: with no penalty if no previous rescheduling was made less than {noticeHours} hours in advance; otherwise, the deposit is retained.",
+            "Cancellation:",
+            [
+              "{noticeHours} hours or more in advance: we refund everything paid.",
+              "Less than {noticeHours} hours in advance: we retain the deposit of {deposit}% of the session's total cost and refund the rest of what was paid.",
+            ],
+            "If you do not show up for the session, you have {noShowDays} business days from its date to reschedule it, under the conditions of a rescheduling less than {noticeHours} hours in advance. If you do not reschedule within that period, the session is cancelled and the deposit is retained.",
+            "If we cancel or reschedule a session for reasons attributable to us, including technical failures on our side, you may choose a new date at no cost or a full refund. That rescheduling does not count toward the limits above.",
+          ],
+        },
+        {
+          title: "In-person sessions",
+          blocks: [
+            "In-person sessions in Zapopan and Guadalajara, Jalisco, have the same rate as online sessions. Travel is not charged and does not count as session time.",
+            "In-person sessions in other locations are quoted in writing before scheduling, with travel expenses included in the total price.",
+          ],
+        },
+        {
+          title: "Recordings and training material",
           blocks: [
             [
-              "Custom projects are developed in {cycleWeeks}-week cycles ({cycleDays} business days).",
-              "Each cycle ends with the delivery of working features you can use in your business.",
-              "Payment is made for features delivered and working, not for hours worked.",
-              "Modules that have not been started yet can be swapped for others at no additional cost.",
+              "You may record a session if you tell us before it starts. The recording is for the personal use of the attendees only.",
+              "The material we provide, such as guides and presentations, is for the internal use of the session's attendees.",
+              "Recordings and material may not be distributed, published or resold, nor used to train other people. To train more people, request a quote.",
+              "The material remains our work: by receiving it you get permission to use it, not ownership of it.",
             ],
+          ],
+        },
+        {
+          title: "Custom development",
+          blocks: [
+            [
+              "Custom projects are organized in modules and developed in {cycleWeeks}-week cycles ({cycleDays} business days). A module may take one or more cycles.",
+              "At the close of each module we deliver a working release: its source code and, if you request it, its deployment to a server.",
+              "Payment is per quoted module, not per hour worked.",
+            ],
+            "Payments:",
+            [
+              "First module: starts with a {deposit}% deposit, and the rest is paid no later than its delivery. The module is handed over once it is paid in full, and the deposit is non-refundable if the rest is not paid.",
+              "Following modules: paid in full before their development starts.",
+            ],
+            "The plan for future modules is an estimate and may change until each module is paid. A module's price is fixed when it is paid.",
+            "Any module that has not been started can be changed, regardless of the cycle it is planned for:",
+            [
+              "A change is handled by re-quoting the module. Once the first module is paid, re-quoting changes has no cost.",
+              "If a change technically affects other modules not yet started, those modules are re-quoted as well.",
+              "If a re-quoted module was already paid, the difference becomes a credit, applied to the following modules, or a balance due, paid before that module starts.",
+              "A module in development is not modified. Changes you request to it are quoted as a new module after its delivery.",
+            ],
+          ],
+        },
+        {
+          title: "Project pause and cancellation",
+          blocks: [
+            "You may pause or cancel a project at any time. In both cases we refund in full the paid modules that have not been started and any credit balance.",
+            "Since each module's code is delivered at its close, you keep everything delivered up to the last paid module.",
+            [
+              "Pause: we keep the project in our private repositories for {pauseMonths} months so you can resume it. If it is not resumed within that period, it is considered cancelled.",
+              "Cancellation: we keep a copy of the source code for {retentionMonths} months from the cancellation and then delete it from our repositories.",
+            ],
+          ],
+        },
+        {
+          title: "Code ownership",
+          blocks: [
+            [
+              "The code developed specifically for your project is yours once the module that contains it is paid.",
+              "We retain ownership of our tools, templates, libraries and pre-existing or general-purpose components, including those we develop during your project. We may publish them under an open-source license or license them to third parties.",
+              "General-purpose code does not include your data, your confidential information or your business's own logic.",
+              "You receive a free, perpetual and non-exclusive permission to use that general-purpose code within your project. If you need exclusivity over it, it is quoted separately.",
+              "Third-party open-source libraries are governed by their own licenses.",
+              "We may mention the project in our portfolio, as described in the privacy notice. You may refuse at any time by writing to {email}.",
+            ],
+          ],
+        },
+        {
+          title: "Third-party services",
+          blocks: [
+            "The hosting, domains and other third-party services your project requires, such as databases, email or APIs, are contracted in your name and paid by you directly to each provider. Their configuration and deployment are included in the quote of the corresponding module.",
           ],
         },
         {
           title: "Warranty",
           blocks: [
-            "Deliverables carry a warranty of {warrantyDays} calendar days from the delivery date.",
+            "Each custom development module carries a warranty of {warrantyDays} calendar days from its delivery.",
             [
               "Covers: free correction of defects in what was delivered.",
-              "Does not cover: new features, scope changes or failures caused by modifications made by third parties.",
+              "Does not cover: new features, scope changes, failures caused by modifications made by third parties or changes to third-party platforms or services.",
             ],
+            "Advisory, training and technical support do not guarantee specific results, since these depend on how you apply what you learned. If a session cannot be given because of a failure on our side, it is rescheduled at no cost, as stated in the “Session payment, rescheduling and cancellation” section.",
             "To claim the warranty, contact us within that period by WhatsApp at {phone} or by email at {email}, describing the defect you found.",
           ],
         },
@@ -462,14 +550,17 @@ export default {
         {
           title: "Personal data we collect",
           blocks: [
-            "We collect the following data when you contact us by WhatsApp or email, or during a meeting:",
+            "We collect the following data when you contact us by WhatsApp or email, during a meeting or while providing our services:",
             [
               "Name.",
               "Phone number.",
               "Email address.",
               "Information about your business that you choose to share with us.",
+              "The address where an in-person session will take place, when you request one.",
               "Tax information, only when you request an invoice.",
+              "Bank details, only to make a refund.",
             ],
+            "Your bank details are financial data: we ask for them only when a refund applies, with your express consent at that moment. We do not keep them in our records; if another refund is needed, we ask for them again. They are kept only in the transaction receipts that tax law requires.",
             "We do not collect sensitive personal data.",
           ],
         },
@@ -479,18 +570,41 @@ export default {
             "We use your personal data for the following purposes, which are necessary for your relationship with us:",
             [
               "Handling your requests and replying to your messages.",
-              "Scheduling meetings.",
+              "Scheduling, rescheduling and cancelling meetings and sessions.",
               "Preparing quotes and providing the services you hire.",
+              "Managing deposits, payments and refunds.",
               "Issuing invoices.",
             ],
-            "We do not use your data for secondary purposes such as advertising or marketing.",
+            "We also have one secondary purpose, which is not necessary to provide the service:",
+            [
+              "Mentioning the project we built for you in our portfolio: your business or project name, its description and screenshots. Screenshots never show third parties' personal data.",
+            ],
+            "You may refuse this purpose at any time by writing to {email}. Refusing does not affect the services we provide to you. We do not use your data for any other advertising or marketing purpose.",
           ],
         },
         {
-          title: "Data transfers",
+          title: "Data we process on behalf of our clients",
+          blocks: [
+            "When we build a system or provide technical support, we may have access to personal data that you process, such as your customers' data, and to the accounts of services contracted in your name.",
+            "We process that data only on your behalf and according to your instructions, to provide the service you hired. We do not use it for any other purpose and we keep it confidential.",
+          ],
+        },
+        {
+          title: "Transfers and service providers",
           blocks: [
             "We do not transfer your personal data to third parties, except when required by law or by a competent authority.",
+            "We rely on technology service providers that process data on our behalf, such as email services, private code repositories and Artificial Intelligence tools. We share with them only the information needed to provide the service.",
             "If you contact us by WhatsApp, that platform is operated by Meta, and the information you send through it is also governed by its own privacy policies.",
+          ],
+        },
+        {
+          title: "Data retention",
+          blocks: [
+            [
+              "Contact data of people who did not hire a service: deleted after {leadMonths} months without communication.",
+              "Client and invoicing data: kept for {clientYears} years, the period required by tax law, and then deleted.",
+              "Project source code is kept as stated in the terms and conditions.",
+            ],
           ],
         },
         {

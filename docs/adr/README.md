@@ -15,6 +15,15 @@ principal: **un ADR aceptado no se edita, se supera con uno nuevo.**
 | [0002](0002-recursos-servidos-desde-el-propio-sitio.md) | Recursos servidos desde el propio sitio | Propuesta | 2026-10-03 |
 | [0003](0003-precios-publicados-con-iva-incluido.md) | Precios publicados con IVA incluido | Aceptada | 2026-10-06 |
 | [0004](0004-alcance-de-la-tarifa-de-asesoria.md) | Alcance de la tarifa de asesoría | Aceptada | 2026-10-06 |
+| [0005](0005-pago-y-agenda-de-sesiones-de-asesoria.md) | Pago y agenda de las sesiones de asesoría | Aceptada | 2026-10-06 |
+| [0006](0006-zona-de-atencion-presencial.md) | Zona de atención presencial | Aceptada | 2026-10-06 |
+| [0007](0007-grabaciones-y-material-de-capacitacion.md) | Grabaciones y material de capacitación | Aceptada | 2026-10-06 |
+| [0008](0008-alcance-de-la-garantia.md) | Alcance de la garantía | Aceptada | 2026-10-06 |
+| [0009](0009-pago-por-modulo-y-cambios-en-el-desarrollo.md) | Pago por módulo y cambios en el desarrollo a la medida | Aceptada | 2026-10-06 |
+| [0010](0010-pausa-cancelacion-y-resguardo-del-codigo.md) | Pausa, cancelación y resguardo del código | Aceptada | 2026-10-06 |
+| [0011](0011-propiedad-del-codigo.md) | Propiedad del código | Aceptada | 2026-10-06 |
+| [0012](0012-servicios-de-terceros-a-cargo-del-cliente.md) | Servicios de terceros a cargo del cliente | Aceptada | 2026-10-06 |
+| [0013](0013-conservacion-de-datos-personales.md) | Conservación de datos personales y datos bancarios | Aceptada | 2026-10-06 |
 
 ## Pendientes
 
