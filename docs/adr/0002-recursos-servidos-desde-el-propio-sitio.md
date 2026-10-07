@@ -1,6 +1,6 @@
 # ADR-0002: Recursos servidos desde el propio sitio
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-03
 
 ## Contexto

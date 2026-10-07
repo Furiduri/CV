@@ -12,7 +12,7 @@ principal: **un ADR aceptado no se edita, se supera con uno nuevo.**
 | --- | --- | --- | --- |
 | [0000](0000-proceso-de-adr.md) | Proceso de registro de decisiones de arquitectura | Aceptada | 2026-10-02 |
 | [0001](0001-arquitectura-modular-de-componentes.md) | Arquitectura modular de componentes | Aceptada | 2026-10-02 |
-| [0002](0002-recursos-servidos-desde-el-propio-sitio.md) | Recursos servidos desde el propio sitio | Propuesta | 2026-10-03 |
+| [0002](0002-recursos-servidos-desde-el-propio-sitio.md) | Recursos servidos desde el propio sitio | Aceptada | 2026-10-03 |
 | [0003](0003-precios-publicados-con-iva-incluido.md) | Precios publicados con IVA incluido | Aceptada | 2026-10-06 |
 | [0004](0004-alcance-de-la-tarifa-de-asesoria.md) | Alcance de la tarifa de asesoría | Aceptada | 2026-10-06 |
 | [0005](0005-pago-y-agenda-de-sesiones-de-asesoria.md) | Pago y agenda de las sesiones de asesoría | Aceptada | 2026-10-06 |
