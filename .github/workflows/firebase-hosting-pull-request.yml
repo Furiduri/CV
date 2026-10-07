@@ -2,7 +2,19 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on PR
-on: pull_request
+# Only changes that can alter the built site need a build and a preview.
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "public/**"
+      - "astro.config.mjs"
+      - "tsconfig.json"
+      - "package.json"
+      - "package-lock.json"
+      - "firebase.json"
+      - ".firebaserc"
+      - ".github/workflows/firebase-hosting-pull-request.yml"
 permissions:
   checks: write
   contents: read
