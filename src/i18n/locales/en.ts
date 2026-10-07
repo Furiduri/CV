@@ -476,6 +476,12 @@ export default {
           title: "Project pause and cancellation",
           blocks: [
             "You may pause or cancel a project at any time. In both cases we refund in full the paid modules that have not been started and any credit balance.",
+            "If a module is in development:",
+            [
+              "The pause or cancellation takes effect when that module closes: we finish it and deliver it working.",
+              "If you request in writing to stop it immediately, we deliver its code as it stands and refund the part proportional to that module's cycles that have not been worked. If it is the first module and only the deposit was paid, that deposit covers the work done and is not refunded.",
+              "A module delivered this way is neither finished nor tested, and it does not carry the {warrantyDays}-day warranty. We do not recommend integrating it into your system without completing it; if you choose to, any failures it causes in it or in earlier modules are not covered.",
+            ],
             "Since each module's code is delivered at its close, you keep everything delivered up to the last paid module.",
             [
               "Pause: we keep the project in our private repositories for {pauseMonths} months so you can resume it. If it is not resumed within that period, it is considered cancelled.",
@@ -508,7 +514,7 @@ export default {
             "Each custom development module carries a warranty of {warrantyDays} calendar days from its delivery.",
             [
               "Covers: free correction of defects in what was delivered.",
-              "Does not cover: new features, scope changes, failures caused by modifications made by third parties or changes to third-party platforms or services.",
+              "Does not cover: new features, scope changes, failures caused by modifications made by third parties, changes to third-party platforms or services, or modules delivered unfinished at your request.",
             ],
             "Advisory, training and technical support do not guarantee specific results, since these depend on how you apply what you learned. If a session cannot be given because of a failure on our side, it is rescheduled at no cost, as stated in the “Session payment, rescheduling and cancellation” section.",
             "To claim the warranty, contact us within that period by WhatsApp at {phone} or by email at {email}, describing the defect you found.",
