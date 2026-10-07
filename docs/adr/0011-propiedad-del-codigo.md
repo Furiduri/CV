@@ -27,9 +27,14 @@ confidencial ni lógica propia del negocio del cliente.
 
 El cliente recibe una autorización gratuita, permanente y no exclusiva para
 usar ese código genérico en su proyecto; la exclusividad se cotiza aparte.
-Las librerías de código abierto de terceros conservan sus licencias. El
-proveedor puede mencionar el proyecto en su portafolio, salvo que el cliente
-pida confidencialidad por escrito.
+Las librerías de código abierto de terceros conservan sus licencias.
+
+El proveedor puede mencionar el proyecto en su portafolio de forma
+predeterminada: nombre del negocio o del proyecto, descripción y capturas sin
+datos personales de terceros. Como el cliente puede ser persona física, esa
+mención es una finalidad secundaria de tratamiento de datos personales: el
+aviso de privacidad la declara y ofrece negarse en cualquier momento por
+correo, sin afectar el servicio.
 
 ## Alternativas consideradas
 
@@ -40,6 +45,11 @@ proveedor.
 **El proveedor conserva todo y licencia el código al cliente.** Máxima
 protección para el proveedor. Se descarta porque contradice la política de
 entregar al cliente el código de cada módulo pagado.
+
+**Portafolio solo con autorización por escrito del cliente.** Evita declarar
+una finalidad secundaria en el aviso de privacidad. Se descarta porque el
+dueño quiere mostrar sus proyectos de forma predeterminada; pedir permiso en
+cada uno hace que la mayoría no se publique.
 
 **Código genérico de propiedad compartida.** Parece equilibrado. Se descarta
 porque la copropiedad complica publicarlo o licenciarlo después.
@@ -58,6 +68,10 @@ porque la copropiedad complica publicarlo o licenciarlo después.
   discutirse en un caso concreto.
 - Un cliente puede percibir que pagó por desarrollar algo que el proveedor
   después explota comercialmente.
+- El aviso de privacidad pierde la afirmación absoluta "no usamos tus datos
+  para publicidad"; ahora declara una finalidad secundaria.
+- Las capturas para el portafolio deben prepararse con datos de prueba, lo que
+  agrega trabajo en cada proyecto publicado.
 
 ## Verificación
 

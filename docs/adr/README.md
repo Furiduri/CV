@@ -23,6 +23,7 @@ principal: **un ADR aceptado no se edita, se supera con uno nuevo.**
 | [0010](0010-pausa-cancelacion-y-resguardo-del-codigo.md) | Pausa, cancelación y resguardo del código | Propuesta | 2026-10-06 |
 | [0011](0011-propiedad-del-codigo.md) | Propiedad del código | Propuesta | 2026-10-06 |
 | [0012](0012-servicios-de-terceros-a-cargo-del-cliente.md) | Servicios de terceros a cargo del cliente | Propuesta | 2026-10-06 |
+| [0013](0013-conservacion-de-datos-personales.md) | Conservación de datos personales y datos bancarios | Propuesta | 2026-10-06 |
 
 ## Pendientes
 
