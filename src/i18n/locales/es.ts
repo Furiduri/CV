@@ -492,7 +492,7 @@ export default {
               "El código de uso genérico no incluye tus datos, tu información confidencial ni la lógica propia de tu negocio.",
               "Recibes una autorización gratuita, permanente y no exclusiva para usar ese código genérico dentro de tu proyecto. Si requieres exclusividad sobre él, se cotiza por separado.",
               "Las librerías de código abierto de terceros se rigen por sus propias licencias.",
-              "Podemos mencionar el proyecto en nuestro portafolio, salvo que solicites confidencialidad por escrito.",
+              "Podemos mencionar el proyecto en nuestro portafolio, como se describe en el aviso de privacidad. Puedes negarte en cualquier momento escribiendo a {email}.",
             ],
           ],
         },
@@ -550,14 +550,17 @@ export default {
         {
           title: "Datos personales que recabamos",
           blocks: [
-            "Recabamos los siguientes datos cuando nos contactas por WhatsApp o correo electrónico, o durante una cita:",
+            "Recabamos los siguientes datos cuando nos contactas por WhatsApp o correo electrónico, durante una cita o durante la prestación de los servicios:",
             [
               "Nombre.",
               "Número de teléfono.",
               "Correo electrónico.",
               "Información sobre tu negocio que decidas compartirnos.",
+              "Domicilio donde se realizará una sesión presencial, cuando la solicites.",
               "Datos fiscales, únicamente cuando solicites una factura.",
+              "Datos bancarios, únicamente para realizar un reembolso.",
             ],
+            "Tus datos bancarios son datos financieros: los solicitamos solo cuando procede un reembolso y con tu consentimiento expreso en ese momento. No los guardamos en nuestros registros; si se requiere otro reembolso, te los volvemos a solicitar. Solo se conservan en los comprobantes de la operación que exige la legislación fiscal.",
             "No recabamos datos personales sensibles.",
           ],
         },
@@ -567,18 +570,41 @@ export default {
             "Usamos tus datos personales para las siguientes finalidades, necesarias para la relación que tienes con nosotros:",
             [
               "Atender tus solicitudes y responder tus mensajes.",
-              "Agendar citas.",
+              "Agendar, reprogramar y cancelar citas y sesiones.",
               "Elaborar cotizaciones y prestarte los servicios contratados.",
+              "Gestionar anticipos, pagos y reembolsos.",
               "Emitir facturas.",
             ],
-            "No usamos tus datos para finalidades secundarias, como publicidad o mercadotecnia.",
+            "Además, tenemos una finalidad secundaria, que no es necesaria para prestarte el servicio:",
+            [
+              "Mencionar en nuestro portafolio el proyecto que desarrollamos para ti: el nombre de tu negocio o del proyecto, su descripción y capturas de pantalla. Las capturas nunca muestran datos personales de terceros.",
+            ],
+            "Puedes negarte a esta finalidad en cualquier momento escribiendo a {email}. Tu negativa no afecta los servicios que te prestamos. No usamos tus datos para ninguna otra finalidad de publicidad o mercadotecnia.",
           ],
         },
         {
-          title: "Transferencias de datos",
+          title: "Datos que tratamos por cuenta de nuestros clientes",
+          blocks: [
+            "Cuando desarrollamos un sistema o damos soporte técnico, podemos tener acceso a datos personales que tú tratas, como los de tus clientes, y a las cuentas de los servicios contratados a tu nombre.",
+            "Tratamos esos datos únicamente por tu cuenta y conforme a tus instrucciones, para prestar el servicio contratado. No los usamos para ninguna otra finalidad y los mantenemos confidenciales.",
+          ],
+        },
+        {
+          title: "Transferencias y proveedores",
           blocks: [
             "No transferimos tus datos personales a terceros, salvo cuando una ley o una autoridad competente lo exija.",
+            "Nos apoyamos en proveedores de servicios tecnológicos que tratan datos por nuestra cuenta, como servicios de correo electrónico, repositorios privados de código y herramientas de Inteligencia Artificial. Solo les compartimos la información necesaria para prestar el servicio.",
             "Si nos contactas por WhatsApp, esa plataforma es operada por Meta y la información que envíes por ese medio también se rige por sus propias políticas de privacidad.",
+          ],
+        },
+        {
+          title: "Conservación de los datos",
+          blocks: [
+            [
+              "Datos de contacto de quienes no contrataron un servicio: se eliminan después de {leadMonths} meses sin comunicación.",
+              "Datos de clientes y de facturación: se conservan durante {clientYears} años, el plazo que exige la legislación fiscal, y después se eliminan.",
+              "El código fuente de los proyectos se conserva según lo indicado en los términos y condiciones.",
+            ],
           ],
         },
         {

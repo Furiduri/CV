@@ -492,7 +492,7 @@ export default {
               "General-purpose code does not include your data, your confidential information or your business's own logic.",
               "You receive a free, perpetual and non-exclusive permission to use that general-purpose code within your project. If you need exclusivity over it, it is quoted separately.",
               "Third-party open-source libraries are governed by their own licenses.",
-              "We may mention the project in our portfolio, unless you request confidentiality in writing.",
+              "We may mention the project in our portfolio, as described in the privacy notice. You may refuse at any time by writing to {email}.",
             ],
           ],
         },
@@ -550,14 +550,17 @@ export default {
         {
           title: "Personal data we collect",
           blocks: [
-            "We collect the following data when you contact us by WhatsApp or email, or during a meeting:",
+            "We collect the following data when you contact us by WhatsApp or email, during a meeting or while providing our services:",
             [
               "Name.",
               "Phone number.",
               "Email address.",
               "Information about your business that you choose to share with us.",
+              "The address where an in-person session will take place, when you request one.",
               "Tax information, only when you request an invoice.",
+              "Bank details, only to make a refund.",
             ],
+            "Your bank details are financial data: we ask for them only when a refund applies, with your express consent at that moment. We do not keep them in our records; if another refund is needed, we ask for them again. They are kept only in the transaction receipts that tax law requires.",
             "We do not collect sensitive personal data.",
           ],
         },
@@ -567,18 +570,41 @@ export default {
             "We use your personal data for the following purposes, which are necessary for your relationship with us:",
             [
               "Handling your requests and replying to your messages.",
-              "Scheduling meetings.",
+              "Scheduling, rescheduling and cancelling meetings and sessions.",
               "Preparing quotes and providing the services you hire.",
+              "Managing deposits, payments and refunds.",
               "Issuing invoices.",
             ],
-            "We do not use your data for secondary purposes such as advertising or marketing.",
+            "We also have one secondary purpose, which is not necessary to provide the service:",
+            [
+              "Mentioning the project we built for you in our portfolio: your business or project name, its description and screenshots. Screenshots never show third parties' personal data.",
+            ],
+            "You may refuse this purpose at any time by writing to {email}. Refusing does not affect the services we provide to you. We do not use your data for any other advertising or marketing purpose.",
           ],
         },
         {
-          title: "Data transfers",
+          title: "Data we process on behalf of our clients",
+          blocks: [
+            "When we build a system or provide technical support, we may have access to personal data that you process, such as your customers' data, and to the accounts of services contracted in your name.",
+            "We process that data only on your behalf and according to your instructions, to provide the service you hired. We do not use it for any other purpose and we keep it confidential.",
+          ],
+        },
+        {
+          title: "Transfers and service providers",
           blocks: [
             "We do not transfer your personal data to third parties, except when required by law or by a competent authority.",
+            "We rely on technology service providers that process data on our behalf, such as email services, private code repositories and Artificial Intelligence tools. We share with them only the information needed to provide the service.",
             "If you contact us by WhatsApp, that platform is operated by Meta, and the information you send through it is also governed by its own privacy policies.",
+          ],
+        },
+        {
+          title: "Data retention",
+          blocks: [
+            [
+              "Contact data of people who did not hire a service: deleted after {leadMonths} months without communication.",
+              "Client and invoicing data: kept for {clientYears} years, the period required by tax law, and then deleted.",
+              "Project source code is kept as stated in the terms and conditions.",
+            ],
           ],
         },
         {

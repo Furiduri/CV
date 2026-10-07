@@ -27,6 +27,9 @@ export const business = {
   // Project pause and source retention (ADR-0010).
   pauseRetentionMonths: 6,
   cancellationRetentionMonths: 3,
+  // Personal data retention (ADR-0013); 5 years matches CFF art. 30.
+  leadRetentionMonths: 12,
+  clientRetentionYears: 5,
 } as const;
 
 // ISO date of the last revision of the terms and the privacy notice; the
@@ -59,6 +62,8 @@ export const businessPlaceholders = {
   graceMinutes: business.overtimeGraceMinutes,
   pauseMonths: business.pauseRetentionMonths,
   retentionMonths: business.cancellationRetentionMonths,
+  leadMonths: business.leadRetentionMonths,
+  clientYears: business.clientRetentionYears,
   cycleDays: business.cycleBusinessDays,
   cycleWeeks: business.cycleWeeks,
   warrantyDays: business.warrantyDays,
