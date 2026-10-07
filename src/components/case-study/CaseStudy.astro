@@ -1,18 +1,19 @@
 ---
 import TechPill from "../ui/TechPill.astro";
+import Button from "../ui/Button.astro";
 import Card from "../ui/Card.astro";
 import CheckList from "../ui/CheckList.astro";
 import Eyebrow from "../ui/Eyebrow.astro";
 import Glow from "../ui/Glow.astro";
 import Section from "../ui/Section.astro";
 import SectionHeading from "../ui/SectionHeading.astro";
-import TextLink from "../ui/TextLink.astro";
 import DeviceShowcase from "./DeviceShowcase.astro";
 import type { CaseStudyData } from "../../data/caseStudies";
 import type { CaseStudyCopy } from "../../i18n/types";
 
-// Case study section: intro, device screenshots, then challenge, solution and
-// result. Shared by every page that shows a case study (ADR-0001).
+// Case study section: intro with the link to the project (shown where the
+// reader gets curious, before the screenshots), device screenshots that link
+// there too, then challenge, solution and result. Shared by every page that shows a case study (ADR-0001).
 interface Props {
   id: string;
   copy: CaseStudyCopy;
@@ -30,6 +31,7 @@ const headingId = `${id}-title`;
     <Eyebrow>{copy.eyebrow}</Eyebrow>
     <SectionHeading id={headingId} accent={false}>{copy.title}</SectionHeading>
     <p class="m-0 text-lg text-zinc-300">{copy.intro}</p>
+    <Button href={study.url} variant="secondary" icon="external" external class="mt-8">{copy.linkLabel}</Button>
   </div>
 
   <DeviceShowcase
@@ -38,6 +40,8 @@ const headingId = `${id}-title`;
     mobile={study.screenshots.mobile}
     desktopAlt={copy.images.desktop}
     mobileAlt={copy.images.mobile}
+    href={study.url}
+    linkLabel={copy.linkLabel}
   />
 
   <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -50,14 +54,13 @@ const headingId = `${id}-title`;
       <p class="mb-4 text-zinc-300">{copy.solution}</p>
       <CheckList items={copy.features} class="text-zinc-200" />
     </Card>
-    <Card interactive class="flex flex-col">
+    <Card interactive>
       <h3 class="text-xl">{copy.resultLabel}</h3>
       <p class="mb-6 text-zinc-300">{copy.result}</p>
       <h4 class="mb-2 text-sm uppercase tracking-wider text-zinc-300">{copy.stackLabel}</h4>
-      <div class="mb-6 flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2">
         {study.stack.map((tech) => <TechPill name={tech} />)}
       </div>
-      <TextLink href={study.url} external class="mt-auto">{copy.linkLabel}</TextLink>
     </Card>
   </div>
 </Section>
