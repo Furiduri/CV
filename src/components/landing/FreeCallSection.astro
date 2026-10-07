@@ -36,9 +36,10 @@ const headingId = `${id}-title`;
         <span class="block text-sm font-semibold text-brand-neon">{copy.advisory.taxNote}</span>
       </p>
       <p class="mb-3 text-zinc-300">{copy.advisory.intro}</p>
-      <ul class="mb-8 list-disc space-y-2 pl-5 text-zinc-200 marker:text-brand-neon">
+      <ul class="mb-4 list-disc space-y-2 pl-5 text-zinc-200 marker:text-brand-neon">
         {copy.advisory.examples.map((example) => <li>{example}</li>)}
       </ul>
+      <p class="mb-8 text-sm text-zinc-300">{copy.advisory.scopeNote}</p>
       <Button href={advisoryHref} variant="secondary" newTabLabel={newTabLabel} class="mt-auto">{copy.advisory.cta}</Button>
     </Card>
   </div>

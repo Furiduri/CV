@@ -121,6 +121,7 @@ export interface Dictionary {
         taxNote: string;
         intro: string;
         examples: string[];
+        scopeNote: string;
         cta: string;
       };
     };

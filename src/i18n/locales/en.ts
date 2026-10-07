@@ -265,9 +265,10 @@ export default {
         intro: "For when you need specific help without starting a project:",
         examples: [
           "Learning how to use a platform or tool that already exists on the market.",
-          "Training your team on your business's digital tools.",
+          "Training your team of up to {attendees} people on your business's digital tools.",
           "Solving general technical problems with the software you already use.",
         ],
+        scopeNote: "Rate for sessions of up to {attendees} people on widely used platforms. For larger groups or enterprise systems, we send you a written quote before we start.",
         cta: "Request advisory",
       },
     },
@@ -284,7 +285,7 @@ export default {
         },
         advisoryPrice: {
           question: "How much does the advisory cost?",
-          answer: "Advisory, training and technical support cost ${rate} MXN per hour, VAT (IVA) included.",
+          answer: "Advisory, training and technical support cost ${rate} MXN per hour, VAT (IVA) included, for sessions of up to {attendees} people on widely used platforms. For larger groups or enterprise or specialized systems, we send you a written quote before we start.",
         },
         projectPayment: {
           question: "How is a project paid?",
@@ -353,7 +354,7 @@ export default {
   },
   legal: {
     updatedLabel: "Last updated:",
-    updatedDate: "October 2, 2026",
+    updatedDate: "October 6, 2026",
     prevailNote: "This is an English translation of the Spanish original. In case of any discrepancy between versions, the Spanish version prevails.",
     backHome: "Back to home",
     terms: {
@@ -384,9 +385,22 @@ export default {
             "All prices are expressed in Mexican pesos (MXN) and include Value Added Tax (IVA).",
             [
               "Initial meeting: free, lasting up to {minutes} minutes, by video call or in person in the Guadalajara metropolitan area.",
-              "Advisory, training and technical support: ${rate} MXN per hour, VAT (IVA) included.",
+              "Advisory, training and technical support: ${rate} MXN per hour, VAT (IVA) included, within the scope described in the next section.",
               "Custom development: quoted per development cycle, according to the features agreed for each cycle.",
             ],
+          ],
+        },
+        {
+          title: "Scope of advisory, training and technical support",
+          blocks: [
+            "The hourly rate applies to sessions of up to {attendees} people on widely used platforms and tools on the market, such as office suites, design tools or online sales platforms.",
+            "The following cases are not covered by the hourly rate and are quoted in writing before starting:",
+            [
+              "Sessions with more than {attendees} people.",
+              "Enterprise or specialized systems, or systems custom-built by third parties, that require prior study on our part.",
+            ],
+            "The quote states the total price, VAT (IVA) included, and may include the time needed to study the system and prepare the material. The service starts only once you accept the quote.",
+            "If you are unsure whether your case is covered by the hourly rate, we will confirm it before scheduling the session.",
           ],
         },
         {
