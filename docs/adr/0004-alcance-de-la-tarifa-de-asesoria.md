@@ -24,8 +24,10 @@ de material que la tarifa no cubre.
 
 ## Decisión
 
-La tarifa por hora aplica a sesiones de hasta 3 personas sobre plataformas y
-herramientas de uso común en el mercado.
+Publicamos la tarifa como "desde $500 MXN por hora, IVA incluido". Esa tarifa
+base aplica a sesiones de hasta 3 personas sobre plataformas y herramientas de
+uso común en el mercado, y el alcance se publica junto al precio en la landing,
+en las preguntas frecuentes y en los términos.
 
 Las sesiones con más de 3 personas, y las que tratan sistemas empresariales,
 especializados o desarrollados a la medida por terceros que requieren estudio
@@ -43,10 +45,14 @@ El límite de personas vive una sola vez en `advisoryMaxAttendees`
 
 ## Alternativas consideradas
 
-**Publicar "desde $500 MXN por hora".** Es breve y deja margen para cobrar
-más. Se descarta porque no dice qué cubre el precio base: el cliente no puede
-saber de antemano cuánto pagará, y la discusión sobre el precio real se
-traslada al momento de contratar.
+**Publicar "desde $500 MXN por hora" sin definir el alcance.** Es breve y deja
+margen para cobrar más. Se descarta porque no dice qué cubre el precio base: el
+cliente no puede saber de antemano cuánto pagará. La decisión adoptada usa
+"desde", pero siempre acompañado del alcance de la tarifa base.
+
+**Publicar "$500 MXN por hora" sin "desde", solo con el alcance.** Es el
+precio más claro para el cliente. Se descarta por decisión del dueño: "desde"
+deja margen ante casos que el alcance escrito no anticipe.
 
 **Cobrar por persona adicional sobre la tarifa base.** Es predecible para el
 cliente. Se descarta porque no resuelve el costo de preparación de los
@@ -74,6 +80,9 @@ porque es justo el hueco que motivó este ADR.
   mitiga con los ejemplos del texto y con la confirmación previa al cliente,
   pero no se elimina.
 - La tarjeta de la landing tiene más texto que leer.
+- "Desde" puede leerse como un precio que siempre sube. Dentro del alcance
+  publicado, el cobro debe ser la tarifa base: el artículo 7 de la LFPC obliga
+  a respetarla en esos casos.
 - Las sesiones que se cotizan requieren un paso más antes de agendar, lo que
   puede hacer perder clientes que buscan una respuesta inmediata.
 

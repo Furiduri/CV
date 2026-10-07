@@ -259,6 +259,7 @@ export default {
       cta: "Reservar mi cita gratis",
       advisory: {
         title: "Asesoría, capacitación y soporte técnico",
+        pricePrefix: "Desde",
         price: "${rate} MXN",
         unit: "por hora",
         taxNote: "IVA incluido",
@@ -285,7 +286,7 @@ export default {
         },
         advisoryPrice: {
           question: "¿Cuánto cuesta la asesoría?",
-          answer: "La asesoría, capacitación y soporte técnico cuestan ${rate} MXN por hora, IVA incluido, para sesiones de hasta {attendees} personas sobre plataformas de uso común. Para grupos más grandes o sistemas empresariales o especializados, te enviamos una cotización por escrito antes de empezar.",
+          answer: "La asesoría, capacitación y soporte técnico cuestan desde ${rate} MXN por hora, IVA incluido. Esa tarifa base aplica a sesiones de hasta {attendees} personas sobre plataformas de uso común. Para grupos más grandes o sistemas empresariales o especializados, te enviamos una cotización por escrito antes de empezar.",
         },
         projectPayment: {
           question: "¿Cómo se paga un proyecto?",
@@ -385,7 +386,7 @@ export default {
             "Todos los precios se expresan en pesos mexicanos (MXN) e incluyen el Impuesto al Valor Agregado (IVA).",
             [
               "Cita inicial: gratuita, con una duración de hasta {minutes} minutos, por videollamada o presencial en la Zona Metropolitana de Guadalajara.",
-              "Asesoría, capacitación y soporte técnico: ${rate} MXN por hora, IVA incluido, dentro del alcance descrito en la sección siguiente.",
+              "Asesoría, capacitación y soporte técnico: desde ${rate} MXN por hora, IVA incluido, según el alcance descrito en la sección siguiente.",
               "Desarrollo a la medida: se cotiza por ciclo de desarrollo, de acuerdo con las funciones acordadas para cada ciclo.",
             ],
           ],
@@ -393,14 +394,14 @@ export default {
         {
           title: "Alcance de la asesoría, capacitación y soporte técnico",
           blocks: [
-            "La tarifa por hora aplica a sesiones de hasta {attendees} personas sobre plataformas y herramientas de uso común en el mercado, como suites de oficina, herramientas de diseño o plataformas de venta en línea.",
-            "Los siguientes casos no se rigen por la tarifa por hora y se cotizan por escrito antes de iniciar:",
+            "La tarifa base de ${rate} MXN por hora, IVA incluido, aplica a sesiones de hasta {attendees} personas sobre plataformas y herramientas de uso común en el mercado, como suites de oficina, herramientas de diseño o plataformas de venta en línea.",
+            "Los siguientes casos no se rigen por la tarifa base y se cotizan por escrito antes de iniciar:",
             [
               "Sesiones con más de {attendees} personas.",
               "Sistemas empresariales o especializados, o sistemas desarrollados a la medida por terceros, que requieran estudio previo de nuestra parte.",
             ],
             "La cotización indica el precio total, IVA incluido, y puede incluir el tiempo de estudio del sistema y de preparación del material. El servicio inicia únicamente cuando aceptas la cotización.",
-            "Si tienes duda sobre si tu caso se cubre con la tarifa por hora, te lo confirmamos antes de agendar la sesión.",
+            "Si tienes duda sobre si tu caso se cubre con la tarifa base, te lo confirmamos antes de agendar la sesión.",
           ],
         },
         {

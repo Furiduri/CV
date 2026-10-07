@@ -259,6 +259,7 @@ export default {
       cta: "Book my free meeting",
       advisory: {
         title: "Advisory, training and technical support",
+        pricePrefix: "From",
         price: "${rate} MXN",
         unit: "per hour",
         taxNote: "VAT (IVA) included",
@@ -285,7 +286,7 @@ export default {
         },
         advisoryPrice: {
           question: "How much does the advisory cost?",
-          answer: "Advisory, training and technical support cost ${rate} MXN per hour, VAT (IVA) included, for sessions of up to {attendees} people on widely used platforms. For larger groups or enterprise or specialized systems, we send you a written quote before we start.",
+          answer: "Advisory, training and technical support start at ${rate} MXN per hour, VAT (IVA) included. That base rate applies to sessions of up to {attendees} people on widely used platforms. For larger groups or enterprise or specialized systems, we send you a written quote before we start.",
         },
         projectPayment: {
           question: "How is a project paid?",
@@ -385,7 +386,7 @@ export default {
             "All prices are expressed in Mexican pesos (MXN) and include Value Added Tax (IVA).",
             [
               "Initial meeting: free, lasting up to {minutes} minutes, by video call or in person in the Guadalajara metropolitan area.",
-              "Advisory, training and technical support: ${rate} MXN per hour, VAT (IVA) included, within the scope described in the next section.",
+              "Advisory, training and technical support: from ${rate} MXN per hour, VAT (IVA) included, according to the scope described in the next section.",
               "Custom development: quoted per development cycle, according to the features agreed for each cycle.",
             ],
           ],
@@ -393,14 +394,14 @@ export default {
         {
           title: "Scope of advisory, training and technical support",
           blocks: [
-            "The hourly rate applies to sessions of up to {attendees} people on widely used platforms and tools on the market, such as office suites, design tools or online sales platforms.",
-            "The following cases are not covered by the hourly rate and are quoted in writing before starting:",
+            "The base rate of ${rate} MXN per hour, VAT (IVA) included, applies to sessions of up to {attendees} people on widely used platforms and tools on the market, such as office suites, design tools or online sales platforms.",
+            "The following cases are not covered by the base rate and are quoted in writing before starting:",
             [
               "Sessions with more than {attendees} people.",
               "Enterprise or specialized systems, or systems custom-built by third parties, that require prior study on our part.",
             ],
             "The quote states the total price, VAT (IVA) included, and may include the time needed to study the system and prepare the material. The service starts only once you accept the quote.",
-            "If you are unsure whether your case is covered by the hourly rate, we will confirm it before scheduling the session.",
+            "If you are unsure whether your case is covered by the base rate, we will confirm it before scheduling the session.",
           ],
         },
         {
