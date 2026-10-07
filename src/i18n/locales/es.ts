@@ -476,6 +476,12 @@ export default {
           title: "Pausa y cancelación de proyectos",
           blocks: [
             "Puedes pausar o cancelar un proyecto en cualquier momento. En ambos casos te reembolsamos en su totalidad los módulos pagados que no se hayan iniciado y cualquier saldo a favor.",
+            "Si hay un módulo en desarrollo:",
+            [
+              "La pausa o la cancelación toman efecto al cierre de ese módulo: lo terminamos y te lo entregamos funcionando.",
+              "Si solicitas por escrito detenerlo de inmediato, te entregamos su código en el estado en que se encuentre y te reembolsamos la parte proporcional a los ciclos de ese módulo que no se hayan trabajado. Si es el primer módulo y solo se pagó el anticipo, ese anticipo cubre el trabajo realizado y no se reembolsa.",
+              "Un módulo entregado de esta forma no está terminado ni probado, y no cuenta con la garantía de {warrantyDays} días. No recomendamos integrarlo a tu sistema sin completarlo; si decides hacerlo, las fallas que cause en él o en los módulos anteriores no están cubiertas.",
+            ],
             "Como el código de cada módulo se entrega a su cierre, conservas todo lo entregado hasta el último módulo pagado.",
             [
               "Pausa: resguardamos el proyecto en nuestros repositorios privados durante {pauseMonths} meses para que puedas reanudarlo. Si no se reanuda en ese plazo, se considera cancelado.",
@@ -508,7 +514,7 @@ export default {
             "Cada módulo de desarrollo a la medida cuenta con una garantía de {warrantyDays} días naturales, contados a partir de su entrega.",
             [
               "Cubre: la corrección sin costo de defectos en lo entregado.",
-              "No cubre: funciones nuevas, cambios de alcance, fallas causadas por modificaciones realizadas por terceros ni cambios en plataformas o servicios de terceros.",
+              "No cubre: funciones nuevas, cambios de alcance, fallas causadas por modificaciones realizadas por terceros, cambios en plataformas o servicios de terceros ni módulos entregados sin terminar a tu solicitud.",
             ],
             "La asesoría, capacitación y soporte técnico no garantizan resultados específicos, porque estos dependen de cómo apliques lo aprendido. Si una sesión no se puede impartir por una falla de nuestra parte, se reprograma sin costo, como se indica en la sección «Pago, reprogramación y cancelación de sesiones».",
             "Para hacer válida la garantía, escríbenos dentro de ese periodo por WhatsApp al {phone} o por correo a {email}, describiendo el defecto que encontraste.",
