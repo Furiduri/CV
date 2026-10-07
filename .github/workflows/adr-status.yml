@@ -1,0 +1,26 @@
+name: ADR status
+# An ADR must be accepted (or rejected) before the PR that adds it is merged
+# (ADR-0000, skill-docs). Fails while any ADR or index row is still "Propuesta".
+on:
+  pull_request:
+    paths:
+      - "docs/adr/**"
+      - ".github/workflows/adr-status.yml"
+permissions:
+  contents: read
+jobs:
+  no_proposed_adrs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail on ADRs still in "Propuesta"
+        run: |
+          files=$(grep -lE '^- \*\*Estado:\*\* Propuesta' docs/adr/[0-9]*.md || true)
+          rows=$(grep -nE '\| Propuesta \|' docs/adr/README.md || true)
+          if [ -n "$files" ] || [ -n "$rows" ]; then
+            echo "::error::ADRs must be accepted or rejected before merging."
+            [ -n "$files" ] && echo "Files still in Propuesta:" && echo "$files"
+            [ -n "$rows" ] && echo "Index rows still in Propuesta:" && echo "$rows"
+            exit 1
+          fi
+          echo "No ADR is in Propuesta."

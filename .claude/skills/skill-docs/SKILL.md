@@ -34,7 +34,9 @@ reversal is costly. The ADR system is the same one used in `Glink`.
 - Update `docs/adr/README.md` whenever an ADR is added or a state changes.
 - **The owner accepts.** Write a new ADR as `Propuesta` when the owner has not
   agreed to its details; switch it to `Aceptada` only after the owner approves
-  it, and before the PR that adds it is merged.
+  it, and before the PR that adds it is merged. The `ADR status` workflow
+  (`.github/workflows/adr-status.yml`) fails any PR touching `docs/adr/`
+  while an ADR file or index row is still `Propuesta`.
 
 ## Decision Gates
 
