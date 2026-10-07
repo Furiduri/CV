@@ -1,6 +1,6 @@
 # ADR-0003: Precios publicados con IVA incluido
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto

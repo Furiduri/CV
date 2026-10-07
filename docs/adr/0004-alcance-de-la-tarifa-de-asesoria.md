@@ -1,6 +1,6 @@
 # ADR-0004: Alcance de la tarifa de asesoría
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-06
 
 ## Contexto
