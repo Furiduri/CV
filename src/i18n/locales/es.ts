@@ -12,7 +12,7 @@ export default {
     },
     landing: {
       title: "GCatcode | Soluciones tecnológicas a tu medida",
-      description: "Creamos sitios web, apps móviles y sistemas de escritorio a la medida de tu negocio. Entregas cada {cycleWeeks} semanas, pagas por resultados y la primera cita es gratis, en línea o presencial en Guadalajara.",
+      description: "Creamos sitios web, apps móviles y sistemas de escritorio a la medida de tu negocio. Entregas cada {cycleWeeks} semanas, pagas por resultados y la primera cita es gratis, en línea o presencial en Zapopan y Guadalajara.",
     },
     terms: {
       title: "Términos y condiciones | GCatcode",
@@ -161,7 +161,7 @@ export default {
       subtitle: "Creamos la tecnología que necesitas para optimizar tu tiempo. Olvídate del software complicado y caro: en GCatcode diseñamos soluciones digitales a tu medida, paso a paso, con resultados desde la primera entrega.",
       primaryCta: "Quiero optimizar mi negocio",
       secondaryCta: "Agenda tu cita gratis",
-      note: "Primera cita gratis y sin compromiso, de hasta {minutes} minutos, en línea o presencial en la Zona Metropolitana de Guadalajara.",
+      note: "Primera cita gratis y sin compromiso, de hasta {minutes} minutos, en línea o presencial en Zapopan y Guadalajara.",
     },
     problem: {
       title: "¿Te suena familiar?",
@@ -213,11 +213,11 @@ export default {
         },
         results: {
           title: "Pagas por resultados, no por horas",
-          text: "Cada ciclo cierra con una función clave que ya puedes usar en tu negocio (web, móvil o escritorio).",
+          text: "Pagas por módulo, y cada uno se entrega funcionando, listo para usar en tu negocio (web, móvil o escritorio).",
         },
         flexibility: {
           title: "Flexibilidad total",
-          text: "¿Tuviste una idea nueva? Si aún no empezamos un módulo, lo cambiamos sin costo extra.",
+          text: "¿Tuviste una idea nueva? Si aún no empezamos un módulo, lo cambiamos: solo ajustamos su cotización, sin cargos por el cambio.",
         },
       },
     },
@@ -249,11 +249,11 @@ export default {
     },
     freeCall: {
       title: "¿No sabes por dónde empezar? Hablemos.",
-      text: "A veces, el mayor obstáculo es no saber qué tecnología necesita tu negocio. Agenda una cita gratis y sin compromiso de hasta {minutes} minutos, en línea o presencial en la Zona Metropolitana de Guadalajara (ZMG): escuchamos tu problema y te orientamos hacia la solución tecnológica ideal, en lenguaje claro.",
+      text: "A veces, el mayor obstáculo es no saber qué tecnología necesita tu negocio. Agenda una cita gratis y sin compromiso de hasta {minutes} minutos, en línea o presencial en Zapopan y Guadalajara: escuchamos tu problema y te orientamos hacia la solución tecnológica ideal, en lenguaje claro.",
       badge: "Gratis",
       details: [
         "Hasta {minutes} minutos",
-        "Videollamada o presencial en la ZMG",
+        "Videollamada o presencial en Zapopan y Guadalajara",
         "Sin compromiso",
       ],
       cta: "Reservar mi cita gratis",
@@ -282,7 +282,7 @@ export default {
         },
         inPerson: {
           question: "¿Atienden en persona?",
-          answer: "Sí, en la Zona Metropolitana de Guadalajara. También atendemos en línea por videollamada.",
+          answer: "Sí, en Zapopan y Guadalajara, sin costo de traslado. En otras localidades, cotizamos la sesión con los viáticos incluidos. También atendemos en línea por videollamada.",
         },
         advisoryPrice: {
           question: "¿Cuánto cuesta la asesoría?",
@@ -290,11 +290,11 @@ export default {
         },
         projectPayment: {
           question: "¿Cómo se paga un proyecto?",
-          answer: "Por ciclos de {cycleWeeks} semanas ({cycleDays} días hábiles). Pagas por las funciones que te entregamos funcionando, no por horas.",
+          answer: "Por módulo, no por horas. El primer módulo inicia con un anticipo del {deposit} % y se liquida a su entrega; los siguientes se pagan antes de iniciarlos. Cada módulo se entrega funcionando, en ciclos de {cycleWeeks} semanas ({cycleDays} días hábiles).",
         },
         warranty: {
           question: "¿Qué cubre la garantía?",
-          answer: "Durante los {warrantyDays} días siguientes a la entrega corregimos sin costo los defectos en lo entregado. No cubre funciones nuevas, cambios de alcance ni fallas causadas por modificaciones de terceros.",
+          answer: "Durante los {warrantyDays} días siguientes a la entrega de cada módulo de desarrollo, corregimos sin costo los defectos en lo entregado. No cubre funciones nuevas, cambios de alcance, fallas causadas por modificaciones de terceros ni cambios en plataformas de terceros.",
         },
         ai: {
           question: "¿Usan IA con mis datos?",
@@ -385,9 +385,9 @@ export default {
           blocks: [
             "Todos los precios se expresan en pesos mexicanos (MXN) e incluyen el Impuesto al Valor Agregado (IVA).",
             [
-              "Cita inicial: gratuita, con una duración de hasta {minutes} minutos, por videollamada o presencial en la Zona Metropolitana de Guadalajara.",
+              "Cita inicial: gratuita, con una duración de hasta {minutes} minutos, por videollamada o presencial en Zapopan y Guadalajara, Jalisco.",
               "Asesoría, capacitación y soporte técnico: desde ${rate} MXN por hora, IVA incluido, según el alcance descrito en la sección siguiente.",
-              "Desarrollo a la medida: se cotiza por ciclo de desarrollo, de acuerdo con las funciones acordadas para cada ciclo.",
+              "Desarrollo a la medida: se cotiza por módulo, según lo descrito en la sección «Desarrollo a la medida».",
             ],
           ],
         },
@@ -405,24 +405,112 @@ export default {
           ],
         },
         {
-          title: "Desarrollo por ciclos",
+          title: "Pago, reprogramación y cancelación de sesiones",
+          blocks: [
+            "Para confirmar una sesión de asesoría, capacitación o soporte técnico se paga un anticipo del {deposit} % de su costo total. El resto se paga al terminar la sesión.",
+            "Cada sesión tiene una duración mínima de 1 hora y se cobra por horas completas. Del tiempo que exceda la última hora completa:",
+            [
+              "Hasta {graceMinutes} minutos no se cobran.",
+              "Más de {graceMinutes} minutos se cobran como una hora adicional.",
+            ],
+            "Ese margen de {graceMinutes} minutos se reserva entre sesiones agendadas para cubrir retrasos del cliente o técnicos.",
+            "Reprogramación con {noticeHours} horas o más de anticipación: sin costo, hasta {maxEarlyReschedules} veces por sesión. Si necesitas reprogramar más veces, puedes cancelar con reembolso total.",
+            "Reprogramación con menos de {noticeHours} horas de anticipación:",
+            [
+              "El anticipo pagado se aplica a la nueva fecha.",
+              "Para reprogramar, el monto pagado debe alcanzar el {lateTopUp} % del costo total de la sesión. Si ya lo alcanza, no pagas nada adicional. Este pago se descuenta del total de la sesión.",
+              "Se permite hasta {maxLateReschedules} veces por sesión. Una solicitud adicional se considera cancelación con menos de {noticeHours} horas de anticipación.",
+            ],
+            "La nueva fecha no puede estar a más de un mes de la fecha original de la sesión. Si no aceptamos la nueva fecha, puedes elegir otra dentro de ese plazo o cancelar: sin penalización si ninguna reprogramación anterior se hizo con menos de {noticeHours} horas de anticipación; en caso contrario, se retiene el anticipo.",
+            "Cancelación:",
+            [
+              "Con {noticeHours} horas o más de anticipación: reembolsamos el total de lo pagado.",
+              "Con menos de {noticeHours} horas de anticipación: retenemos el anticipo del {deposit} % del costo total de la sesión y reembolsamos el resto de lo pagado.",
+            ],
+            "Si no te presentas a la sesión, tienes {noShowDays} días hábiles a partir de su fecha para reprogramarla, en las condiciones de una reprogramación con menos de {noticeHours} horas de anticipación. Si no la reprogramas en ese plazo, la sesión se cancela con la retención del anticipo.",
+            "Si cancelamos o reprogramamos una sesión por causas atribuibles a nosotros, incluidas fallas técnicas de nuestra parte, puedes elegir una nueva fecha sin costo o el reembolso total. Esa reprogramación no cuenta para los límites anteriores.",
+          ],
+        },
+        {
+          title: "Sesiones presenciales",
+          blocks: [
+            "Las sesiones presenciales en Zapopan y Guadalajara, Jalisco, tienen la misma tarifa que las sesiones en línea. El traslado no se cobra ni cuenta como tiempo de sesión.",
+            "Las sesiones presenciales en otras localidades se cotizan por escrito antes de agendarlas, con los viáticos incluidos en el precio total.",
+          ],
+        },
+        {
+          title: "Grabaciones y material de capacitación",
           blocks: [
             [
-              "Los proyectos a la medida se desarrollan en ciclos de {cycleWeeks} semanas ({cycleDays} días hábiles).",
-              "Cada ciclo cierra con la entrega de funciones operativas que puedes usar en tu negocio.",
-              "El pago se realiza por las funciones entregadas y funcionando, no por horas trabajadas.",
-              "Los módulos que aún no se hayan iniciado pueden cambiarse por otros sin costo adicional.",
+              "Puedes grabar una sesión si nos avisas antes de iniciarla. La grabación es solo para uso personal de quienes asistieron.",
+              "El material que entregamos, como guías y presentaciones, es para uso interno de quienes asistieron a la sesión.",
+              "No está permitido distribuir, publicar o revender las grabaciones ni el material, ni usarlos para capacitar a otras personas. Para capacitar a más personas, solicita una cotización.",
+              "El material sigue siendo de nuestra autoría: al recibirlo obtienes una autorización de uso, no su propiedad.",
             ],
+          ],
+        },
+        {
+          title: "Desarrollo a la medida",
+          blocks: [
+            [
+              "Los proyectos a la medida se organizan en módulos y se desarrollan en ciclos de {cycleWeeks} semanas ({cycleDays} días hábiles). Un módulo puede ocupar uno o varios ciclos.",
+              "Al cierre de cada módulo entregamos una versión funcional: su código fuente y, si lo solicitas, su implementación en servidor.",
+              "El pago es por módulo cotizado, no por horas trabajadas.",
+            ],
+            "Pagos:",
+            [
+              "Primer módulo: se inicia con un anticipo del {deposit} % y el resto se paga a más tardar en su entrega. El módulo se entrega cuando está pagado en su totalidad, y el anticipo no es reembolsable si el resto no se paga.",
+              "Módulos siguientes: se pagan en su totalidad antes de iniciar su desarrollo.",
+            ],
+            "La planeación de los módulos futuros es una estimación y puede cambiar hasta que cada módulo se paga. El precio de un módulo queda fijo al momento de pagarlo.",
+            "Cualquier módulo que aún no se haya iniciado puede cambiarse, sin importar el ciclo en el que esté planeado:",
+            [
+              "Un cambio se resuelve recotizando el módulo. Una vez pagado el primer módulo, recotizar cambios no tiene costo.",
+              "Si un cambio afecta técnicamente a otros módulos aún no iniciados, esos módulos también se recotizan.",
+              "Si un módulo recotizado ya estaba pagado, la diferencia queda como saldo a favor, que se aplica a los siguientes módulos, o como saldo pendiente, que se paga antes de iniciar ese módulo.",
+              "Un módulo en desarrollo no se modifica. Los cambios que solicites sobre él se cotizan como un módulo nuevo después de su entrega.",
+            ],
+          ],
+        },
+        {
+          title: "Pausa y cancelación de proyectos",
+          blocks: [
+            "Puedes pausar o cancelar un proyecto en cualquier momento. En ambos casos te reembolsamos en su totalidad los módulos pagados que no se hayan iniciado y cualquier saldo a favor.",
+            "Como el código de cada módulo se entrega a su cierre, conservas todo lo entregado hasta el último módulo pagado.",
+            [
+              "Pausa: resguardamos el proyecto en nuestros repositorios privados durante {pauseMonths} meses para que puedas reanudarlo. Si no se reanuda en ese plazo, se considera cancelado.",
+              "Cancelación: conservamos una copia del código fuente durante {retentionMonths} meses a partir de la cancelación y después la eliminamos de nuestros repositorios.",
+            ],
+          ],
+        },
+        {
+          title: "Propiedad del código",
+          blocks: [
+            [
+              "El código desarrollado específicamente para tu proyecto es de tu propiedad una vez pagado el módulo que lo contiene.",
+              "Conservamos la titularidad de nuestras herramientas, plantillas, librerías y componentes previos o de uso genérico, incluidos los que desarrollemos durante tu proyecto. Podemos publicarlos bajo una licencia de código abierto o licenciarlos a terceros.",
+              "El código de uso genérico no incluye tus datos, tu información confidencial ni la lógica propia de tu negocio.",
+              "Recibes una autorización gratuita, permanente y no exclusiva para usar ese código genérico dentro de tu proyecto. Si requieres exclusividad sobre él, se cotiza por separado.",
+              "Las librerías de código abierto de terceros se rigen por sus propias licencias.",
+              "Podemos mencionar el proyecto en nuestro portafolio, salvo que solicites confidencialidad por escrito.",
+            ],
+          ],
+        },
+        {
+          title: "Servicios de terceros",
+          blocks: [
+            "El hosting, los dominios y los demás servicios de terceros que requiera tu proyecto, como bases de datos, correo o APIs, se contratan a tu nombre y los pagas directamente a cada proveedor. Su configuración e implementación se incluyen en la cotización del módulo correspondiente.",
           ],
         },
         {
           title: "Garantía",
           blocks: [
-            "Lo entregado cuenta con una garantía de {warrantyDays} días naturales, contados a partir de la fecha de entrega.",
+            "Cada módulo de desarrollo a la medida cuenta con una garantía de {warrantyDays} días naturales, contados a partir de su entrega.",
             [
               "Cubre: la corrección sin costo de defectos en lo entregado.",
-              "No cubre: funciones nuevas, cambios de alcance ni fallas causadas por modificaciones realizadas por terceros.",
+              "No cubre: funciones nuevas, cambios de alcance, fallas causadas por modificaciones realizadas por terceros ni cambios en plataformas o servicios de terceros.",
             ],
+            "La asesoría, capacitación y soporte técnico no garantizan resultados específicos, porque estos dependen de cómo apliques lo aprendido. Si una sesión no se puede impartir por una falla de nuestra parte, se reprograma sin costo, como se indica en la sección «Pago, reprogramación y cancelación de sesiones».",
             "Para hacer válida la garantía, escríbenos dentro de ese periodo por WhatsApp al {phone} o por correo a {email}, describiendo el defecto que encontraste.",
           ],
         },

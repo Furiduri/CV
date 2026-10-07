@@ -13,9 +13,20 @@ export const business = {
   // The hourly rate covers sessions up to this size; larger groups are quoted (ADR-0004).
   advisoryMaxAttendees: 3,
   freeCallMinutes: 30,
+  // Advisory booking rules (ADR-0005).
+  depositPercent: 25,
+  lateRescheduleTopUpPercent: 50,
+  rescheduleNoticeHours: 42,
+  maxEarlyReschedules: 4,
+  maxLateReschedules: 2,
+  noShowRescheduleBusinessDays: 5,
+  overtimeGraceMinutes: 25,
   cycleBusinessDays: 10,
   cycleWeeks: 2,
   warrantyDays: 30,
+  // Project pause and source retention (ADR-0010).
+  pauseRetentionMonths: 6,
+  cancellationRetentionMonths: 3,
 } as const;
 
 // ISO date of the last revision of the terms and the privacy notice; the
@@ -39,6 +50,15 @@ export const businessPlaceholders = {
   rate: business.hourlyRateMxn,
   attendees: business.advisoryMaxAttendees,
   minutes: business.freeCallMinutes,
+  deposit: business.depositPercent,
+  lateTopUp: business.lateRescheduleTopUpPercent,
+  noticeHours: business.rescheduleNoticeHours,
+  maxEarlyReschedules: business.maxEarlyReschedules,
+  maxLateReschedules: business.maxLateReschedules,
+  noShowDays: business.noShowRescheduleBusinessDays,
+  graceMinutes: business.overtimeGraceMinutes,
+  pauseMonths: business.pauseRetentionMonths,
+  retentionMonths: business.cancellationRetentionMonths,
   cycleDays: business.cycleBusinessDays,
   cycleWeeks: business.cycleWeeks,
   warrantyDays: business.warrantyDays,
