@@ -27,8 +27,8 @@ delivered.
   direction, what appears about their career, and anything the task leaves open.
   Everything else, decide.
 - **Never invent facts about the user.** Employers, dates, titles, metrics,
-  license numbers and project claims come from `CV.md` or from the user. If a
-  fact is not there, ask; do not fill the gap with something plausible.
+  license numbers and project claims come from the site's data or from the
+  user. If a fact is not there, ask; do not fill the gap with something plausible.
 - **Merging to `main` publishes to production.** `firebase-hosting-merge.yml`
   deploys `live` on every push to `main`. Never push to `main` directly and never
   merge a PR without the user's explicit go.
@@ -68,7 +68,7 @@ delivered.
 | Non-obvious decision, costly to revert | Write an ADR (`skill-docs`) as `Propuesta`; the user accepts it |
 | Work contradicts an accepted ADR | Stop; change the code or supersede the ADR, never ignore it |
 | A check fails | Read the real error before acting; do not retry blindly or weaken the check |
-| The spec contradicts the code or `CV.md` | Stop and say so with the evidence; do not pick silently |
+| The spec contradicts the code | Stop and say so with the evidence; do not pick silently |
 | A defect turns up while doing something else | Reproduce it, create the issue, mention the number, return to the task |
 
 ## Execution Steps
@@ -96,4 +96,4 @@ Never report work as done without evidence. Keep it short.
 
 - `.claude/skills/skill-content/SKILL.md` — content, locale parity, SEO, README rules.
 - `.claude/skills/skill-pr/SKILL.md` — branch and pull request rules.
-- `CV.md` — source of truth for facts about the user.
+- `CV.md` — owner-maintained CV snapshot; not a source of truth, do not edit.
