@@ -26,7 +26,7 @@ export default {
   nav: {
     home: "Home",
     projects: "Projects",
-    switchLanguage: "Cambiar Idioma",
+    switchLanguage: "Change language",
     mainNav: "Main navigation",
     brandHome: "GCatcode, go to home page",
     services: "Services",
@@ -84,7 +84,7 @@ export default {
   },
   projects: {
     petMePhone: {
-      description: "AI-Powered Mobile Overlay. Engineered an Android overlay application for task automation, driving the full AI Engineering lifecycle from requirements synthesis to prompt architecture, LLM validation, and policy compliance.",
+      description: "AI-Powered Mobile App. Built an Android task overlay application applying the full AI Engineering lifecycle (requirements synthesis, asset generation, code architecture, testing, and policy compliance).",
       tags: ["Android", "AI", "Mobile"],
     },
     jalapenoLab: {
@@ -96,7 +96,7 @@ export default {
       tags: ["Frontend", "Community", "Event Management"],
     },
     gcatcode: {
-      description: "Portfolio & Web Platforms. Built responsive web platforms utilizing Astro, Tailwind CSS, and TypeScript, achieving high-performance Lighthouse metrics.",
+      description: "Web Platforms & Portfolio. Built responsive web platforms using Astro, Tailwind CSS, and TypeScript, achieving high-performance Lighthouse metrics.",
       tags: ["Astro", "Tailwind CSS", "TypeScript"],
     },
   },
@@ -104,9 +104,6 @@ export default {
     heading: "Featured Projects",
     intro: "A collection of my recent work spanning AI engineering, web development, and community platforms.",
     moreProjects: "More projects",
-    descriptionOverrides: {
-      gcatcode: "Web Platforms & Portfolio. Built responsive web platforms using Astro, Tailwind CSS, and TypeScript, achieving high performance metrics on Lighthouse.",
-    },
   },
   education: {
     graduatedLabel: "Graduated",

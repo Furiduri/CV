@@ -4,7 +4,7 @@ export default {
   meta: {
     home: {
       title: "Jorge Osvaldo Perez Mendoza | Portafolio y CV",
-      description: "Ingeniero en Desarrollo de Software con más de {years} años de experiencia creando sistemas backend de alto rendimiento, APIs web y soluciones en la nube usando C#, ASP.NET Core y SQL Server.",
+      description: "Ingeniero en Desarrollo de Software con licencia profesional y más de {years} años de experiencia creando sistemas backend de alto rendimiento, APIs web y soluciones empresariales en la nube.",
     },
     projects: {
       title: "Proyectos | Jorge Osvaldo Perez Mendoza",
@@ -26,7 +26,7 @@ export default {
   nav: {
     home: "Inicio",
     projects: "Proyectos",
-    switchLanguage: "Cambiar Idioma",
+    switchLanguage: "Cambiar idioma",
     mainNav: "Navegación principal",
     brandHome: "GCatcode, ir al inicio",
     services: "Servicios",
@@ -39,7 +39,7 @@ export default {
   hero: {
     avatarAlt: "Logo de GCatCode - Jorge Osvaldo Perez Mendoza",
     greeting: "Hola, soy",
-    headline: "Ingeniero en Desarrollo de Software | Backend .NET Developer",
+    headline: "Ingeniero en Desarrollo de Software | Desarrollador Backend .NET",
     summary: {
       lead: "Ingeniero en Desarrollo de Software con licencia profesional y más de {years} años de experiencia creando sistemas backend de alto rendimiento, APIs web y soluciones empresariales en la nube. Aprendiz proactivo y autodidacta, experto en aprovechar",
       highlight: "flujos de trabajo asistidos por LLMs y Arquitectura de IA",
@@ -104,9 +104,6 @@ export default {
     heading: "Proyectos Destacados",
     intro: "Una colección de mis trabajos recientes que abarcan ingeniería de IA, desarrollo web y plataformas comunitarias.",
     moreProjects: "Más proyectos",
-    descriptionOverrides: {
-      gcatcode: "Plataformas Web y Portafolio. Construcción de plataformas web responsivas utilizando Astro, Tailwind CSS y TypeScript, alcanzando métricas de alto rendimiento en Lighthouse.",
-    },
   },
   education: {
     graduatedLabel: "Graduado",
@@ -649,7 +646,7 @@ export default {
     },
   },
   footer: {
-    builtWith: "Built with 💚🎲 and Astro.",
+    builtWith: "Hecho con 💚🎲 y Astro.",
     tagline: "Soluciones tecnológicas a tu medida.",
     legalNav: "Enlaces del sitio",
     home: "Inicio",

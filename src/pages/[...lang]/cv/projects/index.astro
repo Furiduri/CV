@@ -24,7 +24,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const overrides: Partial<Record<string, string>> = t.projectsPage.descriptionOverrides;
 
 const hasCaseStudy = (id: string): id is keyof typeof caseStudies => id in caseStudies;
 const featured = projects
@@ -35,7 +34,7 @@ const otherProjects = projects
   .filter((project) => !hasCaseStudy(project.id))
   .map((project) => ({
     title: project.title,
-    description: overrides[project.id] ?? t.projects[project.id].description,
+    description: t.projects[project.id].description,
     tags: t.projects[project.id].tags,
     link: project.link,
   }));
