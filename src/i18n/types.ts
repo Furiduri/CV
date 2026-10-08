@@ -199,8 +199,6 @@ export interface Dictionary {
     intro: string;
     // Heading of the cards shown after the case studies.
     moreProjects: string;
-    // Card descriptions that differ on the projects page from the home page.
-    descriptionOverrides: Partial<Record<ProjectId, string>>;
   };
   education: {
     graduatedLabel: string;
