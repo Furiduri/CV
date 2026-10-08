@@ -35,8 +35,8 @@ reversal is costly. The ADR system is the same one used in `Glink`.
 - **The owner accepts.** Write a new ADR as `Propuesta` when the owner has not
   agreed to its details; switch it to `Aceptada` only after the owner approves
   it, and before the PR that adds it is merged. The `ADR status` workflow
-  (`.github/workflows/adr-status.yml`) fails any PR touching `docs/adr/`
-  while an ADR file or index row is still `Propuesta`.
+  (`.github/workflows/adr-status.yml`) runs on every PR, is a required check
+  on `main`, and fails while an ADR file or index row is still `Propuesta`.
 
 ## Decision Gates
 

@@ -58,7 +58,7 @@ when creating the branch for a change or issue.
 | Any change under `src/`, `public/`, or config | `npm run build` must pass and be reported |
 | Visible change | Also verified in the preview, EN and ES, desktop and mobile; say which |
 | Only docs, skills or `.claude/` changed | No build required; say so explicitly. The Firebase preview workflow only runs for paths that change the built site, so no preview URL is posted |
-| PR touches `docs/adr/` | The `ADR status` check must pass: every ADR accepted or rejected before merge |
+| Any PR | `no_proposed_adrs` (`ADR status`) is a required check on `main`: every ADR accepted or rejected before merge. Branch protection also applies to admins, so a red check blocks the merge |
 | Anything under `.atl/` appears in `git status` | Leave it out |
 
 ## Execution Steps
