@@ -31,7 +31,7 @@ export default {
     brandHome: "GCatcode, go to home page",
     services: "Services",
     method: "Method",
-    caseStudy: "Case study",
+    caseStudy: "Case studies",
     about: "About me",
     faq: "FAQ",
     contactCta: "Free meeting",
