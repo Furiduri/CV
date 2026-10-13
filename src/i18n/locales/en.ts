@@ -95,6 +95,10 @@ export default {
       description: "Platform & Community. Lead developer and manager of the Juegalajara website. Organizing committee member in charge of community operations, as well as coordinating and managing social events.",
       tags: ["Frontend", "Community", "Event Management"],
     },
+    creepyBoardDay: {
+      description: "Event Site & Game Manual. Built the site for Juegalajara's Halloween event and the manual for the hidden-role game created for that night, with WhatsApp booking, a live schedule and a role finder.",
+      tags: ["Astro", "Events", "Board Games"],
+    },
     gcatcode: {
       description: "Web Platforms & Portfolio. Built responsive web platforms using Astro, Tailwind CSS, and TypeScript, achieving high-performance Lighthouse metrics.",
       tags: ["Astro", "Tailwind CSS", "TypeScript"],
@@ -347,6 +351,29 @@ export default {
       images: {
         desktop: "The juegalajara.mx home page on a computer",
         mobile: "The juegalajara.mx home page on a phone",
+      },
+    },
+    creepyBoardDay: {
+      eyebrow: "Case study",
+      title: "Creepy BoardDay: a Halloween board game night, from the invitation to the game manual",
+      intro: "We built the site for Juegalajara's Halloween event at Leyendas Music Club and the manual for the hidden-role game created for that night.",
+      challengeLabel: "The challenge",
+      challenge: "The event needed one place with the date, venue, price, schedule and how to book. It also needed an exclusive game whose rules and roles players could look up on their phones during the night.",
+      solutionLabel: "What we built",
+      solution: "A fast static site, with all its content in a single data file that is validated at build time:",
+      features: [
+        "Direct booking through WhatsApp and Instagram, with a countdown and a schedule that highlights what is happening in real time.",
+        "A player manual with a role finder and FAQ, reached through the QR code on the envelope.",
+        "Cards, icons and the QR code generated in code from the same data.",
+        "Structured data for search engines, optimized images and accessible navigation that works without JavaScript.",
+      ],
+      resultLabel: "The result",
+      result: "Attendees have all the event information and the game rules behind a single link, from the invitation to the final count.",
+      stackLabel: "Technologies",
+      linkLabel: "Visit creepyboardday.web.app",
+      images: {
+        desktop: "The creepyboardday.web.app home page on a computer",
+        mobile: "The creepyboardday.web.app home page on a phone",
       },
     },
   },
