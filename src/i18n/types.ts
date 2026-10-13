@@ -168,6 +168,7 @@ export interface Dictionary {
   // src/data/caseStudies.ts.
   caseStudies: {
     juegalajara: CaseStudyCopy;
+    creepyBoardDay: CaseStudyCopy;
   };
   legal: {
     updatedLabel: string;

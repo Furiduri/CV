@@ -31,7 +31,7 @@ export default {
     brandHome: "GCatcode, ir al inicio",
     services: "Servicios",
     method: "Método",
-    caseStudy: "Caso real",
+    caseStudy: "Casos reales",
     about: "Sobre mí",
     faq: "Preguntas",
     contactCta: "Cita gratis",
@@ -94,6 +94,10 @@ export default {
     juegalajara: {
       description: "Plataforma y Comunidad. Desarrollador principal y gestor del sitio web oficial. Miembro del comité organizador encargado del funcionamiento de la comunidad, así como de la coordinación y gestión de eventos sociales.",
       tags: ["Frontend", "Comunidad", "Gestión de Eventos"],
+    },
+    creepyBoardDay: {
+      description: "Sitio de evento y manual de juego. Desarrollo del sitio del evento de Halloween de Juegalajara y del manual del juego de roles ocultos creado para esa noche, con reserva por WhatsApp, itinerario en tiempo real y buscador de roles.",
+      tags: ["Astro", "Eventos", "Juegos de Mesa"],
     },
     gcatcode: {
       description: "Plataformas Web y Portafolio. Construcción de plataformas web responsivas utilizando Astro, Tailwind CSS y TypeScript, alcanzando métricas de alto rendimiento en Lighthouse.",
@@ -347,6 +351,29 @@ export default {
       images: {
         desktop: "Página de inicio de juegalajara.mx en una computadora",
         mobile: "Página de inicio de juegalajara.mx en un celular",
+      },
+    },
+    creepyBoardDay: {
+      eyebrow: "Caso real",
+      title: "Creepy BoardDay: una noche de Halloween con juegos de mesa, de la invitación al manual del juego",
+      intro: "Desarrollamos el sitio del evento de Halloween de Juegalajara en Leyendas Music Club y el manual del juego de roles ocultos creado para esa noche.",
+      challengeLabel: "El reto",
+      challenge: "El evento necesitaba un lugar con la fecha, la sede, el precio, el itinerario y la forma de reservar. También necesitaba un juego exclusivo cuyas reglas y roles los participantes pudieran consultar desde el celular durante la noche.",
+      solutionLabel: "Lo que construimos",
+      solution: "Un sitio estático y rápido, con todo el contenido en un solo archivo de datos que se valida al compilar:",
+      features: [
+        "Reserva directa por WhatsApp e Instagram, con cuenta regresiva y un itinerario que marca en tiempo real lo que está pasando.",
+        "Manual del jugador con buscador de roles y preguntas frecuentes, al que se llega con el código QR del sobre.",
+        "Cartas, íconos y código QR generados con código a partir de los mismos datos.",
+        "Datos estructurados para buscadores, imágenes optimizadas y una navegación accesible que funciona sin JavaScript.",
+      ],
+      resultLabel: "El resultado",
+      result: "Los asistentes tienen toda la información del evento y las reglas del juego en un mismo enlace, desde la invitación hasta el conteo final.",
+      stackLabel: "Tecnologías",
+      linkLabel: "Visitar creepyboardday.web.app",
+      images: {
+        desktop: "Página de inicio de creepyboardday.web.app en una computadora",
+        mobile: "Página de inicio de creepyboardday.web.app en un celular",
       },
     },
   },

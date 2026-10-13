@@ -68,6 +68,11 @@ const photoAuthors = Object.values(landingPhotos).map((photo) => ({ name: photo.
     <ServicesSection id="services" copy={l.services} photo={landingPhotos.services} photoAlt={l.images.services} />
     <MethodSection id="method" copy={l.method} photo={landingPhotos.method} photoAlt={l.images.method} />
     <CaseStudy id="case-study" copy={formatDeep(t.caseStudies.juegalajara, values)} study={caseStudies.juegalajara} />
+    <CaseStudy
+      id="case-study-creepy-boardday"
+      copy={formatDeep(t.caseStudies.creepyBoardDay, values)}
+      study={caseStudies.creepyBoardDay}
+    />
     <TrustSection copy={l.trust} privacyHref={links.privacy} termsHref={links.terms} />
     <AboutSection id="about" copy={l.about} avatarSrc="/favicon.svg" cvHref={links.cv} />
     <FreeCallSection
